@@ -139,16 +139,43 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
         raise e
 
 def generate_invoice_with_template(customer, invoice_date, template_name):
-    # For simplicity in this refactor, we ignore template_name and use the base one
-    # or we could update _generate_invoice_logic to accept a path.
-    # Given the requirements, sticking to the base logic is safest for now.
-    
-    period_label = get_period_label(invoice_date, customer.cadence)
-    amount = customer.rate 
-    start_date, end_date = get_period_dates(invoice_date, customer.cadence)
-    period_dates = f"{start_date.strftime('%m/%d/%Y')} - {end_date.strftime('%m/%d/%Y')}"
-    
-    return _generate_invoice_logic(customer, invoice_date, period_label, period_dates, amount)
+    """Generate invoice and save to database (for manual generation via UI)."""
+    session = SessionLocal()
+    try:
+        period_label = get_period_label(invoice_date, customer.cadence)
+        amount = customer.rate 
+        start_date, end_date = get_period_dates(invoice_date, customer.cadence)
+        period_dates = f"{start_date.strftime('%m/%d/%Y')} - {end_date.strftime('%m/%d/%Y')}"
+        
+        # Generate invoice in-memory
+        filename, buffer = _generate_invoice_logic(customer, invoice_date, period_label, period_dates, amount)
+        
+        # Create email content
+        fee_type_text = getattr(customer, "fee_type", "Management Fee") or "Management Fee"
+        subject = f"Invoice – {period_label} – {customer.property_address}"
+        body = (
+            f"Hi {customer.name},\n\n"
+            f"Attached is your invoice for {period_label} ({fee_type_text}) for the property at {customer.property_address}.\n\n"
+            f"Amount due: ${amount:,.2f}\n\n"
+            f"Thank you,\nLinda Flood"
+        )
+        
+        # Save to database
+        invoice_record = Invoice(
+            customer_id=customer.id,
+            invoice_date=invoice_date,
+            period_label=period_label,
+            amount=amount,
+            file_path=filename,
+            email_subject=subject,
+            email_body=body
+        )
+        session.add(invoice_record)
+        session.commit()
+        
+        return invoice_record
+    finally:
+        session.close()
 
 def generate_invoice_for_customer(customer, invoice_date):
     period_label = get_period_label(invoice_date, customer.cadence)

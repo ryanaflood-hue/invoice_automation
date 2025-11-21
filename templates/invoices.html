@@ -13,59 +13,91 @@
           <th>Customer</th>
           <th>Period</th>
           <th>Amount</th>
-          <th>Subject</th>
           <th>File</th>
           <th>Actions</th>
         </tr>
-        <div id="emailModal" class="modal">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h2>Email Draft</h2>
-              <button class="modal-close" onclick="closeEmailModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-              <div class="form-group">
-                <label>Subject</label>
-                <input type="text" id="modalSubject" readonly>
-              </div>
-              <div class="form-group">
-                <label>Body</label>
-                <textarea id="modalBody" readonly></textarea>
-              </div>
-            </div>
-            <div class="form-actions">
-              <button class="btn btn-secondary" onclick="closeEmailModal()">Close</button>
-              <button class="btn btn-primary" onclick="copyToClipboard()">Copy Body</button>
-            </div>
-          </div>
-        </div>
+      </thead>
+      <tbody>
+        {% for inv in invoices %}
+        <tr>
+          <td>{{ inv.invoice_date }}</td>
+          <td>
+            {% if inv.customer_id in customers %}
+            <strong>{{ customers[inv.customer_id].name }}</strong>
+            {% else %}
+            Unknown ({{ inv.customer_id }})
+            {% endif %}
+          </td>
+          <td>{{ inv.period_label }}</td>
+          <td>${{ "%.2f"|format(inv.amount) }}</td>
+          <td>
+            <a href="{{ url_for('download_invoice', invoice_id=inv.id) }}" class="badge badge-blue">
+              {{ inv.file_path }}
+            </a>
+          </td>
+          <td>
+            <button class="btn btn-sm btn-secondary"
+              onclick="openEmailModal('{{ inv.email_subject|replace("'", "\\'") }}', '{{ inv.email_body|replace("'", "\\'")|replace('\n', '\\n') }}')">
+              View Email
+            </button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
 
-        <script>
-          const modal = document.getElementById('emailModal');
-          const subjectInput = document.getElementById('modalSubject');
-          const bodyInput = document.getElementById('modalBody');
+<!-- Email Modal -->
+<div id="emailModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Email Draft</h2>
+      <button class="modal-close" onclick="closeEmailModal()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Subject</label>
+        <input type="text" id="modalSubject" readonly>
+      </div>
+      <div class="form-group">
+        <label>Body</label>
+        <textarea id="modalBody" readonly></textarea>
+      </div>
+    </div>
+    <div class="form-actions">
+      <button class="btn btn-secondary" onclick="closeEmailModal()">Close</button>
+      <button class="btn btn-primary" onclick="copyToClipboard()">Copy Body</button>
+    </div>
+  </div>
+</div>
 
-          function openEmailModal(subject, body) {
-            subjectInput.value = subject;
-            bodyInput.value = body;
-            modal.classList.add('show');
-          }
+<script>
+  const modal = document.getElementById('emailModal');
+  const subjectInput = document.getElementById('modalSubject');
+  const bodyInput = document.getElementById('modalBody');
 
-          function closeEmailModal() {
-            modal.classList.remove('show');
-          }
+  function openEmailModal(subject, body) {
+    subjectInput.value = subject;
+    bodyInput.value = body;
+    modal.classList.add('show');
+  }
 
-          function copyToClipboard() {
-            bodyInput.select();
-            document.execCommand('copy');
-            alert('Email body copied to clipboard!');
-          }
+  function closeEmailModal() {
+    modal.classList.remove('show');
+  }
 
-          // Close modal when clicking outside
-          window.onclick = function (event) {
-            if (event.target == modal) {
-              closeEmailModal();
-            }
-          }
-        </script>
-        {% endblock %}
+  function copyToClipboard() {
+    bodyInput.select();
+    document.execCommand('copy');
+    alert('Email body copied to clipboard!');
+  }
+
+  // Close modal when clicking outside
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      closeEmailModal();
+    }
+  }
+</script>
+{% endblock %}
