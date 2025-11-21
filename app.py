@@ -231,3 +231,17 @@ if __name__ == "__main__":
         scheduler.start()
 
     app.run(debug=True)
+@app.route('/clear-invoices')
+def clear_invoices_route():
+    from models import Invoice
+    session = SessionLocal()
+    try:
+        count = session.query(Invoice).count()
+        session.query(Invoice).delete()
+        session.commit()
+        return f'Cleared {count} invoices from the database!', 200
+    except Exception as e:
+        session.rollback()
+        return f'Error: {str(e)}', 500
+    finally:
+        session.close()
