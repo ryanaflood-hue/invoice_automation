@@ -14,7 +14,8 @@ os.makedirs(OUTPUT_DIR, exist_ok=True)
 
 def get_invoice_templates():
     """Return a list of available invoice template filenames (docx) in the invoice_templates folder."""
-    return [f for f in os.listdir(TEMPLATE_DIR) if f.lower().endswith('.docx')]
+    # RESTRICTION: Only allow the base template for now, as requested.
+    return ["base_invoice_template.docx"]
 
 def get_period_dates(invoice_date: date, cadence: str):
     """Calculate start and end dates for the period based on cadence."""
