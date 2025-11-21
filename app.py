@@ -9,6 +9,9 @@ from models import init_db, SessionLocal, Customer, Invoice, FeeType
 app = Flask(__name__)
 from invoice_generator import generate_invoice_for_customer, get_invoice_templates, generate_invoice_with_template, generate_invoice_buffer
 
+# Initialize DB (safe to run multiple times)
+init_db()
+
 @app.route("/generate-invoice", methods=["GET", "POST"])
 def generate_invoice():
     session = SessionLocal()

@@ -1,0 +1,1846 @@
+"TimeUTC","timestampInMs","requestPath","requestMethod","requestQueryString","responseStatusCode","requestId","requestUserAgent","level","environment","branch","vercelCache","type","function","host","deploymentDomain","deploymentId","durationMs","region","maxMemoryUsed","memorySize","message","projectId","traceId","sessionId","invocationId","instanceId","concurrency"
+"2025-11-21 19:57:19",1763755039599,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"tfz6d-1763755039555-07c2238849ab","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:57:19] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZW6TNAXJK7XSBD85DM97Q","",-1
+"2025-11-21 19:57:19",1763755039573,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"tfz6d-1763755039555-07c2238849ab","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","warning","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",5,"iad1",116,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZW6TNAXJK7XSBD85DM97Q","obJe9whzMjlL",1
+"2025-11-21 19:57:19",1763755039122,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"ntqt5-1763755039092-c06e3d42213b","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:57:19] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZW6C2F24S3Y732FRGFABQ","",-1
+"2025-11-21 19:57:19",1763755039122,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"ntqt5-1763755039092-c06e3d42213b","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZW6C2F24S3Y732FRGFABQ","",-1
+"2025-11-21 19:57:19",1763755039106,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"ntqt5-1763755039092-c06e3d42213b","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",8,"iad1",116,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZW6C2F24S3Y732FRGFABQ","obJe9whzMjlL",1
+"2025-11-21 19:57:19",1763755039058,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"qjjft-1763755039028-7b7964d70e5e","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:57:19] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZW6A1DNBZPMKYWZQESN8N","",-1
+"2025-11-21 19:57:19",1763755039041,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",302,"qjjft-1763755039028-7b7964d70e5e","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",6,"iad1",116,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZW6A1DNBZPMKYWZQESN8N","obJe9whzMjlL",1
+"2025-11-21 19:56:51",1763755011830,"invoice-automation-two.vercel.app/favicon.ico","GET","",-1,"6hqws-1763755011799-888fbb964179","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:56:51] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZVBQ384H059GQJBTJ51P2","",-1
+"2025-11-21 19:56:51",1763755011811,"invoice-automation-two.vercel.app/favicon.ico","GET","",404,"6hqws-1763755011799-888fbb964179","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36","warning","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",5,"iad1",116,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZVBQ384H059GQJBTJ51P2","obJe9whzMjlL",1
+"2025-11-21 19:56:51",1763755011528,"invoice-automation-two.vercel.app/customers","GET","",-1,"t5w44-1763755011448-8fee141d32a2","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:56:51] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZVBDGET6NBTPK5DVYQRWX","",-1
+"2025-11-21 19:56:51",1763755011528,"invoice-automation-two.vercel.app/customers","GET","",-1,"t5w44-1763755011448-8fee141d32a2","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZVBDGET6NBTPK5DVYQRWX","",-1
+"2025-11-21 19:56:51",1763755011504,"invoice-automation-two.vercel.app/customers","GET","",500,"t5w44-1763755011448-8fee141d32a2","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",8,"iad1",116,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZVBDGET6NBTPK5DVYQRWX","obJe9whzMjlL",1
+"2025-11-21 19:56:51",1763755011303,"invoice-automation-two.vercel.app/","GET","",-1,"grttc-1763755011267-79497b89ec3d","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:56:51] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZVB6KMR4JZWD5JEBN33C0","",-1
+"2025-11-21 19:56:51",1763755011283,"invoice-automation-two.vercel.app/","GET","",302,"grttc-1763755011267-79497b89ec3d","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",5,"iad1",116,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZVB6KMR4JZWD5JEBN33C0","obJe9whzMjlL",1
+"2025-11-21 19:56:48",1763755008529,"invoice-automation-two.vercel.app/favicon.ico","GET","",-1,"fv7dh-1763755008446-7ef9e47ebaac","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:56:48] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZV8FT6GB1H9NXV0TVDDZG","",-1
+"2025-11-21 19:56:48",1763755008506,"invoice-automation-two.vercel.app/favicon.ico","GET","",404,"fv7dh-1763755008446-7ef9e47ebaac","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","warning","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",7,"iad1",116,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZV8FT6GB1H9NXV0TVDDZG","obJe9whzMjlL",1
+"2025-11-21 19:56:47",1763755007739,"invoice-automation-two.vercel.app/customers","GET","",-1,"xh4rs-1763755007619-5053bdb52395","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:56:47] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZV7QASKR7ZWMVQ1PXAQW8","",-1
+"2025-11-21 19:56:47",1763755007739,"invoice-automation-two.vercel.app/customers","GET","",-1,"xh4rs-1763755007619-5053bdb52395","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZV7QASKR7ZWMVQ1PXAQW8","",-1
+"2025-11-21 19:56:47",1763755007722,"invoice-automation-two.vercel.app/customers","GET","",500,"xh4rs-1763755007619-5053bdb52395","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",9,"iad1",116,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZV7QASKR7ZWMVQ1PXAQW8","obJe9whzMjlL",1
+"2025-11-21 19:56:47",1763755007556,"invoice-automation-two.vercel.app/","GET","",-1,"wdf2f-1763755007397-b1d240f0e307","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:56:47] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZV7H84Z5DY2NJ621EAQSY","",-1
+"2025-11-21 19:56:47",1763755007528,"invoice-automation-two.vercel.app/","GET","",302,"wdf2f-1763755007397-b1d240f0e307","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",9,"iad1",116,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZV7H84Z5DY2NJ621EAQSY","obJe9whzMjlL",1
+"2025-11-21 19:51:34",1763754694169,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",-1,"q6bn5-1763754694114-caac2cddc2d3","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:51:34] ""GET /favicon.png HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHNG8T3M8WDXWWNB61JMB","",-1
+"2025-11-21 19:51:34",1763754694152,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",404,"q6bn5-1763754694114-caac2cddc2d3","vercel-favicon/1.0","warning","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",5,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHNG8T3M8WDXWWNB61JMB","8cPgqDU1Ap87",1
+"2025-11-21 19:51:34",1763754694077,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"q6bn5-1763754694003-1dbaefdfc941","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:51:34] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHNDEWY1CRF3ACCDH5Z9X","",-1
+"2025-11-21 19:51:34",1763754694062,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"q6bn5-1763754694003-1dbaefdfc941","vercel-favicon/1.0","warning","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",5,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHNDEWY1CRF3ACCDH5Z9X","8cPgqDU1Ap87",1
+"2025-11-21 19:51:33",1763754693876,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"mpnqh-1763754693818-e3c3839f47bf","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:51:33] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHN74D8Q1P8E9C0XT3CWK","",-1
+"2025-11-21 19:51:33",1763754693876,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"mpnqh-1763754693818-e3c3839f47bf","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHN74D8Q1P8E9C0XT3CWK","",-1
+"2025-11-21 19:51:33",1763754693860,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"mpnqh-1763754693818-e3c3839f47bf","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",8,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHN74D8Q1P8E9C0XT3CWK","8cPgqDU1Ap87",1
+"2025-11-21 19:51:32",1763754692753,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"87jdr-1763754692687-1752c1366320","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:51:32] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHM3X048JHGRMWSGC4249","",-1
+"2025-11-21 19:51:32",1763754692753,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"87jdr-1763754692687-1752c1366320","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHM3X048JHGRMWSGC4249","",-1
+"2025-11-21 19:51:32",1763754692732,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"87jdr-1763754692687-1752c1366320","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",9,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHM3X048JHGRMWSGC4249","8cPgqDU1Ap87",1
+"2025-11-21 19:51:32",1763754692641,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"vnz2d-1763754692581-56649ef5c902","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:51:32] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHM0JFN523JHQ47HR76TM","",-1
+"2025-11-21 19:51:32",1763754692626,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",302,"vnz2d-1763754692581-56649ef5c902","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",5,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZHM0JFN523JHQ47HR76TM","8cPgqDU1Ap87",1
+"2025-11-21 19:50:47",1763754647403,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"rbp2l-1763754647342-c9cde8dca03f","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:47] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7TQDYWQ314SH811S0K3","",-1
+"2025-11-21 19:50:47",1763754647383,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"rbp2l-1763754647342-c9cde8dca03f","vercel-screenshot/1.0","warning","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",5,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7TQDYWQ314SH811S0K3","8cPgqDU1Ap87",1
+"2025-11-21 19:50:47",1763754647270,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"bkf2v-1763754647211-1bc754869576","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:47] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7PK17D80EKAYD6GZ4RC","",-1
+"2025-11-21 19:50:47",1763754647270,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"bkf2v-1763754647211-1bc754869576","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7PK17D80EKAYD6GZ4RC","",-1
+"2025-11-21 19:50:47",1763754647251,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"bkf2v-1763754647211-1bc754869576","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",8,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7PK17D80EKAYD6GZ4RC","8cPgqDU1Ap87",1
+"2025-11-21 19:50:47",1763754647169,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"bkf2v-1763754647112-36bb2d710a41","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:47] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7KHS4V2W3Q238YXSQ5E","",-1
+"2025-11-21 19:50:47",1763754647153,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",302,"bkf2v-1763754647112-36bb2d710a41","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",4,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7KHS4V2W3Q238YXSQ5E","8cPgqDU1Ap87",1
+"2025-11-21 19:50:47",1763754647085,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"lmz8x-1763754647026-c2834c6e6ba9","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:47] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7GRDH3WXRAEXH88B4K9","",-1
+"2025-11-21 19:50:47",1763754647085,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"lmz8x-1763754647026-c2834c6e6ba9","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7GRDH3WXRAEXH88B4K9","",-1
+"2025-11-21 19:50:47",1763754647064,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"lmz8x-1763754647026-c2834c6e6ba9","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",7,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7GRDH3WXRAEXH88B4K9","8cPgqDU1Ap87",1
+"2025-11-21 19:50:47",1763754647010,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"rzcth-1763754646928-23288b2d27e0","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:47] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7DV045AWE61F8P8A9BZ","",-1
+"2025-11-21 19:50:47",1763754647010,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"rzcth-1763754646928-23288b2d27e0","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7DV045AWE61F8P8A9BZ","",-1
+"2025-11-21 19:50:46",1763754646994,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"wsthc-1763754646922-9bb1f2ba9687","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:46] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7DHA2MREXM2Q475FFQC","",-1
+"2025-11-21 19:50:46",1763754646994,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"wsthc-1763754646922-9bb1f2ba9687","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7DHA2MREXM2Q475FFQC","",-1
+"2025-11-21 19:50:46",1763754646985,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"lmz8x-1763754644423-b859d53aef1d","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:46] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG56S5Z4QSY9XA1GBFBCC","",-1
+"2025-11-21 19:50:46",1763754646971,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"rzcth-1763754646928-23288b2d27e0","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",16,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7DV045AWE61F8P8A9BZ","8cPgqDU1Ap87",1
+"2025-11-21 19:50:46",1763754646961,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"wsthc-1763754646922-9bb1f2ba9687","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",17,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG7DHA2MREXM2Q475FFQC","obJe9whzMjlL",1
+"2025-11-21 19:50:46",1763754646882,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"wsthc-1763754644430-9e0172eea1d9","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:46] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG56V2ZCRNJXJJJMXWS3E","",-1
+"2025-11-21 19:50:46",1763754646880,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"ggkpn-1763754644644-2a1d171cd271","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:46] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG56S5Z4QSY9XA2GVAXZZ","",-1
+"2025-11-21 19:50:46",1763754646395,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"k6t8k-1763754646341-af674126ec1b","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:46] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG6VA0D1WN32PBQ1ZV9ER","",-1
+"2025-11-21 19:50:46",1763754646394,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"k6t8k-1763754646341-af674126ec1b","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG6VA0D1WN32PBQ1ZV9ER","",-1
+"2025-11-21 19:50:46",1763754646378,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"k6t8k-1763754646341-af674126ec1b","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",7,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG6VA0D1WN32PBQ1ZV9ER","cr97pJVUKtBz",1
+"2025-11-21 19:50:46",1763754646315,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"2h6b4-1763754646261-7c9f52fc6443","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:46] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG6RV122EH02NY87JZXRC","",-1
+"2025-11-21 19:50:46",1763754646315,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"2h6b4-1763754646261-7c9f52fc6443","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG6RV122EH02NY87JZXRC","",-1
+"2025-11-21 19:50:46",1763754646299,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"k6t8k-1763754646234-87465875e88f","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:46] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG6R1PC37NE3TYZ40DNAG","",-1
+"2025-11-21 19:50:46",1763754646298,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"2h6b4-1763754646261-7c9f52fc6443","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",7,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG6RV122EH02NY87JZXRC","cr97pJVUKtBz",1
+"2025-11-21 19:50:46",1763754646273,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",302,"k6t8k-1763754646234-87465875e88f","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",1,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG6R1PC37NE3TYZ40DNAG","cr97pJVUKtBz",1
+"2025-11-21 19:50:46",1763754646223,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"2h6b4-1763754646171-b33963278b3b","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:46] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG6P2XZRWWTFN5FBEV23W","",-1
+"2025-11-21 19:50:46",1763754646210,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",302,"2h6b4-1763754646171-b33963278b3b","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",4,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG6P2XZRWWTFN5FBEV23W","cr97pJVUKtBz",1
+"2025-11-21 19:50:45",1763754645529,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"5q9kd-1763754645476-1c90eaf7b736","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:45] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG60ADCSKNP485P41WBX5","",-1
+"2025-11-21 19:50:45",1763754645514,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"5q9kd-1763754645476-1c90eaf7b736","vercel-screenshot/1.0","warning","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",5,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG60ADCSKNP485P41WBX5","cr97pJVUKtBz",1
+"2025-11-21 19:50:45",1763754645416,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"5q9kd-1763754645361-148983095adc","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:45] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG5WNFXYM0ZDGENK74BW6","",-1
+"2025-11-21 19:50:45",1763754645416,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"5q9kd-1763754645361-148983095adc","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG5WNFXYM0ZDGENK74BW6","",-1
+"2025-11-21 19:50:45",1763754645397,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"5q9kd-1763754645361-148983095adc","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",7,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG5WNFXYM0ZDGENK74BW6","cr97pJVUKtBz",1
+"2025-11-21 19:50:45",1763754645321,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"5q9kd-1763754645160-cbd895c82d2f","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:45] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG5SRBGNABBZ0E9440SAJ","",-1
+"2025-11-21 19:50:45",1763754645304,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",302,"5q9kd-1763754645160-cbd895c82d2f","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",4,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG5SRBGNABBZ0E9440SAJ","cr97pJVUKtBz",1
+"2025-11-21 19:50:45",1763754645059,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"g9bsw-1763754644898-ab86550d570b","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:45] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG5H6TPXM58Y2S4KDW5T9","",-1
+"2025-11-21 19:50:45",1763754645059,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"g9bsw-1763754644898-ab86550d570b","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.OperationalError: unable to open database file
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 59, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2239, in _execute_internal
+    conn = self._connection_for_bind(bind)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2108, in _connection_for_bind
+    return trans._connection_for_bind(engine, execution_options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""<string>"", line 2, in _connection_for_bind
+  File ""/var/task/_vendor/sqlalchemy/orm/state_changes.py"", line 137, in _go
+    ret_value = fn(self, *arg, **kw)
+                ^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 1187, in _connection_for_bind
+    conn = bind.connect()
+           ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3277, in connect
+    return self._connection_cls(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 145, in __init__
+    Connection._handle_dbapi_exception_noconnection(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2440, in _handle_dbapi_exception_noconnection
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 143, in __init__
+    self._dbapi_connection = engine.raw_connection()
+                             ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 3301, in raw_connection
+    return self.pool.connect()
+           ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 447, in connect
+    return _ConnectionFairy._checkout(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 1264, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 711, in checkout
+    rec = pool._do_get()
+          ^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 177, in _do_get
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/impl.py"", line 175, in _do_get
+    return self._create_connection()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 388, in _create_connection
+    return _ConnectionRecord(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 673, in __init__
+    self.__connect()
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 899, in __connect
+    with util.safe_reraise():
+         ^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/util/langhelpers.py"", line 224, in __exit__
+    raise exc_value.with_traceback(exc_tb)
+  File ""/var/task/_vendor/sqlalchemy/pool/base.py"", line 895, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/create.py"", line 661, in connect
+    return dialect.connect(*cargs, **cparams)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 629, in connect
+    return self.loaded_dbapi.connect(*cargs, **cparams)  # type: ignore[no-any-return]  # NOQA: E501
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) unable to open database file
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG5H6TPXM58Y2S4KDW5T9","",-1
+"2025-11-21 19:50:45",1763754645030,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"g9bsw-1763754644898-ab86550d570b","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",15,"iad1",114,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG5H6TPXM58Y2S4KDW5T9","cr97pJVUKtBz",1
+"2025-11-21 19:50:44",1763754644854,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"2z45h-1763754644548-9ef3e5ca532e","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 19:50:44] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG57NDMZFCVWTYYGV8PB9","",-1
+"2025-11-21 19:50:44",1763754644725,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",302,"2z45h-1763754644548-9ef3e5ca532e","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",5,"iad1",111,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG57NDMZFCVWTYYGV8PB9","cr97pJVUKtBz",1
+"2025-11-21 19:50:44",1763754644699,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",302,"wsthc-1763754644430-9e0172eea1d9","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",2002,"iad1",111,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG56V2ZCRNJXJJJMXWS3E","obJe9whzMjlL",1
+"2025-11-21 19:50:44",1763754644697,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",302,"ggkpn-1763754644644-2a1d171cd271","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",2012,"iad1",112,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG56S5Z4QSY9XA2GVAXZZ","8cPgqDU1Ap87",1
+"2025-11-21 19:50:44",1763754644697,"invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app/","GET","",302,"lmz8x-1763754644423-b859d53aef1d","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","invoice-automation-owbp4dxq9-ryans-projects-d8bd1793.vercel.app","dpl_GEBKqAskmvWBL2zjfpPFhVdkNcL2",2108,"iad1",112,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAKZG56S5Z4QSY9XA1GBFBCC","FdzQZE03dl6G",1
