@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <h1>Customers</h1>
+  <a href="{{ url_for('new_customer') }}" class="btn btn-primary">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 0.5rem;">
+      <line x1="12" y1="5" x2="12" y2="19"></line>
+      <line x1="5" y1="12" x2="19" y2="12"></line>
+    </svg>
+    Add Customer
+  </a>
+</div>
+
+<div class="card">
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Rate</th>
+          <th>Fee Type</th>
+          <th>Cadence</th>
+          <th>Next Bill</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for c in customers %}
+        <tr>
+          <td><strong>{{ c.name }}</strong></td>
+          <td>{{ c.email }}</td>
+          <td>{{ c.property_address }}</td>
+          <td>${{ "%.2f"|format(c.rate) }}</td>
+          <td>{{ c.fee_type }}</td>
+          <td><span class="badge badge-blue">{{ c.cadence|title }}</span></td>
+          <td>{{ c.next_bill_date }}</td>
+          <td>
+            <a href="{{ url_for('edit_customer', customer_id=c.id) }}" class="btn btn-secondary btn-sm">Edit</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

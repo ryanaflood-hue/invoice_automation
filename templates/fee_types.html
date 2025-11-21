@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+    <h1>Fee Types</h1>
+</div>
+
+<div class="card">
+    <div class="form-grid" style="margin-bottom: 2rem;">
+        <div class="form-group">
+            <h2>Add New Fee Type</h2>
+            <form method="post" style="display: flex; gap: 1rem; align-items: flex-end;">
+                <div style="flex-grow: 1;">
+                    <label>Name</label>
+                    <input type="text" name="name" required placeholder="e.g. Late Fee">
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for ft in fee_types %}
+                <tr>
+                    <td>{{ ft.name }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_fee_type', fee_type_id=ft.id) }}" method="post"
+                            onsubmit="return confirm('Are you sure?');" style="display: inline;">
+                            <button type="submit" class="btn btn-secondary btn-sm"
+                                style="color: var(--danger-color); border-color: var(--danger-color);">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

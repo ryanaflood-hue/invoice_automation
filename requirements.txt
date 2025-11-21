@@ -1,0 +1,5 @@
+flask
+sqlalchemy
+python-docx
+apscheduler
+psycopg2-binary

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice Automation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="{{ url_for('index') }}" class="navbar-brand">
+      <!-- Simple Building Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        style="color: var(--primary-color);">
+        <path d="M3 21h18" />
+        <path d="M5 21V7l8-4 8 4v14" />
+        <path d="M17 21v-8.5a2.5 2.5 0 0 0-5 0V21" />
+      </svg>
+      Stonegate Realty
+    </a>
+    <div class="navbar-nav">
+      <a href="{{ url_for('list_customers') }}" class="nav-link">Customers</a>
+      <a href="{{ url_for('list_invoices') }}" class="nav-link">Invoices</a>
+      <a href="{{ url_for('manage_fee_types') }}" class="nav-link">Fee Types</a>
+      <a href="{{ url_for('run_today') }}" class="nav-link">Run Daily Batch</a>
+      <a href="{{ url_for('generate_invoice') }}" class="nav-link btn btn-primary btn-sm" style="color: white;">Generate
+        Invoice</a>
+    </div>
+  </nav>
+
+
+  <div class="container">
+    {% block content %}{% endblock %}
+  </div>
+</body>
+
+</html>

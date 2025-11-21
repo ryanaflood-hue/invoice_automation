@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page-header">
+  <h1>Edit Customer</h1>
+</div>
+
+<div class="card" style="max-width: 800px; margin: 0 auto;">
+  <form method="post">
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" value="{{ customer.name }}" required>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" name="email" value="{{ customer.email }}" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Property Address</label>
+      <input type="text" name="property_address" value="{{ customer.property_address }}" required>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" name="property_city" value="{{ customer.property_city or '' }}" required>
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <input type="text" name="property_state" value="{{ customer.property_state or '' }}" required>
+      </div>
+      <div class="form-group">
+        <label>Zip Code</label>
+        <input type="text" name="property_zip" value="{{ customer.property_zip or '' }}" required>
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Rate ($)</label>
+        <input type="number" step="0.01" name="rate" value="{{ customer.rate }}" required>
+      </div>
+      <div class="form-group">
+        <label>Fee Type</label>
+        <select name="fee_type">
+          {% for ft in fee_types %}
+          <option value="{{ ft.name }}" {% if customer.fee_type==ft.name %}selected{% endif %}>{{ ft.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Billing Cadence</label>
+        <select name="cadence">
+          <option value="monthly" {% if customer.cadence=='monthly' %}selected{% endif %}>Monthly</option>
+          <option value="quarterly" {% if customer.cadence=='quarterly' %}selected{% endif %}>Quarterly</option>
+          <option value="yearly" {% if customer.cadence=='yearly' %}selected{% endif %}>Yearly</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Next Bill Date</label>
+        <input type="date" name="next_bill_date" value="{{ customer.next_bill_date }}" required>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <a href="{{ url_for('list_customers') }}" class="btn btn-secondary">Cancel</a>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
