@@ -66,6 +66,15 @@ def seed_customers():
                     if len(parts) > 1 and parts[1].strip():
                         address = parts[1].strip()
                 
+                # Extract Email
+                email_matches = re.findall(r'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}', text)
+                for email_match in email_matches:
+                    # Filter out sender emails
+                    if "linda" not in email_match.lower() and "stonegate" not in email_match.lower():
+                         # Assume the first non-sender email is the customer's
+                         if not email or email == "change@me.com":
+                             email = email_match
+
                 # Extract Rate & Cadence from management line
                 if "management" in text.lower() or "quarter" in text.lower():
                     line_rate = extract_money(text)
@@ -91,17 +100,24 @@ def seed_customers():
                     print(f"  -> Adding {name} ({address}) - ${rate} {cadence}")
                     c = Customer(
                         name=name,
-                        email="change@me.com", # Placeholder
+                        email=email if email else "change@me.com",
                         property_address=address,
                         rate=rate,
                         cadence=cadence,
                         fee_type=fee_type,
-                        next_bill_date=date.today() # Default to today
+                        next_bill_date=date.today()
                     )
                     session.add(c)
                     count += 1
                 else:
-                    print(f"  -> Skipping {name} (already exists)")
+                    # Update email if missing
+                    if email and (not existing.email or existing.email == "change@me.com"):
+                        print(f"  -> Updating email for {name}: {email}")
+                        existing.email = email
+                        session.add(existing)
+                        count += 1
+                    else:
+                        print(f"  -> Skipping {name} (already exists)")
             else:
                 print(f"  -> Could not extract Name or Address from {f}")
 
