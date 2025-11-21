@@ -110,14 +110,20 @@ def seed_customers():
                     session.add(c)
                     count += 1
                 else:
-                    # Update email if missing
-                    if email and (not existing.email or existing.email == "change@me.com"):
-                        print(f"  -> Updating email for {name}: {email}")
+                    print(f"  -> Updating existing customer: {name}")
+                    # Force update all fields to match template
+                    existing.property_address = address
+                    existing.rate = rate
+                    existing.cadence = cadence
+                    existing.fee_type = fee_type
+                    # Reset next_bill_date to today so "Run Daily Batch" picks them up
+                    existing.next_bill_date = date.today()
+                    
+                    if email:
                         existing.email = email
-                        session.add(existing)
-                        count += 1
-                    else:
-                        print(f"  -> Skipping {name} (already exists)")
+                    
+                    session.add(existing)
+                    count += 1
             else:
                 print(f"  -> Could not extract Name or Address from {f}")
 
