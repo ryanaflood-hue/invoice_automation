@@ -202,6 +202,23 @@ def download_invoice(invoice_id):
     finally:
         session.close()
 
+@app.route("/seed-data")
+def run_seeding():
+    try:
+        from seed_from_templates import seed_customers
+        # Capture output to return to user
+        import io
+        from contextlib import redirect_stdout
+        
+        f = io.StringIO()
+        with redirect_stdout(f):
+            seed_customers()
+        
+        output = f.getvalue()
+        return f"<pre>{output}</pre>"
+    except Exception as e:
+        return f"Error seeding data: {e}", 500
+
 if __name__ == "__main__":
     init_db()
 
