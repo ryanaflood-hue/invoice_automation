@@ -15,6 +15,47 @@ def extract_money(text):
         return float(matches[-1].replace(',', ''))
     return 0.0
 
+def parse_address(full_address):
+    """Parse full address into street, city, state, zip components."""
+    # Common patterns:
+    # "1214 S 115th ST, West Allis, WI  53214"
+    # "N62W12921 River Heights Dr"
+    # "2085 Le Jardin Ct."
+    
+    street = ""
+    city = ""
+    state = ""
+    zip_code = ""
+    
+    # Try to find zip code (5 digits)
+    zip_match = re.search(r'\b(\d{5})\b', full_address)
+    if zip_match:
+        zip_code = zip_match.group(1)
+        # Remove zip from address
+        full_address = full_address.replace(zip_code, '').strip()
+    
+    # Try to find state (2 uppercase letters)
+    state_match = re.search(r'\b([A-Z]{2})\b', full_address)
+    if state_match:
+        state = state_match.group(1)
+        # Remove state from address
+        full_address = full_address.replace(state, '').strip()
+    
+    # Split by comma to separate street from city
+    parts = [p.strip() for p in full_address.split(',')]
+    
+    if len(parts) >= 2:
+        street = parts[0]
+        city = parts[1]
+    elif len(parts) == 1:
+        street = parts[0]
+    
+    # Clean up trailing commas
+    street = street.rstrip(',').strip()
+    city = city.rstrip(',').strip()
+    
+    return street, city, state, zip_code
+
 def seed_customers():
     print("Initializing DB...")
     init_db()
@@ -95,14 +136,20 @@ def seed_customers():
                         break
 
             if name and address:
-                # Check if exists
+                # Parse address into components
+                street, city, state, zip_code = parse_address(address)
+                
+               # Check if exists
                 existing = session.query(Customer).filter(Customer.name == name).first()
                 if not existing:
-                    print(f"  -> Adding {name} ({address}) - ${rate} {cadence}")
+                    print(f"  -> Adding {name} ({street}, {city}, {state} {zip_code}) - ${rate} {cadence}")
                     c = Customer(
                         name=name,
                         email=email if email else "change@me.com",
-                        property_address=address,
+                        property_address=street,
+                        property_city=city,
+                        property_state=state,
+                        property_zip=zip_code,
                         rate=rate,
                         cadence=cadence,
                         fee_type=fee_type,
@@ -113,7 +160,10 @@ def seed_customers():
                 else:
                     print(f"  -> Updating existing customer: {name}")
                     # Force update all fields to match template
-                    existing.property_address = address
+                    existing.property_address = street
+                    existing.property_city = city
+                    existing.property_state = state
+                    existing.property_zip = zip_code
                     existing.rate = rate
                     existing.cadence = cadence
                     existing.fee_type = fee_type
