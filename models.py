@@ -6,7 +6,9 @@ from sqlalchemy.orm import sessionmaker
 import os
 
 # Use DATABASE_URL if available (Vercel/Heroku), else local SQLite
-database_url = os.getenv("DATABASE_URL", "sqlite:///invoice_app.db")
+# Vercel Postgres uses POSTGRES_URL by default
+database_url = os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL") or "sqlite:///invoice_app.db"
+
 if database_url.startswith("postgres://"):
     database_url = database_url.replace("postgres://", "postgresql://", 1)
 
