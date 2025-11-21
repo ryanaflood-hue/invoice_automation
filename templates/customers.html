@@ -31,7 +31,7 @@
         {% for c in customers %}
         <tr>
           <td><strong>{{ c.name }}</strong></td>
-          <td>{{ c.email }}</td>
+          <td>{% if c.email and c.email != 'change@me.com' %}{{ c.email }}{% else %}-{% endif %}</td>
           <td>{{ c.property_address }}</td>
           <td>${{ "%.2f"|format(c.rate) }}</td>
           <td>{{ c.fee_type }}</td>
