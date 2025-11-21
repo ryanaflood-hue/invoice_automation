@@ -267,39 +267,41 @@ textarea:focus {
 
 .badge-blue {
     background-color: #dbeafe;
+    color: #1e40af;
+}
 
-    .modal-content {
-        background-color: var(--card-background);
-        padding: 2rem;
-        border-radius: var(--radius);
-        width: 100%;
-        max-width: 600px;
-        box-shadow: var(--shadow-lg);
-        position: relative;
-    }
+.modal-content {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: var(--radius);
+    width: 100%;
+    max-width: 600px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+}
 
-    .modal-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 1.5rem;
-    }
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
 
-    .modal-close {
-        background: none;
-        border: none;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: var(--text-secondary);
-    }
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-secondary);
+}
 
-    .modal-body textarea {
-        width: 100%;
-        height: 800px;
-        padding: 1rem;
-        border: 1px solid var(--border-color);
-        border-radius: var(--radius);
-        font-family: inherit;
-        resize: vertical;
-        margin-bottom: 1rem;
-    }
+.modal-body textarea {
+    width: 100%;
+    height: 800px;
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    font-family: inherit;
+    resize: vertical;
+    margin-bottom: 1rem;
+}

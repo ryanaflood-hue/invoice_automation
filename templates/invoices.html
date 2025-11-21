@@ -66,7 +66,7 @@
       </div>
     </div>
     <div class="form-actions">
-      <button class="btn btn-secondary" onclick="closeEmailModal()">Close</button>
+      <button class="btn btn-secondary" onclick="clearEmailDraft()">Clear</button>
       <button class="btn btn-primary" onclick="copyToClipboard()">Copy Body</button>
     </div>
   </div>
@@ -83,8 +83,9 @@
     modal.classList.add('show');
   }
 
-  function closeEmailModal() {
-    modal.classList.remove('show');
+  function clearEmailDraft() {
+    subjectInput.value = '';
+    bodyInput.value = '';
   }
 
   function copyToClipboard() {
@@ -96,7 +97,7 @@
   // Close modal when clicking outside
   window.onclick = function (event) {
     if (event.target == modal) {
-      closeEmailModal();
+      modal.classList.remove('show');
     }
   }
 </script>
