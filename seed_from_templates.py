@@ -40,6 +40,7 @@ def seed_customers():
             
             name = ""
             address = ""
+            email = ""
             rate = 0.0
             cadence = "monthly" # Default
             fee_type = "Management Fee"

@@ -85,11 +85,12 @@ def fill_invoice_template(doc, replacements):
                             run.font.name = 'Calibri'
                             run.font.size = Pt(14)
 
-def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, amount, return_buffer=False):
+def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, amount, return_buffer=True):
     """
     Shared logic to generate an invoice.
     If return_buffer is True, returns (filename, BytesIO_object).
     If return_buffer is False, saves to file and returns (filename, full_path).
+    DEFAULT IS TRUE FOR VERCEL CLOUD COMPATIBILITY (read-only filesystem).
     """
     try:
         doc = Document(TEMPLATE_PATH)
@@ -155,7 +156,8 @@ def generate_invoice_for_customer(customer, invoice_date):
     period_dates = f"{start_date.strftime('%m/%d/%Y')} - {end_date.strftime('%m/%d/%Y')}"
     amount = customer.rate
     
-    filename, file_path = _generate_invoice_logic(customer, invoice_date, period_label, period_dates, amount)
+    # Generate invoice in-memory (don't write to disk - Vercel is read-only)
+    filename, buffer = _generate_invoice_logic(customer, invoice_date, period_label, period_dates, amount)
 
     fee_type_text = getattr(customer, "fee_type", "Management Fee") or "Management Fee"
     subject = f"Invoice – {period_label} – {customer.property_address}"
