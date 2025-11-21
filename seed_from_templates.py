@@ -2,6 +2,7 @@ import os
 import re
 from docx import Document
 from models import SessionLocal, Customer, FeeType, init_db
+from datetime import date
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "invoice_templates")
