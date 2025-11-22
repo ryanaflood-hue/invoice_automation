@@ -176,6 +176,91 @@ def edit_customer(customer_id):
     finally:
         session.close()
 
+@app.route("/customers/<int:customer_id>/add-property", methods=["POST"])
+def add_property(customer_id):
+    from models import Property
+    session = SessionLocal()
+    try:
+        address = request.form.get("address")
+        city = request.form.get("city")
+        state = request.form.get("state")
+        zip_code = request.form.get("zip_code")
+        fee_amount_str = request.form.get("fee_amount")
+        fee_amount = float(fee_amount_str) if fee_amount_str else None
+        
+        new_prop = Property(
+            customer_id=customer_id,
+            address=address,
+            city=city,
+            state=state,
+            zip_code=zip_code,
+            fee_amount=fee_amount
+        )
+        session.add(new_prop)
+        session.commit()
+        return redirect(url_for("edit_customer", customer_id=customer_id))
+    finally:
+        session.close()
+
+@app.route("/customers/<int:customer_id>/delete-property/<int:property_id>", methods=["POST"])
+def delete_property(customer_id, property_id):
+    from models import Property
+    session = SessionLocal()
+    try:
+        prop = session.query(Property).get(property_id)
+        if prop and prop.customer_id == customer_id:
+            session.delete(prop)
+            session.commit()
+        return redirect(url_for("edit_customer", customer_id=customer_id))
+    finally:
+        session.close()
+
+@app.route("/customers/<int:customer_id>/delete", methods=["POST"])
+def delete_customer(customer_id):
+    session = SessionLocal()
+    try:
+        customer = session.query(Customer).get(customer_id)
+        if customer:
+            # User requested NOT to delete invoices when deleting a customer.
+            # Customer deletion will fail if there are invoices due to NOT NULL constraint
+            session.delete(customer)
+            session.commit()
+        return redirect(url_for("list_customers"))
+    finally:
+        session.close()
+
+@app.route("/settings/fee-types", methods=["GET", "POST"])
+def manage_fee_types():
+    session = SessionLocal()
+    try:
+        if request.method == "POST":
+            name = request.form.get("name")
+            if name:
+                try:
+                    ft = FeeType(name=name)
+                    session.add(ft)
+                    session.commit()
+                except Exception:
+                    session.rollback()
+            return redirect(url_for("manage_fee_types"))
+        
+        fee_types = session.query(FeeType).all()
+        return render_template("fee_types.html", fee_types=fee_types)
+    finally:
+        session.close()
+
+@app.route("/settings/fee-types/<int:fee_type_id>/delete", methods=["POST"])
+def delete_fee_type(fee_type_id):
+    session = SessionLocal()
+    try:
+        ft = session.query(FeeType).get(fee_type_id)
+        if ft:
+            session.delete(ft)
+            session.commit()
+        return redirect(url_for("manage_fee_types"))
+    finally:
+        session.close()
+
 @app.route("/invoices")
 def list_invoices():
     session = SessionLocal()
