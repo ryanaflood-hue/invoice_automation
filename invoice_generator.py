@@ -149,6 +149,14 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
             "{{ADDITIONAL_FEE}}": additional_fee_desc or "",
             "{{ADDITIONAL_FEE_AMOUNT}}": f"${additional_fee_amount:,.2f}" if additional_fee_amount else "",
             "{{TOTAL_AMOUNT}}": f"${total_amount:,.2f}",
+            "{{PERIOD2}}": "",
+            "{{FEE_TYPE2}}": "",
+            "{{PERIOD_DATES2}}": "",
+            "{{AMOUNT2}}": "",
+            "{{PERIOD3}}": "",
+            "{{FEE_TYPE3}}": "",
+            "{{PERIOD_DATES3}}": "",
+            "{{AMOUNT3}}": "",
         }
         
         # Helper to remove rows containing unused placeholders
@@ -165,8 +173,11 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
                                 return # Assume one row per placeholder for now
 
         # Remove unused fee rows BEFORE filling template
-        remove_row_if_placeholder_unused(doc, "{{FEE_2_TYPE}}", fee_2_type)
-        remove_row_if_placeholder_unused(doc, "{{FEE_3_TYPE}}", fee_3_type)
+        # Check for fee_2 and fee_3 - remove the entire row if not used
+        if not fee_2_type and not fee_2_amount:
+            remove_row_if_placeholder_unused(doc, "{{PERIOD2}}", None)
+        if not fee_3_type and not fee_3_amount:
+            remove_row_if_placeholder_unused(doc, "{{PERIOD3}}", None)
         remove_row_if_placeholder_unused(doc, "{{ADDITIONAL_FEE}}", additional_fee_desc)
 
         fill_invoice_template(doc, replacements)
