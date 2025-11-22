@@ -187,13 +187,23 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
         fill_invoice_template(doc, replacements)
         
         # ADDITIONAL CLEANUP: Remove rows that look like "fee () =" after replacement
+        import re
         rows_to_remove_after = []
         for table in doc.tables:
             for row in table.rows:
                 for cell in row.cells:
                     cell_text = cell.text.strip()
-                    # Check if this is an empty fee line
-                    if cell_text in ["fee () =", "fee()=", "fee ( ) ="] or (cell_text.startswith("fee") and cell_text.endswith("=") and len(cell_text) < 15):
+                    # Check if this is an empty fee line using multiple patterns
+                    # Pattern 1: Exact matches
+                    if cell_text in ["fee () =", "fee()=", "fee ( ) =", "fee  () =", "fee  ( )  ="]:
+                        rows_to_remove_after.append((table._tbl, row._tr))
+                        break
+                    # Pattern 2: Regex for "fee" followed by optional spaces, parentheses, optional spaces, and "="
+                    elif re.match(r'^fee\s*\(\s*\)\s*=$', cell_text, re.IGNORECASE):
+                        rows_to_remove_after.append((table._tbl, row._tr))
+                        break
+                    # Pattern 3: Any line that's just "fee" + whitespace/parens + "="
+                    elif cell_text.replace(' ', '').replace('(', '').replace(')', '') == 'fee=':
                         rows_to_remove_after.append((table._tbl, row._tr))
                         break
         
