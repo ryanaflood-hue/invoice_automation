@@ -1,0 +1,266 @@
+"TimeUTC","timestampInMs","requestPath","requestMethod","requestQueryString","responseStatusCode","requestId","requestUserAgent","level","environment","branch","vercelCache","type","function","host","deploymentDomain","deploymentId","durationMs","region","maxMemoryUsed","memorySize","message","projectId","traceId","sessionId","invocationId","instanceId","concurrency"
+"2025-11-22 03:04:00",1763780640703,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",-1,"wjjv6-1763780640481-c8e605c65ccc","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR9FR94CA0W3299PK5D3E8","",-1
+"2025-11-22 03:04:00",1763780640521,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",500,"wjjv6-1763780640481-c8e605c65ccc","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",165,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR9FR94CA0W3299PK5D3E8","",1
+"2025-11-22 03:03:58",1763780638432,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",-1,"4d7wc-1763780638196-61262bd6abfc","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR9DGYEYD4JGT9MNQVRX3B","",-1
+"2025-11-22 03:03:58",1763780638238,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",500,"4d7wc-1763780638196-61262bd6abfc","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",174,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR9DGYEYD4JGT9MNQVRX3B","",1
+"2025-11-22 03:03:57",1763780637013,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",-1,"qc8qv-1763780636794-32127cf19f38","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR9C52C1PK2P9K3FSBS15R","",-1
+"2025-11-22 03:03:56",1763780636834,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",500,"qc8qv-1763780636794-32127cf19f38","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",164,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR9C52C1PK2P9K3FSBS15R","",1
+"2025-11-22 03:03:56",1763780636755,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"f7m2m-1763780636536-d3eaecde3a2a","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR9BX1Y20WMBQ6BMTXVVNQ","",-1
+"2025-11-22 03:03:56",1763780636576,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",500,"f7m2m-1763780636536-d3eaecde3a2a","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",164,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR9BX1Y20WMBQ6BMTXVVNQ","",1
+"2025-11-22 03:03:54",1763780634419,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"cdmdv-1763780634184-53422cd9a602","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR99KHBW8DNF71C5Z626QX","",-1
+"2025-11-22 03:03:54",1763780634225,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",500,"cdmdv-1763780634184-53422cd9a602","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",171,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR99KHBW8DNF71C5Z626QX","",1
+"2025-11-22 03:03:53",1763780633115,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"v6mm8-1763780632886-7a4e6ff1720e","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR98AY97VNJRM42Z3DP9DB","",-1
+"2025-11-22 03:03:52",1763780632926,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",500,"v6mm8-1763780632886-7a4e6ff1720e","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",170,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR98AY97VNJRM42Z3DP9DB","",1
+"2025-11-22 03:03:52",1763780632748,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"t6p2h-1763780632335-a471d991e141","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR97ZHAB3SXBCY3BF23BCK","",-1
+"2025-11-22 03:03:52",1763780632561,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",500,"t6p2h-1763780632335-a471d991e141","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",171,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR97ZHAB3SXBCY3BF23BCK","",1
+"2025-11-22 03:03:51",1763780631999,"invoice-automation-two.vercel.app/","GET","",-1,"dwkz7-1763780631756-994eb3527e3e","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR9782A580ZJGXFZSPVWQ2","",-1
+"2025-11-22 03:03:51",1763780631810,"invoice-automation-two.vercel.app/","GET","",500,"dwkz7-1763780631756-994eb3527e3e","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",173,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR9782A580ZJGXFZSPVWQ2","",1
+"2025-11-22 03:03:51",1763780631203,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"4dtpz-1763780630956-86fa512a5d83","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR96F7BF4S8BGHX8HJ642W","",-1
+"2025-11-22 03:03:51",1763780631184,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"kqlwh-1763780630958-f73734c343e1","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR96ES0A9K3Q4ETPM1Q1YS","",-1
+"2025-11-22 03:03:51",1763780631015,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",500,"4dtpz-1763780630956-86fa512a5d83","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",169,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR96F7BF4S8BGHX8HJ642W","",1
+"2025-11-22 03:03:51",1763780631001,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",500,"kqlwh-1763780630958-f73734c343e1","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",167,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR96ES0A9K3Q4ETPM1Q1YS","",1
+"2025-11-22 03:03:50",1763780630611,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"hkgmw-1763780630370-c0dda70e926a","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR95WNQAFKXWSF47KR2N1H","",-1
+"2025-11-22 03:03:50",1763780630421,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",500,"hkgmw-1763780630370-c0dda70e926a","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",170,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR95WNQAFKXWSF47KR2N1H","",1
+"2025-11-22 03:03:50",1763780630353,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"hkrqz-1763780630126-b35dfa05b3ec","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR95MNG3FSTHWQ2A3Y7D7A","",-1
+"2025-11-22 03:03:50",1763780630284,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"8ls7x-1763780629953-8a04f4223125","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR95JHG2WM9PDJBSD2B6KD","",-1
+"2025-11-22 03:03:50",1763780630165,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",500,"hkrqz-1763780630126-b35dfa05b3ec","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",169,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR95MNG3FSTHWQ2A3Y7D7A","",1
+"2025-11-22 03:03:50",1763780630097,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",500,"8ls7x-1763780629953-8a04f4223125","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",171,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR95JHG2WM9PDJBSD2B6KD","",1
+"2025-11-22 03:03:50",1763780630048,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"8cdjj-1763780629812-5f67598cb7ab","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR95AWD8CHAAMSC0WDRG6X","",-1
+"2025-11-22 03:03:49",1763780629852,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",500,"8cdjj-1763780629812-5f67598cb7ab","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",172,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR95AWD8CHAAMSC0WDRG6X","",1
+"2025-11-22 03:03:49",1763780629836,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"v6mm8-1763780629304-383ed0728316","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.
+Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR94TZQH9PGZ0MPAFB4YHX","",-1
+"2025-11-22 03:03:49",1763780629685,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"4h2wj-1763780629291-cbe6014afa0e","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR94XWJ2QPDTZKJAQVP25J","",-1
+"2025-11-22 03:03:49",1763780629507,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"rtsp8-1763780628849-3e14aa06690c","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR94NN1Y4TQ3S1441009H7","",-1
+"2025-11-22 03:03:49",1763780629436,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",500,"4h2wj-1763780629291-cbe6014afa0e","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",171,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR94XWJ2QPDTZKJAQVP25J","",1
+"2025-11-22 03:03:49",1763780629343,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",500,"v6mm8-1763780629304-383ed0728316","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",175,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR94TZQH9PGZ0MPAFB4YHX","",1
+"2025-11-22 03:03:49",1763780629332,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"gkl2v-1763780628888-9fdf2ed3d5a1","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 178
+finally:
+^^^^^^^
+SyntaxError: invalid syntax
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR94MK1PP0MW16DTPXVAEK","",-1
+"2025-11-22 03:03:49",1763780629173,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",500,"rtsp8-1763780628849-3e14aa06690c","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",170,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR94NN1Y4TQ3S1441009H7","",1
+"2025-11-22 03:03:49",1763780629139,"invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app/","GET","",500,"gkl2v-1763780628888-9fdf2ed3d5a1","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","invoice-automation-nhdmjmdi8-ryans-projects-d8bd1793.vercel.app","dpl_7qKoQcdytnxNcVpeEaGLepGR5RYG",175,"iad1",54,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMR94MK1PP0MW16DTPXVAEK","",1

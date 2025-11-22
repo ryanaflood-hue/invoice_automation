@@ -175,8 +175,6 @@ def edit_customer(customer_id):
         return render_template("edit_customer.html", customer=customer, fee_types=fee_types)
     finally:
         session.close()
-    finally:
-        session.close()
 
 @app.route("/invoices")
 def list_invoices():
