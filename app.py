@@ -33,8 +33,6 @@ def generate_invoice():
             additional_fee_desc = request.form.get("additional_fee_desc")
             additional_fee_amount = float(request.form["additional_fee_amount"]) if request.form.get("additional_fee_amount") else None
 
-            print(f"DEBUG: app.py received: fee_2={fee_2_amount}, fee_3={fee_3_amount}, add={additional_fee_amount}")
-
             customer = session.query(Customer).get(customer_id)
             
             # Pass extra fees as kwargs
