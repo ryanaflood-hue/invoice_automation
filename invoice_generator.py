@@ -165,6 +165,22 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
             "{{ADDITIONAL_FEE_LINE}}": additional_fee_line,
         }
 
+        # Remove rows with empty fee lines to eliminate whitespace
+        rows_to_remove = []
+        for table in doc.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    # Check if this row contains an empty fee line placeholder
+                    if ("{{FEE_LINE_2}}" in cell.text and not fee_line_2) or \
+                       ("{{FEE_LINE_3}}" in cell.text and not fee_line_3) or \
+                       ("{{ADDITIONAL_FEE_LINE}}" in cell.text and not additional_fee_line):
+                        rows_to_remove.append((table._tbl, row._tr))
+                        break
+        
+        # Remove the rows
+        for tbl, tr in rows_to_remove:
+            tbl.remove(tr)
+
         fill_invoice_template(doc, replacements)
         
         # Add property fees as dynamic rows if they exist
