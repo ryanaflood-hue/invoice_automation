@@ -32,6 +32,10 @@ class Customer(Base):
     fee_type = Column(String, nullable=True, default="Management Fee")
     fee_2_type = Column(String, nullable=True)
     fee_2_rate = Column(Float, nullable=True)
+    fee_3_type = Column(String, nullable=True)
+    fee_3_rate = Column(Float, nullable=True)
+    additional_fee_desc = Column(String, nullable=True)
+    additional_fee_amount = Column(Float, nullable=True)
     next_bill_date = Column(Date, nullable=False)
 
     properties = relationship("Property", back_populates="customer", cascade="all, delete-orphan")

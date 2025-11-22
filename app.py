@@ -168,6 +168,21 @@ def edit_customer(customer_id):
             customer.fee_type = request.form.get("fee_type", "Management Fee")
             customer.next_bill_date = date.fromisoformat(request.form["next_bill_date"])
             
+            # Handle fee_2 fields
+            customer.fee_2_type = request.form.get("fee_2_type", "")
+            fee_2_rate_str = request.form.get("fee_2_rate", "")
+            customer.fee_2_rate = float(fee_2_rate_str) if fee_2_rate_str else None
+            
+            # Handle fee_3 fields
+            customer.fee_3_type = request.form.get("fee_3_type", "")
+            fee_3_rate_str = request.form.get("fee_3_rate", "")
+            customer.fee_3_rate = float(fee_3_rate_str) if fee_3_rate_str else None
+            
+            # Handle additional fee fields
+            customer.additional_fee_desc = request.form.get("additional_fee_desc", "")
+            additional_fee_amount_str = request.form.get("additional_fee_amount", "")
+            customer.additional_fee_amount = float(additional_fee_amount_str) if additional_fee_amount_str else None
+            
             session.commit()
             return redirect(url_for("list_customers"))
         
@@ -368,7 +383,11 @@ def run_migration():
             # Add new columns to customers table
             customer_columns = [
                 ("fee_2_type", "VARCHAR"),
-                ("fee_2_rate", "FLOAT")
+                ("fee_2_rate", "FLOAT"),
+                ("fee_3_type", "VARCHAR"),
+                ("fee_3_rate", "FLOAT"),
+                ("additional_fee_desc", "VARCHAR"),
+                ("additional_fee_amount", "FLOAT")
             ]
             
             for col_name, col_type in customer_columns:

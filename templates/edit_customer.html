@@ -69,14 +69,58 @@
         <input type="number" step="0.01" name="fee_2_rate" value="{{ customer.fee_2_rate or '' }}" placeholder="0.00">
       </div>
     </div>
-</div>
-</div>
 
-<div class="form-actions">
-  <a href="{{ url_for('list_customers') }}" class="btn btn-secondary">Cancel</a>
-  <button type="submit" class="btn btn-primary">Save Changes</button>
-</div>
-</form>
+    <!-- Fee 3 Section -->
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Fee 3 Type (Optional)</label>
+        <select name="fee_3_type">
+          <option value="">-- None --</option>
+          {% for ft in fee_types %}
+          <option value="{{ ft.name }}" {% if customer.fee_3_type==ft.name %}selected{% endif %}>{{ ft.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Fee 3 Rate ($)</label>
+        <input type="number" step="0.01" name="fee_3_rate" value="{{ customer.fee_3_rate or '' }}" placeholder="0.00">
+      </div>
+    </div>
+
+    <!-- Additional Fee Section -->
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Additional Fee Description (Optional)</label>
+        <input type="text" name="additional_fee_desc" value="{{ customer.additional_fee_desc or '' }}"
+          placeholder="e.g., Late Fee">
+      </div>
+      <div class="form-group">
+        <label>Additional Fee Amount ($)</label>
+        <input type="number" step="0.01" name="additional_fee_amount" value="{{ customer.additional_fee_amount or '' }}"
+          placeholder="0.00">
+      </div>
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>Billing Cadence</label>
+        <select name="cadence">
+          <option value="monthly" {% if customer.cadence=='monthly' %}selected{% endif %}>Monthly</option>
+          <option value="quarterly" {% if customer.cadence=='quarterly' %}selected{% endif %}>Quarterly</option>
+          <option value="yearly" {% if customer.cadence=='yearly' %}selected{% endif %}>Yearly</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Next Bill Date</label>
+        <input type="date" name="next_bill_date" value="{{ customer.next_bill_date }}" required>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <a href="{{ url_for('list_customers') }}" class="btn btn-secondary">Cancel</a>
+      <button type="submit" class="btn btn-primary">Save Changes</button>
+    </div>
+  </form>
 </div>
 
 <!-- Additional Properties Section -->
