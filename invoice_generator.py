@@ -130,6 +130,22 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
                 property_fees_total += prop.fee_amount
         total_amount += property_fees_total
         
+        
+        # Build complete fee lines (or empty strings if not used)
+        # Calculate period info for fee 2 and 3 if they exist
+        fee_line_2 = ""
+        if fee_2_type and fee_2_amount:
+            # Reuse same period dates for additional fees
+            fee_line_2 = f"{period_label} {fee_2_type} fee ({period_dates}) = ${fee_2_amount:,.2f}"
+        
+        fee_line_3 = ""
+        if fee_3_type and fee_3_amount:
+            fee_line_3 = f"{period_label} {fee_3_type} fee ({period_dates}) = ${fee_3_amount:,.2f}"
+        
+        additional_fee_line = ""
+        if additional_fee_desc and additional_fee_amount:
+            additional_fee_line = f"{additional_fee_desc} = ${additional_fee_amount:,.2f}"
+        
         replacements = {
             "{{CUSTOMER_NAME}}": customer.name,
             "{{CUSTOMER_EMAIL}}": customer.email,
@@ -142,77 +158,14 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
             "{{AMOUNT}}": f"${amount:,.2f}",
             "{{INVOICE_DATE}}": invoice_date.strftime("%m/%d/%Y"),
             "{{FEE_TYPE}}": getattr(customer, "fee_type", "Management Fee") or "Management Fee",
-            "{{FEE_2_TYPE}}": fee_2_type or "",
-            "{{FEE_2_AMOUNT}}": f"${fee_2_amount:,.2f}" if fee_2_amount else "",
-            "{{FEE_3_TYPE}}": fee_3_type or "",
-            "{{FEE_3_AMOUNT}}": f"${fee_3_amount:,.2f}" if fee_3_amount else "",
-            "{{ADDITIONAL_FEE}}": additional_fee_desc or "",
-            "{{ADDITIONAL_FEE_AMOUNT}}": f"${additional_fee_amount:,.2f}" if additional_fee_amount else "",
             "{{TOTAL_AMOUNT}}": f"${total_amount:,.2f}",
-            "{{PERIOD2}}": "",
-            "{{FEE_TYPE2}}": "",
-            "{{PERIOD_DATES2}}": "",
-            "{{AMOUNT2}}": "",
-            "{{PERIOD3}}": "",
-            "{{FEE_TYPE3}}": "",
-            "{{PERIOD_DATES3}}": "",
-            "{{AMOUNT3}}": "",
+            # Complete fee lines - these replace the entire row content
+            "{{FEE_LINE_2}}": fee_line_2,
+            "{{FEE_LINE_3}}": fee_line_3,
+            "{{ADDITIONAL_FEE_LINE}}": additional_fee_line,
         }
-        
-        
-        # Helper to remove rows containing unused placeholders
-        def remove_row_if_placeholder_unused(doc, placeholders):
-            """Remove rows that contain any of the given placeholders"""
-            rows_to_remove = []
-            for table in doc.tables:
-                for row in table.rows:
-                    for cell in row.cells:
-                        # Check if any of the placeholders exist in this cell
-                        if any(placeholder in cell.text for placeholder in placeholders):
-                            rows_to_remove.append((table._tbl, row._tr))
-                            break  # Found it, move to next row
-            
-            # Remove rows
-            for tbl, tr in rows_to_remove:
-                tbl.remove(tr)
-
-        # Remove unused fee rows BEFORE filling template
-        # Check for fee_2 and fee_3 - remove the entire row if not used
-        if not fee_2_type and not fee_2_amount:
-            remove_row_if_placeholder_unused(doc, ["{{PERIOD2}}", "{{FEE_TYPE2}}", "{{AMOUNT2}}", "{{PERIOD_DATES2}}"])
-        if not fee_3_type and not fee_3_amount:
-            remove_row_if_placeholder_unused(doc, ["{{PERIOD3}}", "{{FEE_TYPE3}}", "{{AMOUNT3}}", "{{PERIOD_DATES3}}"])
-        remove_row_if_placeholder_unused(doc, ["{{ADDITIONAL_FEE}}"])
 
         fill_invoice_template(doc, replacements)
-        
-        # ADDITIONAL CLEANUP: Remove rows that look like "fee () =" after replacement
-        import re
-        rows_to_remove_after = []
-        for table in doc.tables:
-            for row in table.rows:
-                for cell in row.cells:
-                    cell_text = cell.text.strip()
-                    # Check if this is an empty fee line using multiple patterns
-                    # Pattern 1: Exact matches
-                    if cell_text in ["fee () =", "fee()=", "fee ( ) =", "fee  () =", "fee  ( )  ="]:
-                        rows_to_remove_after.append((table._tbl, row._tr))
-                        break
-                    # Pattern 2: Regex for "fee" followed by optional spaces, parentheses, optional spaces, and "="
-                    elif re.match(r'^fee\s*\(\s*\)\s*=$', cell_text, re.IGNORECASE):
-                        rows_to_remove_after.append((table._tbl, row._tr))
-                        break
-                    # Pattern 3: Any line that's just "fee" + whitespace/parens + "="
-                    elif cell_text.replace(' ', '').replace('(', '').replace(')', '') == 'fee=':
-                        rows_to_remove_after.append((table._tbl, row._tr))
-                        break
-        
-        # Remove the empty rows
-        for tbl, tr in rows_to_remove_after:
-            try:
-                tbl.remove(tr)
-            except:
-                pass  # Row might have already been removed
         
         # Add property fees as dynamic rows if they exist
         # This is tricky with python-docx if we don't have a specific placeholder row to clone.
