@@ -183,6 +183,19 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
 
         fill_invoice_template(doc, replacements)
         
+        # Remove empty paragraphs (from the fee line placeholders that became empty strings)
+        paragraphs_to_remove = []
+        for paragraph in doc.paragraphs:
+            text = paragraph.text.strip()
+            # If paragraph is empty or just whitespace, mark for removal
+            if not text or len(text) == 0:
+                paragraphs_to_remove.append(paragraph)
+        
+        # Remove empty paragraphs
+        for paragraph in paragraphs_to_remove:
+            p = paragraph._element
+            p.getparent().remove(p)
+        
         # Add property fees as dynamic rows if they exist
         # This is tricky with python-docx if we don't have a specific placeholder row to clone.
         # For now, we will just ensure the total is correct. 
