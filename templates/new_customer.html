@@ -64,6 +64,56 @@
       </div>
     </div>
 
+    <fieldset style="border: 1px solid #ddd; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+      <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--text-secondary);">Extra Fees (Optional)</legend>
+
+      <!-- Fee 2 -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Fee 2 Type</label>
+          <select name="fee_2_type">
+            <option value="">-- None --</option>
+            {% for ft in fee_types %}
+            <option value="{{ ft.name }}">{{ ft.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Fee 2 Rate ($)</label>
+          <input type="number" step="0.01" name="fee_2_rate" placeholder="0.00">
+        </div>
+      </div>
+
+      <!-- Fee 3 -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Fee 3 Type</label>
+          <select name="fee_3_type">
+            <option value="">-- None --</option>
+            {% for ft in fee_types %}
+            <option value="{{ ft.name }}">{{ ft.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Fee 3 Rate ($)</label>
+          <input type="number" step="0.01" name="fee_3_rate" placeholder="0.00">
+        </div>
+      </div>
+
+      <!-- Additional Fee -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Additional Fee Description</label>
+          <input type="text" name="additional_fee_desc" placeholder="e.g. Late Fee">
+        </div>
+        <div class="form-group">
+          <label>Additional Fee Amount ($)</label>
+          <input type="number" step="0.01" name="additional_fee_amount" placeholder="0.00">
+        </div>
+      </div>
+    </fieldset>
+
     <div class="form-actions">
       <a href="{{ url_for('list_customers') }}" class="btn btn-secondary">Cancel</a>
       <button type="submit" class="btn btn-primary">Create Customer</button>

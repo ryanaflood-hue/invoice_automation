@@ -21,17 +21,23 @@ def generate_invoice():
         fee_types = session.query(FeeType).all()
         
         if request.method == "POST":
+            # Debug logging
+            print(f"DEBUG: Form Data Received: {request.form}")
+            
             customer_id = int(request.form["customer_id"])
             invoice_date = date.fromisoformat(request.form["invoice_date"])
             template_name = request.form["template_name"]
             
-            # Extra fees
             fee_2_type = request.form.get("fee_2_type")
             fee_2_amount = float(request.form["fee_2_amount"]) if request.form.get("fee_2_amount") else None
+            
             fee_3_type = request.form.get("fee_3_type")
             fee_3_amount = float(request.form["fee_3_amount"]) if request.form.get("fee_3_amount") else None
+            
             additional_fee_desc = request.form.get("additional_fee_desc")
             additional_fee_amount = float(request.form["additional_fee_amount"]) if request.form.get("additional_fee_amount") else None
+            
+            print(f"DEBUG: Extracted Fees: Fee2={fee_2_type}/${fee_2_amount}, Fee3={fee_3_type}/${fee_3_amount}")
 
             customer = session.query(Customer).get(customer_id)
             
@@ -140,6 +146,21 @@ def new_customer():
         cadence = request.form["cadence"]
         fee_type = request.form.get("fee_type", "Management Fee")
         next_bill_date = date.fromisoformat(request.form["next_bill_date"])
+        
+        # Handle fee_2 fields
+        fee_2_type = request.form.get("fee_2_type", "")
+        fee_2_rate_str = request.form.get("fee_2_rate", "")
+        fee_2_rate = float(fee_2_rate_str) if fee_2_rate_str else None
+        
+        # Handle fee_3 fields
+        fee_3_type = request.form.get("fee_3_type", "")
+        fee_3_rate_str = request.form.get("fee_3_rate", "")
+        fee_3_rate = float(fee_3_rate_str) if fee_3_rate_str else None
+        
+        # Handle additional fee fields
+        additional_fee_desc = request.form.get("additional_fee_desc", "")
+        additional_fee_amount_str = request.form.get("additional_fee_amount", "")
+        additional_fee_amount = float(additional_fee_amount_str) if additional_fee_amount_str else None
 
         session = SessionLocal()
         try:
@@ -154,6 +175,12 @@ def new_customer():
                 cadence=cadence,
                 fee_type=fee_type,
                 next_bill_date=next_bill_date,
+                fee_2_type=fee_2_type,
+                fee_2_rate=fee_2_rate,
+                fee_3_type=fee_3_type,
+                fee_3_rate=fee_3_rate,
+                additional_fee_desc=additional_fee_desc,
+                additional_fee_amount=additional_fee_amount
             )
             session.add(c)
             session.commit()

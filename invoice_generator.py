@@ -100,6 +100,8 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
     try:
         doc = Document(TEMPLATE_PATH)
         
+        print(f"DEBUG: Generator Logic Called. Kwargs: {kwargs}")
+        
         if kwargs:
             # Manual generation: use provided values (even if None)
             fee_2_type = kwargs.get('fee_2_type')
