@@ -1,0 +1,437 @@
+"TimeUTC","timestampInMs","requestPath","requestMethod","requestQueryString","responseStatusCode","requestId","requestUserAgent","level","environment","branch","vercelCache","type","function","host","deploymentDomain","deploymentId","durationMs","region","maxMemoryUsed","memorySize","message","projectId","traceId","sessionId","invocationId","instanceId","concurrency"
+"2025-11-21 21:25:06",1763760306544,"invoice-automation-two.vercel.app/customers","GET","",-1,"x5klq-1763760306469-0cb8cf872b18","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:25:06] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WY9KEJZH60T06GCA4B65","",-1
+"2025-11-21 21:25:06",1763760306544,"invoice-automation-two.vercel.app/customers","GET","",-1,"x5klq-1763760306469-0cb8cf872b18","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 63, in list_customers
+    return render_template(""customers.html"", customers=customers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/customers.html"", line 18, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WY9KEJZH60T06GCA4B65","",-1
+"2025-11-21 21:25:06",1763760306483,"invoice-automation-two.vercel.app/customers","GET","",500,"x5klq-1763760306469-0cb8cf872b18","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",48,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WY9KEJZH60T06GCA4B65","gtHR3wbQPpwO",1
+"2025-11-21 21:25:06",1763760306436,"invoice-automation-two.vercel.app/","GET","",-1,"fglfm-1763760306351-dfb959b70044","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:25:06] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WY7NMZVEEZR7YVN0VE8E","",-1
+"2025-11-21 21:25:06",1763760306421,"invoice-automation-two.vercel.app/","GET","",302,"fglfm-1763760306351-dfb959b70044","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",6,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WY7NMZVEEZR7YVN0VE8E","gtHR3wbQPpwO",1
+"2025-11-21 21:24:58",1763760298099,"invoice-automation-two.vercel.app/customers","GET","",-1,"65fh9-1763760297959-9d9dd1aa6fc4","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:58] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WP1HR19F4P4NC4XZ57ZZ","",-1
+"2025-11-21 21:24:58",1763760298099,"invoice-automation-two.vercel.app/customers","GET","",-1,"65fh9-1763760297959-9d9dd1aa6fc4","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 63, in list_customers
+    return render_template(""customers.html"", customers=customers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/customers.html"", line 18, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WP1HR19F4P4NC4XZ57ZZ","",-1
+"2025-11-21 21:24:58",1763760298033,"invoice-automation-two.vercel.app/customers","GET","",500,"65fh9-1763760297959-9d9dd1aa6fc4","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",58,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WP1HR19F4P4NC4XZ57ZZ","gtHR3wbQPpwO",1
+"2025-11-21 21:24:57",1763760297924,"invoice-automation-two.vercel.app/","GET","",-1,"wslnn-1763760297780-0fcda76eb9af","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:57] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WNXKMH188AHZCSBDDRNZ","",-1
+"2025-11-21 21:24:57",1763760297907,"invoice-automation-two.vercel.app/","GET","",302,"wslnn-1763760297780-0fcda76eb9af","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WNXKMH188AHZCSBDDRNZ","gtHR3wbQPpwO",1
+"2025-11-21 21:24:51",1763760291618,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",-1,"tpvll-1763760291564-af04a84fbc7a","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:51] ""GET /favicon.png HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WFRK7F25MYZFCH3K5MGG","",-1
+"2025-11-21 21:24:51",1763760291603,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",404,"tpvll-1763760291564-af04a84fbc7a","vercel-favicon/1.0","warning","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",6,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WFRK7F25MYZFCH3K5MGG","gtHR3wbQPpwO",1
+"2025-11-21 21:24:51",1763760291523,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"tpvll-1763760291461-f8c6f7644141","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:51] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WFNE67TF03MCSHNQYAPF","",-1
+"2025-11-21 21:24:51",1763760291502,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"tpvll-1763760291461-f8c6f7644141","vercel-favicon/1.0","warning","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WFNE67TF03MCSHNQYAPF","gtHR3wbQPpwO",1
+"2025-11-21 21:24:51",1763760291335,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"m995p-1763760291224-cea828ca3730","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:51] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WFEEE4ECG6E0B8AWW7X4","",-1
+"2025-11-21 21:24:51",1763760291335,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"m995p-1763760291224-cea828ca3730","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 63, in list_customers
+    return render_template(""customers.html"", customers=customers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/customers.html"", line 18, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WFEEE4ECG6E0B8AWW7X4","",-1
+"2025-11-21 21:24:51",1763760291278,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"m995p-1763760291224-cea828ca3730","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",48,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WFEEE4ECG6E0B8AWW7X4","gtHR3wbQPpwO",1
+"2025-11-21 21:24:50",1763760290087,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"mqk5w-1763760289971-68d18196fd0b","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:50] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WE745DYPVTBR8VHPQDHW","",-1
+"2025-11-21 21:24:50",1763760290087,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"mqk5w-1763760289971-68d18196fd0b","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 63, in list_customers
+    return render_template(""customers.html"", customers=customers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/customers.html"", line 18, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WE745DYPVTBR8VHPQDHW","",-1
+"2025-11-21 21:24:50",1763760290020,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"mqk5w-1763760289971-68d18196fd0b","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",58,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WE745DYPVTBR8VHPQDHW","gtHR3wbQPpwO",1
+"2025-11-21 21:24:49",1763760289855,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"66xjp-1763760289776-694b99ae37af","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:49] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WE1HVKJNQ611SWGCF2R9","",-1
+"2025-11-21 21:24:49",1763760289841,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",302,"66xjp-1763760289776-694b99ae37af","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4WE1HVKJNQ611SWGCF2R9","gtHR3wbQPpwO",1
+"2025-11-21 21:24:02",1763760242407,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"rf9mz-1763760242351-a0877e5740c3","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:02] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZPSKGMDTFPHCEDMAZ4Z","",-1
+"2025-11-21 21:24:02",1763760242393,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"rf9mz-1763760242351-a0877e5740c3","vercel-screenshot/1.0","warning","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZPSKGMDTFPHCEDMAZ4Z","gtHR3wbQPpwO",1
+"2025-11-21 21:24:02",1763760242286,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"xb2mr-1763760242160-731f06a392a8","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:02] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZHM0H6KWYTWBEX2QYBN","",-1
+"2025-11-21 21:24:02",1763760242286,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"xb2mr-1763760242160-731f06a392a8","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 63, in list_customers
+    return render_template(""customers.html"", customers=customers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/customers.html"", line 18, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZHM0H6KWYTWBEX2QYBN","",-1
+"2025-11-21 21:24:02",1763760242228,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"xb2mr-1763760242160-731f06a392a8","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",48,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZHM0H6KWYTWBEX2QYBN","gtHR3wbQPpwO",1
+"2025-11-21 21:24:02",1763760242118,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"tkgtw-1763760242062-934c27826689","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:02] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZDNQC323NJFFSZQMYWM","",-1
+"2025-11-21 21:24:02",1763760242101,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",302,"tkgtw-1763760242062-934c27826689","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZDNQC323NJFFSZQMYWM","gtHR3wbQPpwO",1
+"2025-11-21 21:24:01",1763760241979,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"2z45h-1763760241920-92fd2ffbcff9","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZ97WGSDKTM27SXYWBFB","",-1
+"2025-11-21 21:24:01",1763760241959,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"2z45h-1763760241920-92fd2ffbcff9","vercel-screenshot/1.0","warning","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",6,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZ97WGSDKTM27SXYWBFB","gtHR3wbQPpwO",1
+"2025-11-21 21:24:01",1763760241953,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"z2fm6-1763760241758-a0de496be271","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZ3VHFNBT2MNFZK2PKSD","",-1
+"2025-11-21 21:24:01",1763760241953,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"z2fm6-1763760241758-a0de496be271","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 63, in list_customers
+    return render_template(""customers.html"", customers=customers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/customers.html"", line 18, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZ3VHFNBT2MNFZK2PKSD","",-1
+"2025-11-21 21:24:01",1763760241861,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"bwbfw-1763760241746-21d1fc92a6e9","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZ3VHFNBT2MNFZK2PKSD","",-1
+"2025-11-21 21:24:01",1763760241861,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"bwbfw-1763760241746-21d1fc92a6e9","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 63, in list_customers
+    return render_template(""customers.html"", customers=customers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/customers.html"", line 18, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZ3VHFNBT2MNFZK2PKSD","",-1
+"2025-11-21 21:24:01",1763760241806,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"z2fm6-1763760241758-a0de496be271","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",145,"iad1",-1,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZ3VHFNBT2MNFZK2PKSD","gtHR3wbQPpwO",2
+"2025-11-21 21:24:01",1763760241787,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"bwbfw-1763760241746-21d1fc92a6e9","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",56,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZ3VHFNBT2MNFZK2PKSD","gtHR3wbQPpwO",2
+"2025-11-21 21:24:01",1763760241710,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"5q9kd-1763760238795-2c9e0b70e022","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TWBGAB9W91D3YPSJ38K2","",-1
+"2025-11-21 21:24:01",1763760241705,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"28bzl-1763760241647-c18787a002b6","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZ0TDWFTBP4Y1XQE4KG4","",-1
+"2025-11-21 21:24:01",1763760241690,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",302,"28bzl-1763760241647-c18787a002b6","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TZ0TDWFTBP4Y1XQE4KG4","UELi2iZptmXj",1
+"2025-11-21 21:24:01",1763760241677,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"qzmvc-1763760241594-56a0ad953c29","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TYSNRDXJT6D63124FTYG","",-1
+"2025-11-21 21:24:01",1763760241677,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"qzmvc-1763760241594-56a0ad953c29","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 63, in list_customers
+    return render_template(""customers.html"", customers=customers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/customers.html"", line 18, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TYSNRDXJT6D63124FTYG","",-1
+"2025-11-21 21:24:01",1763760241650,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"xrplh-1763760241455-67320c18680e","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TYSNRDXJT6D63124FTYG","",-1
+"2025-11-21 21:24:01",1763760241650,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"xrplh-1763760241455-67320c18680e","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 63, in list_customers
+    return render_template(""customers.html"", customers=customers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/customers.html"", line 18, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TYSNRDXJT6D63124FTYG","",-1
+"2025-11-21 21:24:01",1763760241634,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"qzmvc-1763760241594-56a0ad953c29","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",42,"iad1",-1,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TYSNRDXJT6D63124FTYG","UELi2iZptmXj",2
+"2025-11-21 21:24:01",1763760241556,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"qzmvc-1763760238467-943efb78fe9b","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TW2H9HQP8GTRKM6HNCBS","",-1
+"2025-11-21 21:24:01",1763760241531,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"jnqm2-1763760241314-21149ad1a25e","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TYSNRDXJT6D63124FTYG","",-1
+"2025-11-21 21:24:01",1763760241530,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"jnqm2-1763760241314-21149ad1a25e","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 63, in list_customers
+    return render_template(""customers.html"", customers=customers)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/customers.html"", line 18, in template
+    {% endfor %}
+jinja2.exceptions.TemplateSyntaxError: Encountered unknown tag 'endfor'. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TYSNRDXJT6D63124FTYG","",-1
+"2025-11-21 21:24:01",1763760241493,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"xrplh-1763760241455-67320c18680e","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",155,"iad1",-1,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TYSNRDXJT6D63124FTYG","UELi2iZptmXj",2
+"2025-11-21 21:24:01",1763760241461,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"jnqm2-1763760241314-21149ad1a25e","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",53,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TYSNRDXJT6D63124FTYG","UELi2iZptmXj",2
+"2025-11-21 21:24:01",1763760241417,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"xrplh-1763760238400-0755ada655e4","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TW2KRF4QR45CFCH8YGC8","",-1
+"2025-11-21 21:24:01",1763760241270,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"2h6b4-1763760238660-824208d7daa2","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",-1,"iad1",-1,-1,"127.0.0.1 - - [21/Nov/2025 21:24:01] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TW7MG0NG3ZKY365EDC81","",-1
+"2025-11-21 21:23:58",1763760238960,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",302,"5q9kd-1763760238795-2c9e0b70e022","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",2559,"iad1",124,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TWBGAB9W91D3YPSJ38K2","gtHR3wbQPpwO",1
+"2025-11-21 21:23:58",1763760238835,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",302,"2h6b4-1763760238660-824208d7daa2","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",2254,"iad1",124,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TW7MG0NG3ZKY365EDC81","R9w2trDqBj4z",1
+"2025-11-21 21:23:58",1763760238675,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",302,"xrplh-1763760238400-0755ada655e4","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",2558,"iad1",124,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TW2KRF4QR45CFCH8YGC8","UELi2iZptmXj",1
+"2025-11-21 21:23:58",1763760238673,"invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app/","GET","",302,"qzmvc-1763760238467-943efb78fe9b","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","invoice-automation-52b2ihi2q-ryans-projects-d8bd1793.vercel.app","dpl_2XQb5hmvNVSbnqAdaBsawj1Vu7YB",2713,"iad1",124,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAM4TW2H9HQP8GTRKM6HNCBS","xjKKaeiabdNR",1

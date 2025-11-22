@@ -153,7 +153,7 @@ def seed_customers():
                         rate=rate,
                         cadence=cadence,
                         fee_type=fee_type,
-                        next_bill_date=date.today()
+                        next_bill_date=date(2025, 10, 1)
                     )
                     session.add(c)
                     count += 1
@@ -168,7 +168,7 @@ def seed_customers():
                     existing.cadence = cadence
                     existing.fee_type = fee_type
                     # Reset next_bill_date to today so "Run Daily Batch" picks them up
-                    existing.next_bill_date = date.today()
+                    existing.next_bill_date = date(2025, 10, 1)
                     
                     if email:
                         existing.email = email

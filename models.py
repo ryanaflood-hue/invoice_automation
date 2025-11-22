@@ -1,7 +1,7 @@
 from datetime import date
-from sqlalchemy import create_engine, Column, Integer, String, Date, Float, Text
+from sqlalchemy import create_engine, Column, Integer, String, Date, Float, Text, ForeignKey, Boolean
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, relationship
 
 import os
 
@@ -32,6 +32,21 @@ class Customer(Base):
     fee_type = Column(String, nullable=True, default="Management Fee")
     next_bill_date = Column(Date, nullable=False)
 
+    properties = relationship("Property", back_populates="customer", cascade="all, delete-orphan")
+
+class Property(Base):
+    __tablename__ = "properties"
+
+    id = Column(Integer, primary_key=True, index=True)
+    customer_id = Column(Integer, ForeignKey("customers.id"), nullable=False)
+    address = Column(String, nullable=False)
+    city = Column(String, nullable=True)
+    state = Column(String, nullable=True)
+    zip_code = Column(String, nullable=True)
+    is_primary = Column(Boolean, default=False)
+
+    customer = relationship("Customer", back_populates="properties")
+
 class Invoice(Base):
     __tablename__ = "invoices"
 
@@ -43,6 +58,14 @@ class Invoice(Base):
     file_path = Column(String, nullable=False)      # path to generated docx
     email_subject = Column(String, nullable=False)
     email_body = Column(Text, nullable=False)
+    
+    # Multiple fees
+    fee_2_type = Column(String, nullable=True)
+    fee_2_amount = Column(Float, nullable=True)
+    fee_3_type = Column(String, nullable=True)
+    fee_3_amount = Column(Float, nullable=True)
+    additional_fee_desc = Column(String, nullable=True)
+    additional_fee_amount = Column(Float, nullable=True)
 
 class FeeType(Base):
     __tablename__ = "fee_types"

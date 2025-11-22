@@ -10,27 +10,6 @@ app = Flask(__name__)
 from invoice_generator import generate_invoice_for_customer, get_invoice_templates, generate_invoice_with_template, generate_invoice_buffer
 
 # Initialize DB (safe to run multiple times)
-init_db()
-
-@app.route("/generate-invoice", methods=["GET", "POST"])
-def generate_invoice():
-    session = SessionLocal()
-    try:
-        customers = session.query(Customer).all()
-        templates = get_invoice_templates()
-        if request.method == "POST":
-            customer_id = int(request.form["customer_id"])
-            invoice_date = date.fromisoformat(request.form["invoice_date"])
-            template_name = request.form["template_name"]
-            customer = session.query(Customer).get(customer_id)
-            invoice = generate_invoice_with_template(customer, invoice_date, template_name)
-            return redirect(url_for("list_invoices"))
-        return render_template("generate_invoice.html", customers=customers, templates=templates)
-    finally:
-        session.close()
-
-def bill_due_customers():
-    """Run once a day: generate invoices for customers whose next_bill_date is today."""
     session = SessionLocal()
     try:
         today = date.today()
@@ -40,11 +19,30 @@ def bill_due_customers():
 
             # Advance next_bill_date based on cadence
             if c.cadence == "monthly":
-                c.next_bill_date = c.next_bill_date + timedelta(days=30)
+                # 1st of next month
+                if c.next_bill_date.month == 12:
+                    c.next_bill_date = c.next_bill_date.replace(year=c.next_bill_date.year + 1, month=1, day=1)
+                else:
+                    c.next_bill_date = c.next_bill_date.replace(month=c.next_bill_date.month + 1, day=1)
             elif c.cadence == "quarterly":
-                c.next_bill_date = c.next_bill_date + timedelta(days=90)
+                # 1/1, 4/1, 7/1, 10/1
+                current_month = c.next_bill_date.month
+                if current_month < 4:
+                    next_month = 4
+                    next_year = c.next_bill_date.year
+                elif current_month < 7:
+                    next_month = 7
+                    next_year = c.next_bill_date.year
+                elif current_month < 10:
+                    next_month = 10
+                    next_year = c.next_bill_date.year
+                else:
+                    next_month = 1
+                    next_year = c.next_bill_date.year + 1
+                
+                c.next_bill_date = c.next_bill_date.replace(year=next_year, month=next_month, day=1)
             elif c.cadence == "yearly":
-                c.next_bill_date = c.next_bill_date + timedelta(days=365)
+                c.next_bill_date = c.next_bill_date.replace(year=c.next_bill_date.year + 1)
 
             session.add(c)
         session.commit()
@@ -154,6 +152,42 @@ def manage_fee_types():
     finally:
         session.close()
 
+@app.route("/customers/<int:customer_id>/properties/add", methods=["POST"])
+def add_property(customer_id):
+    session = SessionLocal()
+    try:
+        from models import Property
+        address = request.form["address"]
+        city = request.form["city"]
+        state = request.form["state"]
+        zip_code = request.form["zip_code"]
+        
+        p = Property(
+            customer_id=customer_id,
+            address=address,
+            city=city,
+            state=state,
+            zip_code=zip_code
+        )
+        session.add(p)
+        session.commit()
+        return redirect(url_for("edit_customer", customer_id=customer_id))
+    finally:
+        session.close()
+
+@app.route("/customers/<int:customer_id>/properties/<int:property_id>/delete", methods=["POST"])
+def delete_property(customer_id, property_id):
+    session = SessionLocal()
+    try:
+        from models import Property
+        p = session.query(Property).get(property_id)
+        if p and p.customer_id == customer_id:
+            session.delete(p)
+            session.commit()
+        return redirect(url_for("edit_customer", customer_id=customer_id))
+    finally:
+        session.close()
+
 @app.route("/settings/fee-types/<int:fee_type_id>/delete", methods=["POST"])
 def delete_fee_type(fee_type_id):
     session = SessionLocal()
@@ -166,12 +200,31 @@ def delete_fee_type(fee_type_id):
     finally:
         session.close()
 
+@app.route("/customers/<int:customer_id>/delete", methods=["POST"])
+def delete_customer(customer_id):
+    session = SessionLocal()
+    try:
+        customer = session.query(Customer).get(customer_id)
+        if customer:
+            # Delete associated invoices first (optional, but good practice if no cascade)
+            # SQLAlchemy cascade should handle it if configured, but we didn't configure Invoice cascade
+            # Let's delete invoices manually to be safe
+            session.query(Invoice).filter(Invoice.customer_id == customer_id).delete()
+            session.delete(customer)
+            session.commit()
+        return redirect(url_for("list_customers"))
+    finally:
+        session.close()
+
 @app.route("/invoices")
 def list_invoices():
     session = SessionLocal()
     try:
-        invoices = session.query(Invoice).order_by(Invoice.invoice_date.desc()).all()
-        # For simplicity, join customers manually
+        # Sort by Customer Name then Invoice Date
+        # We need to join Customer to sort by name
+        invoices = session.query(Invoice).join(Customer).order_by(Customer.name.asc(), Invoice.invoice_date.desc()).all()
+        
+        # For simplicity, join customers manually (or use the join above)
         customers_map = {c.id: c for c in session.query(Customer).all()}
         return render_template("invoices.html", invoices=invoices, customers=customers_map)
     finally:

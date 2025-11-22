@@ -85,15 +85,29 @@ def fill_invoice_template(doc, replacements):
                             run.font.name = 'Calibri'
                             run.font.size = Pt(14)
 
-def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, amount, return_buffer=True):
+def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, amount, return_buffer=True, **kwargs):
     """
     Shared logic to generate an invoice.
     If return_buffer is True, returns (filename, BytesIO_object).
     If return_buffer is False, saves to file and returns (filename, full_path).
     DEFAULT IS TRUE FOR VERCEL CLOUD COMPATIBILITY (read-only filesystem).
+    
+    kwargs can contain:
+    - fee_2_type, fee_2_amount
+    - fee_3_type, fee_3_amount
+    - additional_fee_desc, additional_fee_amount
     """
     try:
         doc = Document(TEMPLATE_PATH)
+        
+        fee_2_type = kwargs.get('fee_2_type')
+        fee_2_amount = kwargs.get('fee_2_amount')
+        fee_3_type = kwargs.get('fee_3_type')
+        fee_3_amount = kwargs.get('fee_3_amount')
+        additional_fee_desc = kwargs.get('additional_fee_desc')
+        additional_fee_amount = kwargs.get('additional_fee_amount')
+        
+        total_amount = amount + (fee_2_amount or 0) + (fee_3_amount or 0) + (additional_fee_amount or 0)
         
         replacements = {
             "{{CUSTOMER_NAME}}": customer.name,
@@ -107,8 +121,33 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
             "{{AMOUNT}}": f"${amount:,.2f}",
             "{{INVOICE_DATE}}": invoice_date.strftime("%m/%d/%Y"),
             "{{FEE_TYPE}}": getattr(customer, "fee_type", "Management Fee") or "Management Fee",
+            "{{FEE_2_TYPE}}": fee_2_type or "",
+            "{{FEE_2_AMOUNT}}": f"${fee_2_amount:,.2f}" if fee_2_amount else "",
+            "{{FEE_3_TYPE}}": fee_3_type or "",
+            "{{FEE_3_AMOUNT}}": f"${fee_3_amount:,.2f}" if fee_3_amount else "",
+            "{{ADDITIONAL_FEE}}": additional_fee_desc or "",
+            "{{ADDITIONAL_FEE_AMOUNT}}": f"${additional_fee_amount:,.2f}" if additional_fee_amount else "",
+            "{{TOTAL_AMOUNT}}": f"${total_amount:,.2f}",
         }
         
+        # Helper to remove rows containing unused placeholders
+        def remove_row_if_placeholder_unused(doc, placeholder, value):
+            if not value:
+                for table in doc.tables:
+                    for row in table.rows:
+                        for cell in row.cells:
+                            if placeholder in cell.text:
+                                # Found the row, remove it
+                                tbl = table._tbl
+                                tr = row._tr
+                                tbl.remove(tr)
+                                return # Assume one row per placeholder for now
+
+        # Remove unused fee rows BEFORE filling template
+        remove_row_if_placeholder_unused(doc, "{{FEE_2_TYPE}}", fee_2_type)
+        remove_row_if_placeholder_unused(doc, "{{FEE_3_TYPE}}", fee_3_type)
+        remove_row_if_placeholder_unused(doc, "{{ADDITIONAL_FEE}}", additional_fee_desc)
+
         fill_invoice_template(doc, replacements)
 
         # Calculate street name (remove number)
