@@ -1,0 +1,1075 @@
+"TimeUTC","timestampInMs","requestPath","requestMethod","requestQueryString","responseStatusCode","requestId","requestUserAgent","level","environment","branch","vercelCache","type","function","host","deploymentDomain","deploymentId","durationMs","region","maxMemoryUsed","memorySize","message","projectId","traceId","sessionId","invocationId","instanceId","concurrency"
+"2025-11-22 03:39:09",1763782749889,"invoice-automation-two.vercel.app/customers","GET","",-1,"gzglj-1763782749351-60a73a7f4b0d","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:39:09] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMT9V5JP6R4FGTSPMKPH5S5","",-1
+"2025-11-22 03:39:09",1763782749889,"invoice-automation-two.vercel.app/customers","GET","",-1,"gzglj-1763782749351-60a73a7f4b0d","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMT9V5JP6R4FGTSPMKPH5S5","",-1
+"2025-11-22 03:39:09",1763782749362,"invoice-automation-two.vercel.app/customers","GET","",500,"gzglj-1763782749351-60a73a7f4b0d","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",514,"iad1",130,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMT9V5JP6R4FGTSPMKPH5S5","6r4tSUsSHxQo",1
+"2025-11-22 03:39:09",1763782749289,"invoice-automation-two.vercel.app/","GET","",-1,"znz8f-1763782749237-9df171b5df74","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:39:09] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMT9V2PN2110YGSDG5V51G3","",-1
+"2025-11-22 03:39:09",1763782749270,"invoice-automation-two.vercel.app/","GET","",302,"znz8f-1763782749237-9df171b5df74","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",5,"iad1",130,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMT9V2PN2110YGSDG5V51G3","6r4tSUsSHxQo",1
+"2025-11-22 03:38:54",1763782734517,"invoice-automation-two.vercel.app/customers","GET","",-1,"l6k6x-1763782734490-92079ef43ad7","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:38:54] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMT9CN2PQCDY5J41KVH4AZ6","",-1
+"2025-11-22 03:38:54",1763782734517,"invoice-automation-two.vercel.app/customers","GET","",-1,"l6k6x-1763782734490-92079ef43ad7","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.OperationalError: SSL connection has been closed unexpectedly
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) SSL connection has been closed unexpectedly
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/e3q8)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMT9CN2PQCDY5J41KVH4AZ6","",-1
+"2025-11-22 03:38:54",1763782734498,"invoice-automation-two.vercel.app/customers","GET","",500,"l6k6x-1763782734490-92079ef43ad7","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",9,"iad1",130,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMT9CN2PQCDY5J41KVH4AZ6","6r4tSUsSHxQo",1
+"2025-11-22 03:38:54",1763782734429,"invoice-automation-two.vercel.app/","GET","",-1,"l6k6x-1763782734357-ec93b3874ccb","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:38:54] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMT9CJ7KJV35BXGC9FN9YZP","",-1
+"2025-11-22 03:38:54",1763782734407,"invoice-automation-two.vercel.app/","GET","",302,"l6k6x-1763782734357-ec93b3874ccb","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",9,"iad1",129,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMT9CJ7KJV35BXGC9FN9YZP","6r4tSUsSHxQo",1
+"2025-11-22 03:31:36",1763782296721,"invoice-automation-two.vercel.app/invoices","GET","",-1,"vk6gb-1763782296644-145353c86baa","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:36] ""GET /invoices HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSW12JFD55Z9VM84DTQPNN","",-1
+"2025-11-22 03:31:36",1763782296721,"invoice-automation-two.vercel.app/invoices","GET","",-1,"vk6gb-1763782296644-145353c86baa","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /invoices [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column invoices.fee_2_type does not exist
+LINE 1: ...ject, invoices.email_body AS invoices_email_body, invoices.f...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 270, in list_invoices
+    invoices = session.query(Invoice).join(Customer, Invoice.customer_id == Customer.id).order_by(Customer.name.asc(), Invoice.invoice_date.desc()).all()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column invoices.fee_2_type does not exist
+LINE 1: ...ject, invoices.email_body AS invoices_email_body, invoices.f...
+                                                             ^
+
+[SQL: SELECT invoices.id AS invoices_id, invoices.customer_id AS invoices_customer_id, invoices.invoice_date AS invoices_invoice_date, invoices.period_label AS invoices_period_label, invoices.amount AS invoices_amount, invoices.file_path AS invoices_file_path, invoices.email_subject AS invoices_email_subject, invoices.email_body AS invoices_email_body, invoices.fee_2_type AS invoices_fee_2_type, invoices.fee_2_amount AS invoices_fee_2_amount, invoices.fee_3_type AS invoices_fee_3_type, invoices.fee_3_amount AS invoices_fee_3_amount, invoices.additional_fee_desc AS invoices_additional_fee_desc, invoices.additional_fee_amount AS invoices_additional_fee_amount 
+FROM invoices JOIN customers ON invoices.customer_id = customers.id ORDER BY customers.name ASC, invoices.invoice_date DESC]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSW12JFD55Z9VM84DTQPNN","",-1
+"2025-11-22 03:31:36",1763782296657,"invoice-automation-two.vercel.app/invoices","GET","",500,"vk6gb-1763782296644-145353c86baa","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",55,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSW12JFD55Z9VM84DTQPNN","6r4tSUsSHxQo",1
+"2025-11-22 03:31:30",1763782290528,"invoice-automation-two.vercel.app/customers","GET","",-1,"vhcq8-1763782290442-ab47eecfd827","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:30] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVV15G7BDYQ4QHPVSXKSP","",-1
+"2025-11-22 03:31:30",1763782290528,"invoice-automation-two.vercel.app/customers","GET","",-1,"vhcq8-1763782290442-ab47eecfd827","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVV15G7BDYQ4QHPVSXKSP","",-1
+"2025-11-22 03:31:30",1763782290469,"invoice-automation-two.vercel.app/customers","GET","",500,"vhcq8-1763782290442-ab47eecfd827","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",49,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVV15G7BDYQ4QHPVSXKSP","6r4tSUsSHxQo",1
+"2025-11-22 03:31:30",1763782290381,"invoice-automation-two.vercel.app/","GET","",-1,"gmtcw-1763782290315-e3bc243db2ac","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:30] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVTXYET3F2XPMX1H1E6MZ","",-1
+"2025-11-22 03:31:30",1763782290366,"invoice-automation-two.vercel.app/","GET","",302,"gmtcw-1763782290315-e3bc243db2ac","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",6,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVTXYET3F2XPMX1H1E6MZ","6r4tSUsSHxQo",1
+"2025-11-22 03:31:28",1763782288524,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"hhdxj-1763782288425-62df09f60fde","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:28] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVS2KDNXXD7BG9T169FDD","",-1
+"2025-11-22 03:31:28",1763782288524,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"hhdxj-1763782288425-62df09f60fde","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVS2KDNXXD7BG9T169FDD","",-1
+"2025-11-22 03:31:28",1763782288467,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"hhdxj-1763782288425-62df09f60fde","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",48,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVS2KDNXXD7BG9T169FDD","6r4tSUsSHxQo",1
+"2025-11-22 03:31:28",1763782288387,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"8d6x5-1763782288335-cd88f4d4f924","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:28] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVRZPJ5JA2DYTXRQQMR5N","",-1
+"2025-11-22 03:31:28",1763782288374,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",302,"8d6x5-1763782288335-cd88f4d4f924","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",5,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVRZPJ5JA2DYTXRQQMR5N","6r4tSUsSHxQo",1
+"2025-11-22 03:31:27",1763782287216,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",-1,"fz8x4-1763782287161-60eda2178e4b","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:27] ""GET /favicon.png HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQV48XFRDB4FB85788RW","",-1
+"2025-11-22 03:31:27",1763782287204,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",404,"fz8x4-1763782287161-60eda2178e4b","vercel-favicon/1.0","warning","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",5,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQV48XFRDB4FB85788RW","6r4tSUsSHxQo",1
+"2025-11-22 03:31:27",1763782287122,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"qq8m7-1763782287069-04bbb8bbf57e","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:27] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQR46HV3TK60H9FQ6VJD","",-1
+"2025-11-22 03:31:27",1763782287108,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"qq8m7-1763782287069-04bbb8bbf57e","vercel-favicon/1.0","warning","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",5,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQR46HV3TK60H9FQ6VJD","6r4tSUsSHxQo",1
+"2025-11-22 03:31:26",1763782286934,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"qq8m7-1763782286830-ea25d8a7490a","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQGQHMP38914CDY6QSAC","",-1
+"2025-11-22 03:31:26",1763782286934,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"qq8m7-1763782286830-ea25d8a7490a","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQGQHMP38914CDY6QSAC","",-1
+"2025-11-22 03:31:26",1763782286871,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"qq8m7-1763782286830-ea25d8a7490a","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",49,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQGQHMP38914CDY6QSAC","6r4tSUsSHxQo",1
+"2025-11-22 03:31:26",1763782286818,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"4r49l-1763782286759-dab596bf248a","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQEG25BYZVBC3T0YA6N5","",-1
+"2025-11-22 03:31:26",1763782286800,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"4r49l-1763782286759-dab596bf248a","vercel-screenshot/1.0","warning","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",5,"iad1",127,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQEG25BYZVBC3T0YA6N5","6r4tSUsSHxQo",1
+"2025-11-22 03:31:26",1763782286582,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"wn55m-1763782286472-3109c7d216be","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQ5KJDBJH6AC0B8PFDSR","",-1
+"2025-11-22 03:31:26",1763782286581,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"wn55m-1763782286472-3109c7d216be","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQ5KJDBJH6AC0B8PFDSR","",-1
+"2025-11-22 03:31:26",1763782286515,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"wn55m-1763782286472-3109c7d216be","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",48,"iad1",127,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQ5KJDBJH6AC0B8PFDSR","6r4tSUsSHxQo",1
+"2025-11-22 03:31:26",1763782286510,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"hnt8f-1763782286459-46a8eba10bdc","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQ51X34FZNSS3PVVHP15","",-1
+"2025-11-22 03:31:26",1763782286497,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"hnt8f-1763782286459-46a8eba10bdc","vercel-screenshot/1.0","warning","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",5,"iad1",127,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQ51X34FZNSS3PVVHP15","6r4tSUsSHxQo",1
+"2025-11-22 03:31:26",1763782286430,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"qjfg8-1763782286376-b1b2aa6274e2","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQ2GDF6HYGSM4DJEZ8XX","",-1
+"2025-11-22 03:31:26",1763782286416,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",302,"qjfg8-1763782286376-b1b2aa6274e2","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",5,"iad1",127,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVQ2GDF6HYGSM4DJEZ8XX","6r4tSUsSHxQo",1
+"2025-11-22 03:31:26",1763782286395,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"7vfqz-1763782286218-c690eb5fd589","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","",-1
+"2025-11-22 03:31:26",1763782286395,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"7vfqz-1763782286218-c690eb5fd589","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","",-1
+"2025-11-22 03:31:26",1763782286268,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"g9klz-1763782286178-f432fef7cdc7","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","",-1
+"2025-11-22 03:31:26",1763782286268,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"g9klz-1763782286178-f432fef7cdc7","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","",-1
+"2025-11-22 03:31:26",1763782286258,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"7vfqz-1763782286218-c690eb5fd589","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",136,"iad1",-1,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","6r4tSUsSHxQo",2
+"2025-11-22 03:31:26",1763782286225,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"pm6bw-1763782286109-4a04453daf1f","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","",-1
+"2025-11-22 03:31:26",1763782286225,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"pm6bw-1763782286109-4a04453daf1f","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","",-1
+"2025-11-22 03:31:26",1763782286217,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"g9klz-1763782286178-f432fef7cdc7","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",49,"iad1",-1,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","6r4tSUsSHxQo",2
+"2025-11-22 03:31:26",1763782286175,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"7vfqz-1763782286123-ad392f52e9cd","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","",-1
+"2025-11-22 03:31:26",1763782286165,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",302,"7vfqz-1763782286123-ad392f52e9cd","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",9,"iad1",-1,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","6r4tSUsSHxQo",2
+"2025-11-22 03:31:26",1763782286151,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"pm6bw-1763782286109-4a04453daf1f","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",62,"iad1",127,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPT7QMSADG961N2PKVYG","6r4tSUsSHxQo",2
+"2025-11-22 03:31:26",1763782286131,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"w9hkk-1763782283279-ba8689b9dfd4","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVM4SBJZSHB4SRN1BQPNQ","",-1
+"2025-11-22 03:31:26",1763782286071,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"hnt8f-1763782283132-738ee6d241cd","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVM49W765PPQ2V8ED54TK","",-1
+"2025-11-22 03:31:26",1763782286016,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"tn9gl-1763782285906-4f73cff155b0","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:26] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPM8T8RAGYC13Y0M8MSC","",-1
+"2025-11-22 03:31:26",1763782286016,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"tn9gl-1763782285906-4f73cff155b0","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPM8T8RAGYC13Y0M8MSC","",-1
+"2025-11-22 03:31:25",1763782285960,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"tn9gl-1763782285906-4f73cff155b0","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",46,"iad1",127,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPM8T8RAGYC13Y0M8MSC","8SulCF0fhvTI",1
+"2025-11-22 03:31:25",1763782285952,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"8l2nd-1763782285781-f456779d7508","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:25] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPHV6M6X45WVCX3QNAJ7","",-1
+"2025-11-22 03:31:25",1763782285952,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"8l2nd-1763782285781-f456779d7508","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPHV6M6X45WVCX3QNAJ7","",-1
+"2025-11-22 03:31:25",1763782285883,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"8l2nd-1763782285781-f456779d7508","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",59,"iad1",127,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVPHV6M6X45WVCX3QNAJ7","8SulCF0fhvTI",1
+"2025-11-22 03:31:25",1763782285859,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"qqddm-1763782283389-a21263adbfb1","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:25] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVM581P5T5F186X10X16A","",-1
+"2025-11-22 03:31:25",1763782285810,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"2czvh-1763782285625-d109ac6926e9","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:25] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVP9E7BYCTRCZFYNAB3SQ","",-1
+"2025-11-22 03:31:25",1763782285810,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"2czvh-1763782285625-d109ac6926e9","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVP9E7BYCTRCZFYNAB3SQ","",-1
+"2025-11-22 03:31:25",1763782285735,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"8l2nd-1763782283114-1a814e0b689f","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:25] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVM4BHMNX9Q0DJ6SJ1DS5","",-1
+"2025-11-22 03:31:25",1763782285700,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"pm6bw-1763782285575-0338d4867cfb","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:25] ""GET /customers HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVP9E7BYCTRCZFYNAB3SQ","",-1
+"2025-11-22 03:31:25",1763782285700,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"pm6bw-1763782285575-0338d4867cfb","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"Exception on /customers [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 104, in list_customers
+    customers = session.query(Customer).all()
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column customers.fee_2_type does not exist
+LINE 1: ...adence, customers.fee_type AS customers_fee_type, customers....
+                                                             ^
+HINT:  Perhaps you meant to reference the column ""customers.fee_type"".
+
+[SQL: SELECT customers.id AS customers_id, customers.name AS customers_name, customers.email AS customers_email, customers.property_address AS customers_property_address, customers.property_city AS customers_property_city, customers.property_state AS customers_property_state, customers.property_zip AS customers_property_zip, customers.rate AS customers_rate, customers.cadence AS customers_cadence, customers.fee_type AS customers_fee_type, customers.fee_2_type AS customers_fee_2_type, customers.fee_2_rate AS customers_fee_2_rate, customers.next_bill_date AS customers_next_bill_date 
+FROM customers]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVP9E7BYCTRCZFYNAB3SQ","",-1
+"2025-11-22 03:31:25",1763782285665,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"2czvh-1763782285625-d109ac6926e9","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",143,"iad1",-1,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVP9E7BYCTRCZFYNAB3SQ","oBYKMGDs9lFR",2
+"2025-11-22 03:31:25",1763782285614,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/customers","GET","",500,"pm6bw-1763782285575-0338d4867cfb","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",66,"iad1",127,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVP9E7BYCTRCZFYNAB3SQ","oBYKMGDs9lFR",2
+"2025-11-22 03:31:25",1763782285583,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"hnt8f-1763782285452-ff0e7ca59af4","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:25] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVP82WG75S4J29T4Y1Y5H","",-1
+"2025-11-22 03:31:25",1763782285570,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",302,"hnt8f-1763782285452-ff0e7ca59af4","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",5,"iad1",125,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVP82WG75S4J29T4Y1Y5H","oBYKMGDs9lFR",1
+"2025-11-22 03:31:25",1763782285526,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"2czvh-1763782285355-96ae29daa2aa","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 03:31:25] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVP5Z2S19ZH4NT8SK49M3","",-1
+"2025-11-22 03:31:25",1763782285503,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",302,"2czvh-1763782285355-96ae29daa2aa","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",7,"iad1",125,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVP5Z2S19ZH4NT8SK49M3","oBYKMGDs9lFR",1
+"2025-11-22 03:31:23",1763782283432,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",302,"qqddm-1763782283389-a21263adbfb1","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",2271,"iad1",124,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVM581P5T5F186X10X16A","8SulCF0fhvTI",1
+"2025-11-22 03:31:23",1763782283417,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",302,"w9hkk-1763782283279-ba8689b9dfd4","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",2518,"iad1",124,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVM4SBJZSHB4SRN1BQPNQ","6r4tSUsSHxQo",1
+"2025-11-22 03:31:23",1763782283403,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",302,"8l2nd-1763782283114-1a814e0b689f","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",2157,"iad1",125,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVM4BHMNX9Q0DJ6SJ1DS5","6fwlxXqmyrdY",1
+"2025-11-22 03:31:23",1763782283401,"invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app/","GET","",302,"hnt8f-1763782283132-738ee6d241cd","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","invoice-automation-ncaaddjz7-ryans-projects-d8bd1793.vercel.app","dpl_2eAMEHWmpvquCCcC89PDrRufc2mu",2503,"iad1",124,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMSVM49W765PPQ2V8ED54TK","ZuYySXpRJmZi",1

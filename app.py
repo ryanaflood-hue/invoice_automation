@@ -345,7 +345,7 @@ def run_migration():
     try:
         with engine.connect() as conn:
             # Add new columns to invoices table
-            new_columns = [
+            invoice_columns = [
                 ("fee_2_type", "VARCHAR"),
                 ("fee_2_amount", "FLOAT"),
                 ("fee_3_type", "VARCHAR"),
@@ -355,20 +355,49 @@ def run_migration():
             ]
             
             results = []
-            for col_name, col_type in new_columns:
+            for col_name, col_type in invoice_columns:
                 try:
                     if "sqlite" in database_url:
                         conn.execute(text(f"ALTER TABLE invoices ADD COLUMN {col_name} {col_type}"))
                     else:
                         conn.execute(text(f"ALTER TABLE invoices ADD COLUMN IF NOT EXISTS {col_name} {col_type}"))
-                    results.append(f"Added {col_name}")
+                    results.append(f"Added invoices.{col_name}")
                 except Exception as e:
-                    results.append(f"Skipped {col_name} (maybe exists): {str(e)}")
+                    results.append(f"Skipped invoices.{col_name}: {str(e)}")
+            
+            # Add new columns to customers table
+            customer_columns = [
+                ("fee_2_type", "VARCHAR"),
+                ("fee_2_rate", "FLOAT")
+            ]
+            
+            for col_name, col_type in customer_columns:
+                try:
+                    if "sqlite" in database_url:
+                        conn.execute(text(f"ALTER TABLE customers ADD COLUMN {col_name} {col_type}"))
+                    else:
+                        conn.execute(text(f"ALTER TABLE customers ADD COLUMN IF NOT EXISTS {col_name} {col_type}"))
+                    results.append(f"Added customers.{col_name}")
+                except Exception as e:
+                    results.append(f"Skipped customers.{col_name}: {str(e)}")
             
             # Create properties table
             from models import Base
             Base.metadata.create_all(bind=engine)
             results.append("Ensured properties table exists")
+            
+            # Add fee_amount to properties (in case properties existed before)
+            try:
+                if "sqlite" in database_url:
+                    conn.execute(text("ALTER TABLE properties ADD COLUMN fee_amount FLOAT"))
+                else:
+                    conn.execute(text("ALTER TABLE properties ADD COLUMN IF NOT EXISTS fee_amount FLOAT"))
+                results.append("Added properties.fee_amount")
+            except Exception as e:
+                results.append(f"Skipped properties.fee_amount: {str(e)}")
+            
+            # Commit all changes
+            conn.commit()
             
             return f"Migration results:<br>" + "<br>".join(results)
     except Exception as e:
