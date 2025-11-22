@@ -236,7 +236,7 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
         print(f"Error generating invoice: {e}")
         raise e
 
-def generate_invoice_with_template(customer, invoice_date, template_name):
+def generate_invoice_with_template(customer, invoice_date, template_name, **kwargs):
     """Generate invoice and save to database (for manual generation via UI)."""
     session = SessionLocal()
     try:
@@ -246,7 +246,7 @@ def generate_invoice_with_template(customer, invoice_date, template_name):
         period_dates = f"{start_date.strftime('%m/%d/%Y')} - {end_date.strftime('%m/%d/%Y')}"
         
         # Generate invoice in-memory
-        filename, buffer = _generate_invoice_logic(customer, invoice_date, period_label, period_dates, amount)
+        filename, buffer = _generate_invoice_logic(customer, invoice_date, period_label, period_dates, amount, **kwargs)
         
         # Create email content
         fee_type_text = getattr(customer, "fee_type", "Management Fee") or "Management Fee"
@@ -266,7 +266,14 @@ def generate_invoice_with_template(customer, invoice_date, template_name):
             amount=amount,
             file_path=filename,
             email_subject=subject,
-            email_body=body
+            email_body=body,
+            # Save extra fees if provided
+            fee_2_type=kwargs.get("fee_2_type"),
+            fee_2_amount=kwargs.get("fee_2_amount"),
+            fee_3_type=kwargs.get("fee_3_type"),
+            fee_3_amount=kwargs.get("fee_3_amount"),
+            additional_fee_desc=kwargs.get("additional_fee_desc"),
+            additional_fee_amount=kwargs.get("additional_fee_amount")
         )
         session.add(invoice_record)
         session.commit()

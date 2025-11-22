@@ -7,7 +7,7 @@ from models import init_db, SessionLocal, Customer, Invoice, FeeType
 
 
 app = Flask(__name__)
-from invoice_generator import generate_invoice_for_customer, get_invoice_templates, generate_invoice_with_template, generate_invoice_buffer
+from invoice_generator import generate_invoice_for_customer, get_invoice_templates, generate_invoice_with_template, generate_invoice_buffer, get_period_label
 
 # Initialize DB (safe to run multiple times)
 init_db()
@@ -53,40 +53,61 @@ def generate_invoice():
         session.close()
 
 def bill_due_customers():
-    """Run once a day: generate invoices for customers whose next_bill_date is today."""
+    """Run once a day: generate invoices for customers whose next_bill_date is today or in the past."""
     session = SessionLocal()
     try:
         today = date.today()
-        customers = session.query(Customer).filter(Customer.next_bill_date == today).all()
+        # Catch up on any missed invoices
+        customers = session.query(Customer).filter(Customer.next_bill_date <= today).all()
+        
         for c in customers:
-            generate_invoice_for_customer(c, today)
-
-            # Advance next_bill_date based on cadence
-            if c.cadence == "monthly":
-                # 1st of next month
-                if c.next_bill_date.month == 12:
-                    c.next_bill_date = c.next_bill_date.replace(year=c.next_bill_date.year + 1, month=1, day=1)
-                else:
-                    c.next_bill_date = c.next_bill_date.replace(month=c.next_bill_date.month + 1, day=1)
-            elif c.cadence == "quarterly":
-                # 1/1, 4/1, 7/1, 10/1
-                current_month = c.next_bill_date.month
-                if current_month < 4:
-                    next_month = 4
-                    next_year = c.next_bill_date.year
-                elif current_month < 7:
-                    next_month = 7
-                    next_year = c.next_bill_date.year
-                elif current_month < 10:
-                    next_month = 10
-                    next_year = c.next_bill_date.year
-                else:
-                    next_month = 1
-                    next_year = c.next_bill_date.year + 1
+            # Process all due periods until next_bill_date is in the future
+            # Limit iterations to prevent infinite loops in case of logic error
+            max_iterations = 12 
+            iterations = 0
+            
+            while c.next_bill_date <= today and iterations < max_iterations:
+                iterations += 1
                 
-                c.next_bill_date = c.next_bill_date.replace(year=next_year, month=next_month, day=1)
-            elif c.cadence == "yearly":
-                c.next_bill_date = c.next_bill_date.replace(year=c.next_bill_date.year + 1)
+                # Check if invoice already exists for this period
+                period_label = get_period_label(c.next_bill_date, c.cadence)
+                existing_invoice = session.query(Invoice).filter(
+                    Invoice.customer_id == c.id,
+                    Invoice.period_label == period_label
+                ).first()
+                
+                if not existing_invoice:
+                    print(f"Generating invoice for {c.name} - {period_label}")
+                    generate_invoice_for_customer(c, c.next_bill_date)
+                else:
+                    print(f"Skipping {c.name} - {period_label} (Invoice already exists)")
+
+                # Advance next_bill_date based on cadence
+                if c.cadence == "monthly":
+                    # 1st of next month
+                    if c.next_bill_date.month == 12:
+                        c.next_bill_date = c.next_bill_date.replace(year=c.next_bill_date.year + 1, month=1, day=1)
+                    else:
+                        c.next_bill_date = c.next_bill_date.replace(month=c.next_bill_date.month + 1, day=1)
+                elif c.cadence == "quarterly":
+                    # 1/1, 4/1, 7/1, 10/1
+                    current_month = c.next_bill_date.month
+                    if current_month < 4:
+                        next_month = 4
+                        next_year = c.next_bill_date.year
+                    elif current_month < 7:
+                        next_month = 7
+                        next_year = c.next_bill_date.year
+                    elif current_month < 10:
+                        next_month = 10
+                        next_year = c.next_bill_date.year
+                    else:
+                        next_month = 1
+                        next_year = c.next_bill_date.year + 1
+                    
+                    c.next_bill_date = c.next_bill_date.replace(year=next_year, month=next_month, day=1)
+                elif c.cadence == "yearly":
+                    c.next_bill_date = c.next_bill_date.replace(year=c.next_bill_date.year + 1)
 
             session.add(c)
         session.commit()
