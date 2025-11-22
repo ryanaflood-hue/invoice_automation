@@ -10,6 +10,50 @@ app = Flask(__name__)
 from invoice_generator import generate_invoice_for_customer, get_invoice_templates, generate_invoice_with_template, generate_invoice_buffer
 
 # Initialize DB (safe to run multiple times)
+init_db()
+
+@app.route("/generate-invoice", methods=["GET", "POST"])
+def generate_invoice():
+    session = SessionLocal()
+    try:
+        customers = session.query(Customer).all()
+        templates = get_invoice_templates()
+        fee_types = session.query(FeeType).all()
+        
+        if request.method == "POST":
+            customer_id = int(request.form["customer_id"])
+            invoice_date = date.fromisoformat(request.form["invoice_date"])
+            template_name = request.form["template_name"]
+            
+            # Extra fees
+            fee_2_type = request.form.get("fee_2_type")
+            fee_2_amount = float(request.form["fee_2_amount"]) if request.form.get("fee_2_amount") else None
+            fee_3_type = request.form.get("fee_3_type")
+            fee_3_amount = float(request.form["fee_3_amount"]) if request.form.get("fee_3_amount") else None
+            additional_fee_desc = request.form.get("additional_fee_desc")
+            additional_fee_amount = float(request.form["additional_fee_amount"]) if request.form.get("additional_fee_amount") else None
+
+            customer = session.query(Customer).get(customer_id)
+            
+            # Pass extra fees as kwargs
+            invoice = generate_invoice_with_template(
+                customer, 
+                invoice_date, 
+                template_name,
+                fee_2_type=fee_2_type,
+                fee_2_amount=fee_2_amount,
+                fee_3_type=fee_3_type,
+                fee_3_amount=fee_3_amount,
+                additional_fee_desc=additional_fee_desc,
+                additional_fee_amount=additional_fee_amount
+            )
+            return redirect(url_for("list_invoices"))
+        return render_template("generate_invoice.html", customers=customers, templates=templates, fee_types=fee_types)
+    finally:
+        session.close()
+
+def bill_due_customers():
+    """Run once a day: generate invoices for customers whose next_bill_date is today."""
     session = SessionLocal()
     try:
         today = date.today()
@@ -272,18 +316,6 @@ def run_seeding():
     except Exception as e:
         return f"Error seeding data: {e}", 500
 
-if __name__ == "__main__":
-    init_db()
-
-    # Only run scheduler if NOT in Vercel (check for VERCEL env var)
-    # In Vercel, we use Vercel Cron to hit /run-today
-    if not os.environ.get("VERCEL"):
-        scheduler = BackgroundScheduler()
-        # Run once every day at 6am, for example
-        scheduler.add_job(bill_due_customers, "cron", hour=6, minute=0)
-        scheduler.start()
-
-    app.run(debug=True)
 @app.route('/clear-invoices')
 def clear_invoices_route():
     from models import Invoice
@@ -298,3 +330,58 @@ def clear_invoices_route():
         return f'Error: {str(e)}', 500
     finally:
         session.close()
+
+@app.route('/migrate-db')
+def run_migration():
+    from sqlalchemy import create_engine, text
+    import os
+    
+    database_url = os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL") or "sqlite:///invoice_app.db"
+    if database_url.startswith("postgres://"):
+        database_url = database_url.replace("postgres://", "postgresql://", 1)
+        
+    engine = create_engine(database_url)
+    try:
+        with engine.connect() as conn:
+            # Add new columns to invoices table
+            new_columns = [
+                ("fee_2_type", "VARCHAR"),
+                ("fee_2_amount", "FLOAT"),
+                ("fee_3_type", "VARCHAR"),
+                ("fee_3_amount", "FLOAT"),
+                ("additional_fee_desc", "VARCHAR"),
+                ("additional_fee_amount", "FLOAT")
+            ]
+            
+            results = []
+            for col_name, col_type in new_columns:
+                try:
+                    if "sqlite" in database_url:
+                        conn.execute(text(f"ALTER TABLE invoices ADD COLUMN {col_name} {col_type}"))
+                    else:
+                        conn.execute(text(f"ALTER TABLE invoices ADD COLUMN IF NOT EXISTS {col_name} {col_type}"))
+                    results.append(f"Added {col_name}")
+                except Exception as e:
+                    results.append(f"Skipped {col_name} (maybe exists): {str(e)}")
+            
+            # Create properties table
+            from models import Base
+            Base.metadata.create_all(bind=engine)
+            results.append("Ensured properties table exists")
+            
+            return f"Migration results:<br>" + "<br>".join(results)
+    except Exception as e:
+        return f"Migration failed: {e}", 500
+
+if __name__ == "__main__":
+    init_db()
+
+    # Only run scheduler if NOT in Vercel (check for VERCEL env var)
+    # In Vercel, we use Vercel Cron to hit /run-today
+    if not os.environ.get("VERCEL"):
+        scheduler = BackgroundScheduler()
+        # Run once every day at 6am, for example
+        scheduler.add_job(bill_due_customers, "cron", hour=6, minute=0)
+        scheduler.start()
+
+    app.run(debug=True)
