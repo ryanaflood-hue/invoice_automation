@@ -266,7 +266,7 @@ def list_invoices():
     try:
         # Sort by Customer Name then Invoice Date
         # We need to join Customer to sort by name
-        invoices = session.query(Invoice).join(Customer).order_by(Customer.name.asc(), Invoice.invoice_date.desc()).all()
+        invoices = session.query(Invoice).join(Customer, Invoice.customer_id == Customer.id).order_by(Customer.name.asc(), Invoice.invoice_date.desc()).all()
         
         # For simplicity, join customers manually (or use the join above)
         customers_map = {c.id: c for c in session.query(Customer).all()}

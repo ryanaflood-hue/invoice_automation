@@ -1,0 +1,309 @@
+"TimeUTC","timestampInMs","requestPath","requestMethod","requestQueryString","responseStatusCode","requestId","requestUserAgent","level","environment","branch","vercelCache","type","function","host","deploymentDomain","deploymentId","durationMs","region","maxMemoryUsed","memorySize","message","projectId","traceId","sessionId","invocationId","instanceId","concurrency"
+"2025-11-22 02:33:42",1763778822188,"invoice-automation-two.vercel.app/","GET","",-1,"n58bg-1763778821949-69849733527d","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHZVXHF60RPXHA8NPNMEB","",-1
+"2025-11-22 02:33:42",1763778822013,"invoice-automation-two.vercel.app/","GET","",500,"n58bg-1763778821949-69849733527d","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",161,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHZVXHF60RPXHA8NPNMEB","",1
+"2025-11-22 02:33:31",1763778811889,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",-1,"8cdjj-1763778811672-332702495baa","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHNT1DTFMBD9AW8PJK3XC","",-1
+"2025-11-22 02:33:31",1763778811713,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",500,"8cdjj-1763778811672-332702495baa","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",163,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHNT1DTFMBD9AW8PJK3XC","",1
+"2025-11-22 02:33:29",1763778809620,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",-1,"wqxfn-1763778809365-98f5dd67b0ba","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHKJPXKCDE0A7JT2XN4M4","",-1
+"2025-11-22 02:33:29",1763778809430,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",500,"wqxfn-1763778809365-98f5dd67b0ba","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",165,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHKJPXKCDE0A7JT2XN4M4","",1
+"2025-11-22 02:33:28",1763778808181,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",-1,"qq8m7-1763778807956-94ea00d7a26a","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHJ5XYQ31DAMJEVSBAV9G","",-1
+"2025-11-22 02:33:27",1763778807997,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",500,"qq8m7-1763778807956-94ea00d7a26a","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",167,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHJ5XYQ31DAMJEVSBAV9G","",1
+"2025-11-22 02:33:27",1763778807916,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"ttp4h-1763778807692-478aa5b08252","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHHXREKCQFNHMSVEREYZX","",-1
+"2025-11-22 02:33:27",1763778807736,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",500,"ttp4h-1763778807692-478aa5b08252","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",165,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHHXREKCQFNHMSVEREYZX","",1
+"2025-11-22 02:33:25",1763778805622,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"65fjt-1763778805401-78b9ec08d294","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHFP0VWV0PVA54GB2TCJW","",-1
+"2025-11-22 02:33:25",1763778805440,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",500,"65fjt-1763778805401-78b9ec08d294","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",164,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHFP0VWV0PVA54GB2TCJW","",1
+"2025-11-22 02:33:24",1763778804269,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"ktmx8-1763778804028-a2fb8b6fc6d6","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHEBBNP66N05XKNT9254G","",-1
+"2025-11-22 02:33:24",1763778804075,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",500,"ktmx8-1763778804028-a2fb8b6fc6d6","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",169,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHEBBNP66N05XKNT9254G","",1
+"2025-11-22 02:33:23",1763778803863,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"7k8f5-1763778803633-9d88595a5bcf","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHDYXY2DRB6MMDJQCC3P2","",-1
+"2025-11-22 02:33:23",1763778803676,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",500,"7k8f5-1763778803633-9d88595a5bcf","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",167,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHDYXY2DRB6MMDJQCC3P2","",1
+"2025-11-22 02:33:22",1763778802540,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"xzfm5-1763778802310-80581ca34229","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHCNJGQJ10DQ0R1WYTP67","",-1
+"2025-11-22 02:33:22",1763778802354,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",500,"xzfm5-1763778802310-80581ca34229","vercel-favicon/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",164,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPHCNJGQJ10DQ0R1WYTP67","",1
+"2025-11-22 02:33:17",1763778797755,"invoice-automation-two.vercel.app/","GET","",-1,"5wgnp-1763778796955-32d61293e54c","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.
+Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPH7F6MDNYEBMAPJ1KSG7Z","",-1
+"2025-11-22 02:33:17",1763778797030,"invoice-automation-two.vercel.app/","GET","",500,"5wgnp-1763778796955-32d61293e54c","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",167,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMPH7F6MDNYEBMAPJ1KSG7Z","",1
+"2025-11-22 02:19:15",1763777955679,"invoice-automation-two.vercel.app/migrate-db","GET","",-1,"2x9z6-1763777955453-229ce7cbe483","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNQHNQDTN8M9JS0A1D3J4E","",-1
+"2025-11-22 02:19:15",1763777955511,"invoice-automation-two.vercel.app/migrate-db","GET","",500,"2x9z6-1763777955453-229ce7cbe483","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",154,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNQHNQDTN8M9JS0A1D3J4E","",1
+"2025-11-22 02:19:05",1763777945540,"invoice-automation-two.vercel.app/","GET","",-1,"gs76t-1763777945233-a4fd7fdbc292","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNQ7S2RRY6592VJSW8ZADQ","",-1
+"2025-11-22 02:19:05",1763777945378,"invoice-automation-two.vercel.app/","GET","",500,"gs76t-1763777945233-a4fd7fdbc292","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",145,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNQ7S2RRY6592VJSW8ZADQ","",1
+"2025-11-22 02:18:15",1763777895726,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"rsgh5-1763777895505-9194a4907259","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNQ3TYR70S2M4TRX0ZTVM","",-1
+"2025-11-22 02:18:15",1763777895649,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"8d6x5-1763777895415-14ec44a951ee","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNQ1F4JMTS7V107KSCX46","",-1
+"2025-11-22 02:18:15",1763777895546,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",500,"rsgh5-1763777895505-9194a4907259","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",151,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNQ3TYR70S2M4TRX0ZTVM","",1
+"2025-11-22 02:18:15",1763777895471,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",500,"8d6x5-1763777895415-14ec44a951ee","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",153,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNQ1F4JMTS7V107KSCX46","",1
+"2025-11-22 02:18:15",1763777895417,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"j7qr2-1763777895213-c8e593f0caf3","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNPTP3X1CV2SB6Z5ANWE7","",-1
+"2025-11-22 02:18:15",1763777895330,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"pfr4k-1763777895009-2f16b920f45f","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNPQMWXAW738JF7JVNH8G","",-1
+"2025-11-22 02:18:15",1763777895254,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",500,"j7qr2-1763777895213-c8e593f0caf3","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",149,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNPTP3X1CV2SB6Z5ANWE7","",1
+"2025-11-22 02:18:15",1763777895156,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",500,"pfr4k-1763777895009-2f16b920f45f","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",145,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNPQMWXAW738JF7JVNH8G","",1
+"2025-11-22 02:18:15",1763777895097,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"lxr4c-1763777894150-1002dd42ec44","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.
+Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNNWKT4XY80S5ZY816Y9Q","",-1
+"2025-11-22 02:18:14",1763777894965,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"9dgmd-1763777893941-19aa5cdd7ad4","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.
+Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNNVG7G22SMESXFY3713T","",-1
+"2025-11-22 02:18:14",1763777894893,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"xzv4l-1763777894127-4b16efa7d07f","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.
+Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNNW5XSXD379VJ6XAA825","",-1
+"2025-11-22 02:18:14",1763777894454,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"xjc22-1763777893981-de4e5b63aaf3","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",-1,"iad1",-1,-1,"Error importing app.py:
+Traceback (most recent call last):
+File ""/var/task/vc__handler__python.py"", line 218, in <module>
+__vc_spec.loader.exec_module(__vc_module)
+File ""<frozen importlib._bootstrap_external>"", line 995, in exec_module
+File ""<frozen importlib._bootstrap_external>"", line 1133, in get_code
+File ""<frozen importlib._bootstrap_external>"", line 1063, in source_to_code
+File ""<frozen importlib._bootstrap>"", line 488, in _call_with_frames_removed
+File ""/var/task/app.py"", line 13
+session = SessionLocal()
+IndentationError: unexpected indent
+Python process exited with exit status: 1. The logs above can help with debugging the issue.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNNVG7G22SMESXJ1JFKCT","",-1
+"2025-11-22 02:18:14",1763777894291,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",500,"lxr4c-1763777894150-1002dd42ec44","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",150,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNNWKT4XY80S5ZY816Y9Q","",1
+"2025-11-22 02:18:14",1763777894277,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",500,"xzv4l-1763777894127-4b16efa7d07f","vercel-screenshot/1.0","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",151,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNNW5XSXD379VJ6XAA825","",1
+"2025-11-22 02:18:14",1763777894256,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",500,"9dgmd-1763777893941-19aa5cdd7ad4","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",162,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNNVG7G22SMESXFY3713T","",1
+"2025-11-22 02:18:14",1763777894256,"invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app/","GET","",500,"xjc22-1763777893981-de4e5b63aaf3","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","invoice-automation-nptd0i9gt-ryans-projects-d8bd1793.vercel.app","dpl_63XUqzkT8GMtkDWJYpucpa5msciY",185,"iad1",53,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMNNNVG7G22SMESXJ1JFKCT","",1

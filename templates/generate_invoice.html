@@ -9,9 +9,75 @@
     <div class="form-group">
       <label>Select Customer</label>
       <select name="customer_id" required>
+        {% for c in customers %}
+        <option value="{{ c.id }}">{{ c.name }}</option>
         {% endfor %}
       </select>
     </div>
+
+    <div class="form-group">
+      <label>Invoice Date</label>
+      <input type="date" name="invoice_date" required value="{{ date.today().isoformat() }}">
+    </div>
+
+    <div class="form-group">
+      <label>Template</label>
+      <select name="template_name" required>
+        {% for t in templates %}
+        <option value="{{ t }}">{{ t }}</option>
+        {% endfor %}
+      </select>
+    </div>
+
+    <fieldset style="border: 1px solid #ddd; padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem;">
+      <legend style="padding: 0 0.5rem; font-weight: 600; color: var(--text-secondary);">Extra Fees (Optional)</legend>
+
+      <!-- Fee 2 -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Fee 2 Type</label>
+          <select name="fee_2_type">
+            <option value="">-- None --</option>
+            {% for ft in fee_types %}
+            <option value="{{ ft.name }}">{{ ft.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Fee 2 Amount ($)</label>
+          <input type="number" step="0.01" name="fee_2_amount" placeholder="0.00">
+        </div>
+      </div>
+
+      <!-- Fee 3 -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Fee 3 Type</label>
+          <select name="fee_3_type">
+            <option value="">-- None --</option>
+            {% for ft in fee_types %}
+            <option value="{{ ft.name }}">{{ ft.name }}</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Fee 3 Amount ($)</label>
+          <input type="number" step="0.01" name="fee_3_amount" placeholder="0.00">
+        </div>
+      </div>
+
+      <!-- Additional Fee -->
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Additional Fee Description</label>
+          <input type="text" name="additional_fee_desc" placeholder="e.g. Late Fee">
+        </div>
+        <div class="form-group">
+          <label>Additional Fee Amount ($)</label>
+          <input type="number" step="0.01" name="additional_fee_amount" placeholder="0.00">
+        </div>
+      </div>
+    </fieldset>
 
     <div class="form-actions">
       <button type="submit" class="btn btn-primary" style="width: 100%;">Generate Invoice</button>
