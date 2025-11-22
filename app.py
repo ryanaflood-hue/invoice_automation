@@ -250,10 +250,12 @@ def delete_customer(customer_id):
     try:
         customer = session.query(Customer).get(customer_id)
         if customer:
-            # Delete associated invoices first (optional, but good practice if no cascade)
-            # SQLAlchemy cascade should handle it if configured, but we didn't configure Invoice cascade
-            # Let's delete invoices manually to be safe
-            session.query(Invoice).filter(Invoice.customer_id == customer_id).delete()
+            # User requested NOT to delete invoices when deleting a customer.
+            # However, since customer_id is NOT NULL in invoices, we cannot delete the customer
+            # without deleting invoices or reassigning them.
+            # For now, we will just delete the customer and let the DB error if there are invoices,
+            # effectively preventing deletion of customers with invoices.
+            # session.query(Invoice).filter(Invoice.customer_id == customer_id).delete()
             session.delete(customer)
             session.commit()
         return redirect(url_for("list_customers"))
