@@ -1,0 +1,283 @@
+"TimeUTC","timestampInMs","requestPath","requestMethod","requestQueryString","responseStatusCode","requestId","requestUserAgent","level","environment","branch","vercelCache","type","function","host","deploymentDomain","deploymentId","durationMs","region","maxMemoryUsed","memorySize","message","projectId","traceId","sessionId","invocationId","instanceId","concurrency"
+"2025-11-22 02:51:07",1763779867417,"invoice-automation-two.vercel.app/static/style.css","GET","",-1,"46mq5-1763779867400-4ea6db162254","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:51:07] ""GET /static/style.css HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHWRC7ZNGKP4EVQ92GEEM","",-1
+"2025-11-22 02:51:07",1763779867404,"invoice-automation-two.vercel.app/static/style.css","GET","",200,"46mq5-1763779867400-4ea6db162254","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",5,"iad1",129,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHWRC7ZNGKP4EVQ92GEEM","YKEtiSZ6DTfg",1
+"2025-11-22 02:51:07",1763779867305,"invoice-automation-two.vercel.app/customers/new","GET","",-1,"46mq5-1763779867240-126b3d4a1771","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:51:07] ""GET /customers/new HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHWKMBBEJEQGBR1CSDYAF","",-1
+"2025-11-22 02:51:07",1763779867252,"invoice-automation-two.vercel.app/customers/new","GET","",200,"46mq5-1763779867240-126b3d4a1771","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",41,"iad1",129,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHWKMBBEJEQGBR1CSDYAF","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:59",1763779859347,"invoice-automation-two.vercel.app/customers/2/edit","GET","",-1,"xhrt2-1763779859127-48c4ea89da09","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:59] ""GET /customers/2/edit HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHMTHPX6HP1YTJRPRRH7Z","",-1
+"2025-11-22 02:50:59",1763779859347,"invoice-automation-two.vercel.app/customers/2/edit","GET","",-1,"xhrt2-1763779859127-48c4ea89da09","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"Exception on /customers/2/edit [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 175, in edit_customer
+    return render_template(""edit_customer.html"", customer=customer, fee_types=fee_types)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 149, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/loaders.py"", line 138, in load
+    code = environment.compile(source, name, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 771, in compile
+    self.handle_exception(source=source_hint)
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/edit_customer.html"", line 248, in template
+    {% endblock %}
+jinja2.exceptions.TemplateSyntaxError: Unexpected end of template. Jinja was looking for the following tags: 'endblock'. The innermost block that needs to be closed is 'block'.","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHMTHPX6HP1YTJRPRRH7Z","",-1
+"2025-11-22 02:50:59",1763779859281,"invoice-automation-two.vercel.app/customers/2/edit","GET","",500,"xhrt2-1763779859127-48c4ea89da09","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",64,"iad1",129,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHMTHPX6HP1YTJRPRRH7Z","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:54",1763779854790,"invoice-automation-two.vercel.app/generate-invoice","GET","",-1,"nwqzb-1763779854705-34d3feb9469e","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:54] ""GET /generate-invoice HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHGBRQ2MNJ3DWGF3Y60ES","",-1
+"2025-11-22 02:50:54",1763779854790,"invoice-automation-two.vercel.app/generate-invoice","GET","",-1,"nwqzb-1763779854705-34d3feb9469e","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"Exception on /generate-invoice [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 51, in generate_invoice
+    return render_template(""generate_invoice.html"", customers=customers, templates=templates, fee_types=fee_types)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 150, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/templating.py"", line 131, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 1295, in render
+    self.environment.handle_exception()
+  File ""/var/task/_vendor/jinja2/environment.py"", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File ""/var/task/templates/generate_invoice.html"", line 1, in top-level template code
+    {% extends ""base.html"" %}
+  File ""/var/task/templates/base.html"", line 39, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/templates/generate_invoice.html"", line 20, in block 'content'
+    <input type=""date"" name=""invoice_date"" required value=""{{ date.today().isoformat() }}"">
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/jinja2/environment.py"", line 490, in getattr
+    return getattr(obj, attribute)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'date' is undefined","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHGBRQ2MNJ3DWGF3Y60ES","",-1
+"2025-11-22 02:50:54",1763779854712,"invoice-automation-two.vercel.app/generate-invoice","GET","",500,"nwqzb-1763779854705-34d3feb9469e","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",70,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHGBRQ2MNJ3DWGF3Y60ES","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:49",1763779849490,"invoice-automation-two.vercel.app/invoices","GET","",-1,"jfp6d-1763779849425-e3312a40fd99","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:49] ""GET /invoices HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHB744CXQ9AVNJ0KA74X7","",-1
+"2025-11-22 02:50:49",1763779849490,"invoice-automation-two.vercel.app/invoices","GET","",-1,"jfp6d-1763779849425-e3312a40fd99","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"Exception on /invoices [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column invoices.fee_2_type does not exist
+LINE 1: ...ject, invoices.email_body AS invoices_email_body, invoices.f...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 271, in list_invoices
+    invoices = session.query(Invoice).join(Customer, Invoice.customer_id == Customer.id).order_by(Customer.name.asc(), Invoice.invoice_date.desc()).all()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column invoices.fee_2_type does not exist
+LINE 1: ...ject, invoices.email_body AS invoices_email_body, invoices.f...
+                                                             ^
+
+[SQL: SELECT invoices.id AS invoices_id, invoices.customer_id AS invoices_customer_id, invoices.invoice_date AS invoices_invoice_date, invoices.period_label AS invoices_period_label, invoices.amount AS invoices_amount, invoices.file_path AS invoices_file_path, invoices.email_subject AS invoices_email_subject, invoices.email_body AS invoices_email_body, invoices.fee_2_type AS invoices_fee_2_type, invoices.fee_2_amount AS invoices_fee_2_amount, invoices.fee_3_type AS invoices_fee_3_type, invoices.fee_3_amount AS invoices_fee_3_amount, invoices.additional_fee_desc AS invoices_additional_fee_desc, invoices.additional_fee_amount AS invoices_additional_fee_amount 
+FROM invoices JOIN customers ON invoices.customer_id = customers.id ORDER BY customers.name ASC, invoices.invoice_date DESC]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHB744CXQ9AVNJ0KA74X7","",-1
+"2025-11-22 02:50:49",1763779849444,"invoice-automation-two.vercel.app/invoices","GET","",500,"jfp6d-1763779849425-e3312a40fd99","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",39,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHB744CXQ9AVNJ0KA74X7","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:49",1763779849364,"invoice-automation-two.vercel.app/run-today","GET","",-1,"tjhft-1763779849287-116154f16061","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:49] ""GET /run-today HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHB3245C25R4VQE25A3T8","",-1
+"2025-11-22 02:50:49",1763779849314,"invoice-automation-two.vercel.app/run-today","GET","",302,"tjhft-1763779849287-116154f16061","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",39,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQHB3245C25R4VQE25A3T8","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:45",1763779845533,"invoice-automation-two.vercel.app/invoices","GET","",-1,"7hkxc-1763779845449-6736d5e9fa43","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:45] ""GET /invoices HTTP/1.1"" 500 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQH7B4C9ZT97FW83R8DRQ1","",-1
+"2025-11-22 02:50:45",1763779845533,"invoice-automation-two.vercel.app/invoices","GET","",-1,"7hkxc-1763779845449-6736d5e9fa43","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"Exception on /invoices [GET]
+Traceback (most recent call last):
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedColumn: column invoices.fee_2_type does not exist
+LINE 1: ...ject, invoices.email_body AS invoices_email_body, invoices.f...
+                                                             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File ""/var/task/_vendor/flask/app.py"", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/flask/app.py"", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/app.py"", line 271, in list_invoices
+    invoices = session.query(Invoice).join(Customer, Invoice.customer_id == Customer.id).order_by(Customer.name.asc(), Invoice.invoice_date.desc()).all()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2704, in all
+    return self._iter().all()  # type: ignore
+           ^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/query.py"", line 2857, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2351, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/session.py"", line 2249, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/orm/context.py"", line 306, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1419, in execute
+    return meth(
+           ^^^^^
+  File ""/var/task/_vendor/sqlalchemy/sql/elements.py"", line 526, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1641, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1846, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1986, in _exec_single_context
+    self._handle_dbapi_exception(
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 2355, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File ""/var/task/_vendor/sqlalchemy/engine/base.py"", line 1967, in _exec_single_context
+    self.dialect.do_execute(
+  File ""/var/task/_vendor/sqlalchemy/engine/default.py"", line 951, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedColumn) column invoices.fee_2_type does not exist
+LINE 1: ...ject, invoices.email_body AS invoices_email_body, invoices.f...
+                                                             ^
+
+[SQL: SELECT invoices.id AS invoices_id, invoices.customer_id AS invoices_customer_id, invoices.invoice_date AS invoices_invoice_date, invoices.period_label AS invoices_period_label, invoices.amount AS invoices_amount, invoices.file_path AS invoices_file_path, invoices.email_subject AS invoices_email_subject, invoices.email_body AS invoices_email_body, invoices.fee_2_type AS invoices_fee_2_type, invoices.fee_2_amount AS invoices_fee_2_amount, invoices.fee_3_type AS invoices_fee_3_type, invoices.fee_3_amount AS invoices_fee_3_amount, invoices.additional_fee_desc AS invoices_additional_fee_desc, invoices.additional_fee_amount AS invoices_additional_fee_amount 
+FROM invoices JOIN customers ON invoices.customer_id = customers.id ORDER BY customers.name ASC, invoices.invoice_date DESC]
+(Background on this error at: https://sqlalche.me/e/20/f405)","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQH7B4C9ZT97FW83R8DRQ1","",-1
+"2025-11-22 02:50:45",1763779845476,"invoice-automation-two.vercel.app/invoices","GET","",500,"7hkxc-1763779845449-6736d5e9fa43","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","error","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",46,"iad1",128,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQH7B4C9ZT97FW83R8DRQ1","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:43",1763779843746,"invoice-automation-two.vercel.app/static/style.css","GET","",-1,"tjsc6-1763779843701-0225d17f3b6a","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:43] ""GET /static/style.css HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQH5MPNK9ZBHM0YX8BYZ79","",-1
+"2025-11-22 02:50:43",1763779843734,"invoice-automation-two.vercel.app/static/style.css","GET","",200,"tjsc6-1763779843701-0225d17f3b6a","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",6,"iad1",127,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQH5MPNK9ZBHM0YX8BYZ79","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:43",1763779843439,"invoice-automation-two.vercel.app/customers","GET","",-1,"v5dt7-1763779843358-99836caa8a05","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:43] ""GET /customers HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQH5A29GAS8Y0DYMHGDNGN","",-1
+"2025-11-22 02:50:43",1763779843394,"invoice-automation-two.vercel.app/customers","GET","",200,"v5dt7-1763779843358-99836caa8a05","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",38,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQH5A29GAS8Y0DYMHGDNGN","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:43",1763779843294,"invoice-automation-two.vercel.app/","GET","",-1,"b4g87-1763779843184-9bf53420bcbd","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:43] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQH56D2WY7SC3VX37D2AE1","",-1
+"2025-11-22 02:50:43",1763779843277,"invoice-automation-two.vercel.app/","GET","",302,"b4g87-1763779843184-9bf53420bcbd","Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-two.vercel.app","invoice-automation-two.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",4,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQH56D2WY7SC3VX37D2AE1","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:35",1763779835681,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",-1,"5nlrj-1763779835620-d69f536411e6","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:35] ""GET /favicon.png HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQGXRD4YKJF05M7RA0MZDX","",-1
+"2025-11-22 02:50:35",1763779835661,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/favicon.png","GET","",404,"5nlrj-1763779835620-d69f536411e6","vercel-favicon/1.0","warning","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQGXRD4YKJF05M7RA0MZDX","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:35",1763779835581,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"z5cq4-1763779835520-1e3b76d4f6cb","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:35] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQGXN8W2JF3NJAY7PNQ2RT","",-1
+"2025-11-22 02:50:35",1763779835560,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"z5cq4-1763779835520-1e3b76d4f6cb","vercel-favicon/1.0","warning","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQGXN8W2JF3NJAY7PNQ2RT","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:35",1763779835339,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"btxks-1763779835235-434e5d29d79c","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:35] ""GET /customers HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQGXCFQA3NNP4MXKNY5T83","",-1
+"2025-11-22 02:50:35",1763779835279,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",200,"btxks-1763779835235-434e5d29d79c","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",48,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQGXCFQA3NNP4MXKNY5T83","YKEtiSZ6DTfg",1
+"2025-11-22 02:50:35",1763779835188,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"p772h-1763779835126-6b34b610c869","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:50:35] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQGX9257DBSFX7W9ESR01T","",-1
+"2025-11-22 02:50:35",1763779835170,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",302,"p772h-1763779835126-6b34b610c869","vercel-favicon/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",7,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQGX9257DBSFX7W9ESR01T","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:28",1763779708893,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"4k9cg-1763779708840-29f76ff63d85","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:28] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD1YH7H95J7ZMYFM6VYQD","",-1
+"2025-11-22 02:48:28",1763779708881,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"4k9cg-1763779708840-29f76ff63d85","vercel-screenshot/1.0","warning","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",6,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD1YH7H95J7ZMYFM6VYQD","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:28",1763779708659,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/static/style.css","GET","",-1,"4k9cg-1763779708597-05792d20ceb9","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:28] ""GET /static/style.css HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD1Q570DA8D9SZKJQP37S","",-1
+"2025-11-22 02:48:28",1763779708645,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/static/style.css","GET","",200,"4k9cg-1763779708597-05792d20ceb9","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD1Q570DA8D9SZKJQP37S","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:28",1763779708498,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",-1,"cdmdv-1763779708440-f87cee948264","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:28] ""GET /favicon.ico HTTP/1.1"" 404 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD1J4N4TNMG1P0S5FBJPC","",-1
+"2025-11-22 02:48:28",1763779708484,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/favicon.ico","GET","",404,"cdmdv-1763779708440-f87cee948264","vercel-screenshot/1.0","warning","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD1J4N4TNMG1P0S5FBJPC","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:28",1763779708381,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"t5tql-1763779708255-34f7208f7d71","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:28] ""GET /customers HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD1D9ZZ4G0YE9DE77343A","",-1
+"2025-11-22 02:48:28",1763779708329,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",200,"t5tql-1763779708255-34f7208f7d71","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",39,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD1D9ZZ4G0YE9DE77343A","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:28",1763779708283,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/static/style.css","GET","",-1,"qc8qv-1763779708223-e20a2220756e","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:28] ""GET /static/style.css HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD1B7G893MJD3G4G9HC40","",-1
+"2025-11-22 02:48:28",1763779708263,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/static/style.css","GET","",200,"qc8qv-1763779708223-e20a2220756e","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD1B7G893MJD3G4G9HC40","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:28",1763779708192,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"7k8f5-1763779708136-b54021a96654","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:28] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD18H72TTZRXRWQ9ECBSK","",-1
+"2025-11-22 02:48:28",1763779708177,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",302,"7k8f5-1763779708136-b54021a96654","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",5,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD18H72TTZRXRWQ9ECBSK","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:28",1763779708142,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"wn55m-1763779707960-a880f0b33d9a","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:28] ""GET /customers HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD15YPNBFVGQZD1SRJ74H","",-1
+"2025-11-22 02:48:28",1763779708094,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",200,"wn55m-1763779707960-a880f0b33d9a","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",39,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD15YPNBFVGQZD1SRJ74H","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:27",1763779707938,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"j5csm-1763779707729-2030f43696b7","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:27] ""GET /customers HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0ZMB7FN6Z6GK0QV3CDF","",-1
+"2025-11-22 02:48:27",1763779707915,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"cdmdv-1763779707860-03bb871f46ab","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:27] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0ZVS1WE91VQ6WA2NPHX","",-1
+"2025-11-22 02:48:27",1763779707899,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",302,"cdmdv-1763779707860-03bb871f46ab","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",6,"iad1",125,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0ZVS1WE91VQ6WA2NPHX","yKtKTl1k3s6Y",1
+"2025-11-22 02:48:27",1763779707892,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",200,"j5csm-1763779707729-2030f43696b7","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",38,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0ZMB7FN6Z6GK0QV3CDF","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:27",1763779707793,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/static/style.css","GET","",-1,"4rwll-1763779707730-7330af8ea23f","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:27] ""GET /static/style.css HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0VSCTVPTR0AWRTMPRCZ","",-1
+"2025-11-22 02:48:27",1763779707769,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/static/style.css","GET","",200,"4rwll-1763779707730-7330af8ea23f","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",6,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0VSCTVPTR0AWRTMPRCZ","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:27",1763779707742,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"fz8x4-1763779707650-0b49892d3236","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:27] ""GET /customers HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0SEC5SA17B5TS21Y1RC","",-1
+"2025-11-22 02:48:27",1763779707694,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",200,"fz8x4-1763779707650-0b49892d3236","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",38,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0SEC5SA17B5TS21Y1RC","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:27",1763779707683,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"rsgh5-1763779707574-bb38928ed404","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:27] ""GET /customers HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0PWPJTG8YMKEDCBR2W8","",-1
+"2025-11-22 02:48:27",1763779707676,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"rr89w-1763779704742-45f3c73c0a2c","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:27] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQCY1SGEPCN4F48ZFKXCZY","",-1
+"2025-11-22 02:48:27",1763779707612,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",200,"rsgh5-1763779707574-bb38928ed404","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",59,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0PWPJTG8YMKEDCBR2W8","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:27",1763779707580,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"jfx24-1763779704745-f60f0e65ca30","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:27] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQCY1TB4Q3W6ZMZ9ZXVQZC","",-1
+"2025-11-22 02:48:27",1763779707533,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"rsgh5-1763779704373-dcd3079cfd72","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:27] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQCXY6FMEB40ETBM67Q8AW","",-1
+"2025-11-22 02:48:27",1763779707282,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",-1,"bngjp-1763779707170-38fce242eae4","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:27] ""GET /customers HTTP/1.1"" 200 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0A9PCRZQ5WJM5D762AJ","",-1
+"2025-11-22 02:48:27",1763779707209,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/customers","GET","",200,"bngjp-1763779707170-38fce242eae4","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",59,"iad1",126,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQD0A9PCRZQ5WJM5D762AJ","6Zmr560kmrc9",1
+"2025-11-22 02:48:27",1763779707131,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",-1,"bngjp-1763779704357-604dca3b396b","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",-1,"iad1",-1,-1,"127.0.0.1 - - [22/Nov/2025 02:48:27] ""GET / HTTP/1.1"" 302 -","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQCXY4ASS87RXW09NPVVQM","",-1
+"2025-11-22 02:48:24",1763779704890,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",302,"jfx24-1763779704745-f60f0e65ca30","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",2514,"iad1",125,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQCY1TB4Q3W6ZMZ9ZXVQZC","YKEtiSZ6DTfg",1
+"2025-11-22 02:48:24",1763779704889,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",302,"rr89w-1763779704742-45f3c73c0a2c","vercel-screenshot/1.0","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",2621,"iad1",125,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQCY1SGEPCN4F48ZFKXCZY","yKtKTl1k3s6Y",1
+"2025-11-22 02:48:24",1763779704774,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",302,"rsgh5-1763779704373-dcd3079cfd72","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",2578,"iad1",125,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQCXY6FMEB40ETBM67Q8AW","2xo7RYvMSPXj",1
+"2025-11-22 02:48:24",1763779704772,"invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app/","GET","",302,"bngjp-1763779704357-604dca3b396b","Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/141.0.7390.0 Safari/537.36","info","production","master","","lambda","/app.py","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","invoice-automation-fqetrxe6v-ryans-projects-d8bd1793.vercel.app","dpl_5qKhKUNCT1idLXr97zTRzARD83BW",2194,"iad1",124,2048,"","prj_6WEqp459cGSZsQkBcLxcy0EVnF2f","","","01KAMQCXY4ASS87RXW09NPVVQM","6Zmr560kmrc9",1

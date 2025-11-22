@@ -30,6 +30,8 @@ class Customer(Base):
     rate = Column(Float, nullable=False)  # amount per period
     cadence = Column(String, nullable=False)  # "monthly", "quarterly", "yearly"
     fee_type = Column(String, nullable=True, default="Management Fee")
+    fee_2_type = Column(String, nullable=True)
+    fee_2_rate = Column(Float, nullable=True)
     next_bill_date = Column(Date, nullable=False)
 
     properties = relationship("Property", back_populates="customer", cascade="all, delete-orphan")
@@ -43,6 +45,7 @@ class Property(Base):
     city = Column(String, nullable=True)
     state = Column(String, nullable=True)
     zip_code = Column(String, nullable=True)
+    fee_amount = Column(Float, nullable=True)
     is_primary = Column(Boolean, default=False)
 
     customer = relationship("Customer", back_populates="properties")

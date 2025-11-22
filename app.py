@@ -48,7 +48,7 @@ def generate_invoice():
                 additional_fee_amount=additional_fee_amount
             )
             return redirect(url_for("list_invoices"))
-        return render_template("generate_invoice.html", customers=customers, templates=templates, fee_types=fee_types)
+        return render_template("generate_invoice.html", customers=customers, templates=templates, fee_types=fee_types, date=date)
     finally:
         session.close()
 
@@ -175,90 +175,6 @@ def edit_customer(customer_id):
         return render_template("edit_customer.html", customer=customer, fee_types=fee_types)
     finally:
         session.close()
-
-@app.route("/settings/fee-types", methods=["GET", "POST"])
-def manage_fee_types():
-    session = SessionLocal()
-    try:
-        if request.method == "POST":
-            name = request.form["name"]
-            if name:
-                try:
-                    ft = FeeType(name=name)
-                    session.add(ft)
-                    session.commit()
-                except Exception:
-                    session.rollback() # Handle duplicate or error
-            return redirect(url_for("manage_fee_types"))
-        
-        fee_types = session.query(FeeType).all()
-        return render_template("fee_types.html", fee_types=fee_types)
-    finally:
-        session.close()
-
-@app.route("/customers/<int:customer_id>/properties/add", methods=["POST"])
-def add_property(customer_id):
-    session = SessionLocal()
-    try:
-        from models import Property
-        address = request.form["address"]
-        city = request.form["city"]
-        state = request.form["state"]
-        zip_code = request.form["zip_code"]
-        
-        p = Property(
-            customer_id=customer_id,
-            address=address,
-            city=city,
-            state=state,
-            zip_code=zip_code
-        )
-        session.add(p)
-        session.commit()
-        return redirect(url_for("edit_customer", customer_id=customer_id))
-    finally:
-        session.close()
-
-@app.route("/customers/<int:customer_id>/properties/<int:property_id>/delete", methods=["POST"])
-def delete_property(customer_id, property_id):
-    session = SessionLocal()
-    try:
-        from models import Property
-        p = session.query(Property).get(property_id)
-        if p and p.customer_id == customer_id:
-            session.delete(p)
-            session.commit()
-        return redirect(url_for("edit_customer", customer_id=customer_id))
-    finally:
-        session.close()
-
-@app.route("/settings/fee-types/<int:fee_type_id>/delete", methods=["POST"])
-def delete_fee_type(fee_type_id):
-    session = SessionLocal()
-    try:
-        ft = session.query(FeeType).get(fee_type_id)
-        if ft:
-            session.delete(ft)
-            session.commit()
-        return redirect(url_for("manage_fee_types"))
-    finally:
-        session.close()
-
-@app.route("/customers/<int:customer_id>/delete", methods=["POST"])
-def delete_customer(customer_id):
-    session = SessionLocal()
-    try:
-        customer = session.query(Customer).get(customer_id)
-        if customer:
-            # User requested NOT to delete invoices when deleting a customer.
-            # However, since customer_id is NOT NULL in invoices, we cannot delete the customer
-            # without deleting invoices or reassigning them.
-            # For now, we will just delete the customer and let the DB error if there are invoices,
-            # effectively preventing deletion of customers with invoices.
-            # session.query(Invoice).filter(Invoice.customer_id == customer_id).delete()
-            session.delete(customer)
-            session.commit()
-        return redirect(url_for("list_customers"))
     finally:
         session.close()
 
