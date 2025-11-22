@@ -151,5 +151,46 @@ class TestInvoiceSystem(unittest.TestCase):
         self.assertEqual(replacements.get('{{TOTAL_AMOUNT}}'), "$400.00")
         self.assertEqual(replacements.get('{{FEE_LINE_2}}'), "")
 
+    @patch('invoice_generator.Document')
+    @patch('invoice_generator.fill_invoice_template')
+    def test_property_fees_included(self, mock_fill, mock_doc):
+        """Test that property fees are added to the total."""
+        mock_doc_instance = MagicMock()
+        mock_doc.return_value = mock_doc_instance
+        mock_doc_instance.tables = []
+        mock_doc_instance.paragraphs = []
+        
+        # Add a property with a fee
+        prop = MagicMock()
+        prop.fee_amount = 50.0
+        self.customer.properties = [prop]
+        
+        # Manual generation with overrides
+        kwargs = {
+            "fee_2_type": "Manual Fee 2",
+            "fee_2_amount": 50.0,
+            "fee_3_type": "Manual Fee 3",
+            "fee_3_amount": 75.0,
+            "additional_fee_desc": "Manual Add",
+            "additional_fee_amount": 300.0
+        }
+        
+        _generate_invoice_logic(
+            self.customer, 
+            date(2025, 10, 1), 
+            "October 2025", 
+            "10/01/2025 - 10/31/2025", 
+            100.0,
+            **kwargs
+        )
+        
+        args, _ = mock_fill.call_args
+        replacements = args[1]
+        
+        print(f"\n[Property Fee Test] Total Amount: {replacements.get('{{TOTAL_AMOUNT}}')}")
+        
+        # Base 100 + Fee2 50 + Fee3 75 + Add 300 + Prop 50 = 575
+        self.assertEqual(replacements.get('{{TOTAL_AMOUNT}}'), "$575.00")
+
 if __name__ == '__main__':
     unittest.main()

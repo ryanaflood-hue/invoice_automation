@@ -144,13 +144,16 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
         # Build complete fee lines (or empty strings if not used)
         # Calculate period info for fee 2 and 3 if they exist
         fee_line_2 = ""
-        if fee_2_type and fee_2_amount:
+        if fee_2_amount:
+            # Fallback to "Fee" if type is missing
+            f2_type = fee_2_type or "Fee"
             # Reuse same period dates for additional fees
-            fee_line_2 = f"{period_label} {fee_2_type} ({period_dates}) = ${fee_2_amount:,.2f}"
+            fee_line_2 = f"{period_label} {f2_type} ({period_dates}) = ${fee_2_amount:,.2f}"
         
         fee_line_3 = ""
-        if fee_3_type and fee_3_amount:
-            fee_line_3 = f"{period_label} {fee_3_type} ({period_dates}) = ${fee_3_amount:,.2f}"
+        if fee_3_amount:
+            f3_type = fee_3_type or "Fee"
+            fee_line_3 = f"{period_label} {f3_type} ({period_dates}) = ${fee_3_amount:,.2f}"
         
         additional_fee_line = ""
         if additional_fee_desc and additional_fee_amount:
