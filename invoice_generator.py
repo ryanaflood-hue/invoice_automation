@@ -100,12 +100,16 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
     try:
         doc = Document(TEMPLATE_PATH)
         
+        print(f"DEBUG: kwargs received: {kwargs}")
+        
         fee_2_type = kwargs.get('fee_2_type')
         fee_2_amount = kwargs.get('fee_2_amount')
         fee_3_type = kwargs.get('fee_3_type')
         fee_3_amount = kwargs.get('fee_3_amount')
         additional_fee_desc = kwargs.get('additional_fee_desc')
         additional_fee_amount = kwargs.get('additional_fee_amount')
+        
+        print(f"DEBUG: extracted amounts: fee_2={fee_2_amount}, fee_3={fee_3_amount}, add={additional_fee_amount}")
         
         # Calculate total amount including all fees
         # Start with base rate
