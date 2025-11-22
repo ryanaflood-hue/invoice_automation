@@ -289,6 +289,11 @@ def generate_invoice_buffer(invoice):
     """
     session = SessionLocal()
     customer = session.query(Customer).get(invoice.customer_id)
+    
+    # Eagerly load properties to avoid lazy loading issues after session close
+    if customer and customer.properties:
+        _ = list(customer.properties)  # Force load
+    
     session.close()
     
     if not customer:
