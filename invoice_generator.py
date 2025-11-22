@@ -180,21 +180,23 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
         # Remove the rows
         for tbl, tr in rows_to_remove:
             tbl.remove(tr)
-
-        fill_invoice_template(doc, replacements)
-        
-        # Remove empty paragraphs (from the fee line placeholders that became empty strings)
+        # Remove paragraphs containing empty fee line placeholders BEFORE replacement
+        # This preserves intentional spacing while removing only unused fee lines
         paragraphs_to_remove = []
         for paragraph in doc.paragraphs:
             text = paragraph.text.strip()
-            # If paragraph is empty or just whitespace, mark for removal
-            if not text or len(text) == 0:
+            # Only remove if it contains a fee line placeholder that will be empty
+            if ("{{FEE_LINE_2}}" in text and not fee_line_2) or \
+               ("{{FEE_LINE_3}}" in text and not fee_line_3) or \
+               ("{{ADDITIONAL_FEE_LINE}}" in text and not additional_fee_line):
                 paragraphs_to_remove.append(paragraph)
         
-        # Remove empty paragraphs
+        # Remove the specific fee line paragraphs
         for paragraph in paragraphs_to_remove:
             p = paragraph._element
             p.getparent().remove(p)
+
+        fill_invoice_template(doc, replacements)
         
         # Add property fees as dynamic rows if they exist
         # This is tricky with python-docx if we don't have a specific placeholder row to clone.
