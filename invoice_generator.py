@@ -159,28 +159,50 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
             "{{AMOUNT3}}": "",
         }
         
+        
         # Helper to remove rows containing unused placeholders
-        def remove_row_if_placeholder_unused(doc, placeholder, value):
-            if not value:
-                for table in doc.tables:
-                    for row in table.rows:
-                        for cell in row.cells:
-                            if placeholder in cell.text:
-                                # Found the row, remove it
-                                tbl = table._tbl
-                                tr = row._tr
-                                tbl.remove(tr)
-                                return # Assume one row per placeholder for now
+        def remove_row_if_placeholder_unused(doc, placeholders):
+            """Remove rows that contain any of the given placeholders"""
+            rows_to_remove = []
+            for table in doc.tables:
+                for row in table.rows:
+                    for cell in row.cells:
+                        # Check if any of the placeholders exist in this cell
+                        if any(placeholder in cell.text for placeholder in placeholders):
+                            rows_to_remove.append((table._tbl, row._tr))
+                            break  # Found it, move to next row
+            
+            # Remove rows
+            for tbl, tr in rows_to_remove:
+                tbl.remove(tr)
 
         # Remove unused fee rows BEFORE filling template
         # Check for fee_2 and fee_3 - remove the entire row if not used
         if not fee_2_type and not fee_2_amount:
-            remove_row_if_placeholder_unused(doc, "{{PERIOD2}}", None)
+            remove_row_if_placeholder_unused(doc, ["{{PERIOD2}}", "{{FEE_TYPE2}}", "{{AMOUNT2}}", "{{PERIOD_DATES2}}"])
         if not fee_3_type and not fee_3_amount:
-            remove_row_if_placeholder_unused(doc, "{{PERIOD3}}", None)
-        remove_row_if_placeholder_unused(doc, "{{ADDITIONAL_FEE}}", additional_fee_desc)
+            remove_row_if_placeholder_unused(doc, ["{{PERIOD3}}", "{{FEE_TYPE3}}", "{{AMOUNT3}}", "{{PERIOD_DATES3}}"])
+        remove_row_if_placeholder_unused(doc, ["{{ADDITIONAL_FEE}}"])
 
         fill_invoice_template(doc, replacements)
+        
+        # ADDITIONAL CLEANUP: Remove rows that look like "fee () =" after replacement
+        rows_to_remove_after = []
+        for table in doc.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    cell_text = cell.text.strip()
+                    # Check if this is an empty fee line
+                    if cell_text in ["fee () =", "fee()=", "fee ( ) ="] or (cell_text.startswith("fee") and cell_text.endswith("=") and len(cell_text) < 15):
+                        rows_to_remove_after.append((table._tbl, row._tr))
+                        break
+        
+        # Remove the empty rows
+        for tbl, tr in rows_to_remove_after:
+            try:
+                tbl.remove(tr)
+            except:
+                pass  # Row might have already been removed
         
         # Add property fees as dynamic rows if they exist
         # This is tricky with python-docx if we don't have a specific placeholder row to clone.
