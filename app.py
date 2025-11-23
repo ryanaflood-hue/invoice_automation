@@ -2,6 +2,7 @@ from datetime import date, timedelta
 from flask import Flask, render_template, request, redirect, url_for, send_file
 from apscheduler.schedulers.background import BackgroundScheduler
 import os
+import traceback
 
 from models import init_db, SessionLocal, Customer, Invoice, FeeType
 
@@ -130,47 +131,57 @@ def list_customers():
     try:
         customers = session.query(Customer).all()
         return render_template("customers.html", customers=customers)
+    except Exception as e:
+        with open("debug.log", "a") as f:
+            import traceback
+            traceback.print_exc(file=f)
+        return str(e), 500
     finally:
         session.close()
 
 @app.route("/customers/new", methods=["GET", "POST"])
 def new_customer():
+    with open("debug.log", "a") as f:
+        f.write("DEBUG: Entered new_customer\n")
     if request.method == "POST":
-        name = request.form["name"]
-        email = request.form["email"]
-        address = request.form["property_address"]
-        city = request.form["property_city"]
-        state = request.form["property_state"]
-        zip_code = request.form["property_zip"]
-        rate = float(request.form["rate"])
-        cadence = request.form["cadence"]
-        fee_type = request.form.get("fee_type", "Management Fee")
-        next_bill_date = date.fromisoformat(request.form["next_bill_date"])
-        
-        # Handle fee_2 fields
-        fee_2_type = request.form.get("fee_2_type", "")
-        fee_2_rate_str = request.form.get("fee_2_rate", "")
-        fee_2_rate = float(fee_2_rate_str) if fee_2_rate_str else None
-        
-        # Handle fee_3 fields
-        fee_3_type = request.form.get("fee_3_type", "")
-        fee_3_rate_str = request.form.get("fee_3_rate", "")
-        fee_3_rate = float(fee_3_rate_str) if fee_3_rate_str else None
-        
-        # Handle additional fee fields
-        additional_fee_desc = request.form.get("additional_fee_desc", "")
-        additional_fee_amount_str = request.form.get("additional_fee_amount", "")
-        additional_fee_amount = float(additional_fee_amount_str) if additional_fee_amount_str else None
-
-        session = SessionLocal()
         try:
-            c = Customer(
+            with open("debug.log", "a") as f:
+                f.write("DEBUG: Starting POST new_customer\n")
+            name = request.form["name"]
+            sys.stderr.write(f"DEBUG: Name={name}\n")
+            email = request.form["email"]
+            property_address = request.form["property_address"]
+            property_city = request.form["property_city"]
+            property_state = request.form["property_state"]
+            property_zip = request.form["property_zip"]
+            rate = float(request.form["rate"])
+            cadence = request.form["cadence"]
+            fee_type = request.form.get("fee_type", "Management Fee")
+            next_bill_date_str = request.form["next_bill_date"]
+            next_bill_date = date.fromisoformat(next_bill_date_str)
+            sys.stderr.write("DEBUG: Extracted basic fields\n")
+
+            # Extract new fee fields
+            fee_2_type = request.form.get("fee_2_type")
+            fee_2_rate_str = request.form.get("fee_2_rate", "")
+            fee_2_rate = float(fee_2_rate_str) if fee_2_rate_str else None
+
+            fee_3_type = request.form.get("fee_3_type")
+            fee_3_rate_str = request.form.get("fee_3_rate", "")
+            fee_3_rate = float(fee_3_rate_str) if fee_3_rate_str else None
+
+            additional_fee_desc = request.form.get("additional_fee_desc")
+            additional_fee_amount_str = request.form.get("additional_fee_amount", "")
+            additional_fee_amount = float(additional_fee_amount_str) if additional_fee_amount_str else None
+            sys.stderr.write("DEBUG: Extracted fee fields\n")
+
+            new_customer = Customer(
                 name=name,
                 email=email,
-                property_address=address,
-                property_city=city,
-                property_state=state,
-                property_zip=zip_code,
+                property_address=property_address,
+                property_city=property_city,
+                property_state=property_state,
+                property_zip=property_zip,
                 rate=rate,
                 cadence=cadence,
                 fee_type=fee_type,
@@ -182,11 +193,17 @@ def new_customer():
                 additional_fee_desc=additional_fee_desc,
                 additional_fee_amount=additional_fee_amount
             )
-            session.add(c)
+            sys.stderr.write("DEBUG: Created Customer object\n")
+            session.add(new_customer)
+            sys.stderr.write("DEBUG: Added to session\n")
             session.commit()
-        finally:
-            session.close()
-        return redirect(url_for("list_customers"))
+            sys.stderr.write("DEBUG: Committed\n")
+            return redirect(url_for('list_customers'))
+        except Exception as e:
+            sys.stderr.write(f"DEBUG: Exception: {e}\n")
+            import traceback
+            traceback.print_exc()
+            return str(e), 500
 
     session = SessionLocal()
     try:
@@ -472,13 +489,14 @@ def run_migration():
 
 if __name__ == "__main__":
     init_db()
+    print(app.url_map)
 
     # Only run scheduler if NOT in Vercel (check for VERCEL env var)
     # In Vercel, we use Vercel Cron to hit /run-today
-    if not os.environ.get("VERCEL"):
-        scheduler = BackgroundScheduler()
-        # Run once every day at 6am, for example
-        scheduler.add_job(bill_due_customers, "cron", hour=6, minute=0)
-        scheduler.start()
+    # if not os.environ.get("VERCEL"):
+    #     scheduler = BackgroundScheduler()
+    #     # Run once every day at 6am, for example
+    #     scheduler.add_job(bill_due_customers, "cron", hour=6, minute=0)
+    #     scheduler.start()
 
     app.run(debug=True)

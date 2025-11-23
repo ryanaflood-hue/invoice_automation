@@ -1,0 +1,7 @@
+Please ensure your base_invoice_template.docx contains the following placeholders in the table:
+
+{{FEE_LINE_1}}   {{AMOUNT_1}}
+{{FEE_LINE_2}}   {{AMOUNT_2}}
+{{FEE_LINE_3}}   {{AMOUNT_3}}
+{{ADDITIONAL_FEE_LINE}}   {{ADDITIONAL_FEE_AMOUNT}}
+Total: {{TOTAL_AMOUNT}}
