@@ -30,75 +30,58 @@
           </td>
           <td>{{ inv.period_label }}</td>
           <td>${{ "%.2f"|format(inv.amount) }}</td>
-          <td>
-            <a href="{{ url_for('download_invoice', invoice_id=inv.id) }}" class="badge badge-blue">
-              {{ inv.file_path }}
-            </a>
-          </td>
-          <td>
-            <button class="btn btn-sm btn-secondary"
-              onclick="openEmailModal('{{ inv.email_subject|replace("'", "\\'") }}', '{{ inv.email_body|replace("'", "\\'")|replace('\n', '\\n') }}')">
-              View Email
-            </button>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-</div>
 
-<!-- Email Modal -->
-<div id="emailModal" class="modal">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h2>Email Draft</h2>
+          <!-- Email Modal -->
+          <div id="emailModal" class="modal">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2>Email Draft</h2>
 
-    </div>
-    <div class="modal-body">
-      <div class="form-group">
-        <label>Subject</label>
-        <input type="text" id="modalSubject" readonly>
-      </div>
-      <div class="form-group">
-        <label>Body</label>
-        <textarea id="modalBody" readonly></textarea>
-      </div>
-    </div>
-    <div class="form-actions">
-      <button class="btn btn-secondary" onclick="clearEmailDraft()">Clear</button>
-      <button class="btn btn-primary" onclick="copyToClipboard()">Copy Body</button>
-    </div>
-  </div>
-</div>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <label>Subject</label>
+                  <input type="text" id="modalSubject" readonly>
+                </div>
+                <div class="form-group">
+                  <label>Body</label>
+                  <textarea id="modalBody" readonly></textarea>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="btn btn-secondary" onclick="clearEmailDraft()">Clear</button>
+                <button class="btn btn-primary" onclick="copyToClipboard()">Copy Body</button>
+              </div>
+            </div>
+          </div>
 
-<script>
-  const modal = document.getElementById('emailModal');
-  const subjectInput = document.getElementById('modalSubject');
-  const bodyInput = document.getElementById('modalBody');
+          <script>
+            const modal = document.getElementById('emailModal');
+            const subjectInput = document.getElementById('modalSubject');
+            const bodyInput = document.getElementById('modalBody');
 
-  function openEmailModal(subject, body) {
-    subjectInput.value = subject;
-    bodyInput.value = body;
-    modal.classList.add('show');
-  }
+            function openEmailModal(subject, body) {
+              subjectInput.value = subject;
+              bodyInput.value = body;
+              modal.classList.add('show');
+            }
 
-  function clearEmailDraft() {
-    subjectInput.value = '';
-    bodyInput.value = '';
-  }
+            function clearEmailDraft() {
+              subjectInput.value = '';
+              bodyInput.value = '';
+            }
 
-  function copyToClipboard() {
-    bodyInput.select();
-    document.execCommand('copy');
-    alert('Email body copied to clipboard!');
-  }
+            function copyToClipboard() {
+              bodyInput.select();
+              document.execCommand('copy');
+              alert('Email body copied to clipboard!');
+            }
 
-  // Close modal when clicking outside
-  window.onclick = function (event) {
-    if (event.target == modal) {
-      modal.classList.remove('show');
-    }
-  }
-</script>
-{% endblock %}
+            // Close modal when clicking outside
+            window.onclick = function (event) {
+              if (event.target == modal) {
+                modal.classList.remove('show');
+              }
+            }
+          </script>
+          {% endblock %}

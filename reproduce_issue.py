@@ -42,7 +42,7 @@ def reproduce():
 
     print("Generating invoice...")
     # Pass return_buffer=False to save file
-    filename, path = _generate_invoice_logic(
+    filename, path, total_amount = _generate_invoice_logic(
         c,
         date(2025, 11, 24),
         "4th quarter 2025",
@@ -53,6 +53,12 @@ def reproduce():
     )
     
     print(f"Generated: {path}")
+    print(f"Total Amount Returned: ${total_amount:,.2f}")
+    
+    if total_amount == 605.00:
+        print("[OK] Total Amount matches expected $605.00")
+    else:
+        print(f"[FAIL] Total Amount {total_amount} does not match expected $605.00")
     
     # Inspect the generated file
     doc = Document(path)
@@ -69,14 +75,26 @@ def reproduce():
             found_prop_fee = True
             
     if found_fee_3:
-        print("\n✅ Fee 3 ($30.00) FOUND in output.")
+        print("\n[OK] Fee 3 ($30.00) FOUND in output.")
     else:
-        print("\n❌ Fee 3 ($30.00) MISSING from output.")
+        print("\n[FAIL] Fee 3 ($30.00) MISSING from output.")
 
     if found_prop_fee:
-        print("\n✅ Property Fee ($125.00) FOUND in output.")
+        print("\n[OK] Property Fee ($125.00) FOUND in output.")
     else:
-        print("\n❌ Property Fee ($125.00) MISSING from output.")
+        print("\n[FAIL] Property Fee ($125.00) MISSING from output.")
+
+    # Check formatting for Additional Fee Line
+    print("\n[Formatting Check]")
+    for p in doc.paragraphs:
+        if "Air Purifier Fee" in p.text:
+            space_after = p.paragraph_format.space_after
+            line_spacing = p.paragraph_format.line_spacing
+            print(f"Additional Fee Line - Space After: {space_after}, Line Spacing: {line_spacing}")
+            if space_after == 0 or (hasattr(space_after, 'pt') and space_after.pt == 0.0):
+                print("[OK] Space After is 0 (Tight Spacing)")
+            else:
+                print(f"[FAIL] Space After is {space_after} (Not Tight)")
 
 if __name__ == "__main__":
     reproduce()
