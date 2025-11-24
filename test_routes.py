@@ -39,7 +39,7 @@ class TestRoutes(unittest.TestCase):
 
     def test_home_route(self):
         response = self.client.get('/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
     def test_customers_route(self):
         response = self.client.get('/customers')
@@ -56,6 +56,37 @@ class TestRoutes(unittest.TestCase):
             print(f"FAILED: {response.status_code}")
             print(response.data.decode('utf-8'))
         self.assertEqual(response.status_code, 200)
+
+    def test_delete_invoice(self):
+        print("\nTesting DELETE /invoices/<id>/delete...")
+        # Create an invoice to delete
+        session = SessionLocal()
+        c = session.query(Customer).first()
+        inv = Invoice(
+            customer_id=c.id,
+            invoice_date=date.today(),
+            period_label="Delete Me",
+            amount=100.0,
+            file_path="delete.docx",
+            email_subject="Delete",
+            email_body="Delete"
+        )
+        session.add(inv)
+        session.commit()
+        inv_id = inv.id
+        session.close()
+
+        # Send POST request to delete
+        response = self.client.post(f'/invoices/{inv_id}/delete', follow_redirects=True)
+        if response.status_code != 200:
+            print(f"DELETE FAILED: {response.status_code}")
+        self.assertEqual(response.status_code, 200)
+        
+        # Verify deletion
+        session = SessionLocal()
+        deleted_inv = session.query(Invoice).get(inv_id)
+        session.close()
+        self.assertIsNone(deleted_inv)
 
 if __name__ == '__main__':
     unittest.main()

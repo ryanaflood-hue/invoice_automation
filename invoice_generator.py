@@ -69,9 +69,9 @@ def fill_invoice_template(doc, replacements):
             if old in p.text:
                 p.text = p.text.replace(old, str(new))
                 replaced = True
-                # Apply tight spacing if it's a fee line
+                # Apply standard spacing (12pt) if it's a fee line
                 if old in tight_spacing_keys:
-                    p.paragraph_format.space_after = Pt(0)
+                    p.paragraph_format.space_after = Pt(12)
                     p.paragraph_format.line_spacing = 1.0
         if replaced:
             for run in p.runs:
@@ -87,9 +87,9 @@ def fill_invoice_template(doc, replacements):
                         if old in p.text:
                             p.text = p.text.replace(old, str(new))
                             replaced = True
-                            # Apply tight spacing if it's a fee line
+                            # Apply standard spacing (12pt) if it's a fee line
                             if old in tight_spacing_keys:
-                                p.paragraph_format.space_after = Pt(0)
+                                p.paragraph_format.space_after = Pt(12)
                                 p.paragraph_format.line_spacing = 1.0
                     if replaced:
                         for run in p.runs:

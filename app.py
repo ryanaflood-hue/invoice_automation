@@ -1,13 +1,13 @@
 from datetime import date, timedelta
-from flask import Flask, render_template, request, redirect, url_for, send_file
+from flask import Flask, render_template, request, redirect, url_for, send_file, jsonify, flash
 from apscheduler.schedulers.background import BackgroundScheduler
 import os
+import sys
 import traceback
-
 from models import init_db, SessionLocal, Customer, Invoice, FeeType
 
-
 app = Flask(__name__)
+app.secret_key = "supersecretkey"
 from invoice_generator import generate_invoice_for_customer, get_invoice_templates, generate_invoice_with_template, generate_invoice_buffer, get_period_label
 
 # Initialize DB (safe to run multiple times)
