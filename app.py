@@ -315,8 +315,7 @@ def delete_customer(customer_id):
     try:
         customer = session.query(Customer).get(customer_id)
         if customer:
-            # User requested NOT to delete invoices when deleting a customer.
-            # Customer deletion will fail if there are invoices due to NOT NULL constraint
+            # Delete the customer. Invoices will remain (orphaned) but visible in the list.
             session.delete(customer)
             session.commit()
         return redirect(url_for("list_customers"))
@@ -360,8 +359,8 @@ def list_invoices():
     session = SessionLocal()
     try:
         # Sort by Customer Name then Invoice Date
-        # We need to join Customer to sort by name
-        invoices = session.query(Invoice).join(Customer, Invoice.customer_id == Customer.id).order_by(Customer.name.asc(), Invoice.invoice_date.desc()).all()
+        # Use OUTER JOIN so we still see invoices even if the customer is deleted
+        invoices = session.query(Invoice).outerjoin(Customer, Invoice.customer_id == Customer.id).order_by(Customer.name.asc(), Invoice.invoice_date.desc()).all()
         
         # For simplicity, join customers manually (or use the join above)
         customers_map = {c.id: c for c in session.query(Customer).all()}

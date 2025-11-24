@@ -46,8 +46,26 @@ class TestRoutes(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
 
     def test_new_customer_route(self):
+        print("\nTesting New Customer Route...")
+        # Test GET
         response = self.client.get('/customers/new')
         self.assertEqual(response.status_code, 200)
+        
+        # Test POST
+        response = self.client.post('/customers/new', data={
+            "name": "New Guy",
+            "email": "new@guy.com",
+            "property_address": "123 New St",
+            "property_city": "New City",
+            "property_state": "WI",
+            "property_zip": "53000",
+            "rate": "100.00",
+            "cadence": "monthly",
+            "fee_type": "Management Fee",
+            "next_bill_date": date.today().isoformat()
+        }, follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"New Guy", response.data)
 
     def test_invoices_route(self):
         print("\nTesting /invoices route...")
@@ -162,27 +180,60 @@ class TestRoutes(unittest.TestCase):
         self.assertEqual(total_amount, 550.0)
         session.close()
 
-    def test_new_customer_route(self):
-        print("\nTesting New Customer Route...")
-        # Test GET
-        response = self.client.get('/customers/new')
-        self.assertEqual(response.status_code, 200)
+    def test_delete_customer_preserves_invoices(self):
+        """Test that deleting a customer does NOT delete their invoices."""
+        print("\nTesting Customer Deletion Preserves Invoices...")
         
-        # Test POST
-        response = self.client.post('/customers/new', data={
-            "name": "New Guy",
-            "email": "new@guy.com",
-            "property_address": "123 New St",
-            "property_city": "New City",
-            "property_state": "WI",
-            "property_zip": "53000",
-            "rate": "100.00",
-            "cadence": "monthly",
-            "fee_type": "Management Fee",
-            "next_bill_date": date.today().isoformat()
-        }, follow_redirects=True)
+        # 1. Create a customer
+        session = SessionLocal()
+        c = Customer(
+            name="To Be Deleted",
+            email="delete@me.com",
+            property_address="123 Delete St",
+            rate=100.0,
+            cadence="monthly",
+            next_bill_date=date(2025, 1, 1)
+        )
+        session.add(c)
+        session.commit()
+        c_id = c.id
+        session.close()
+
+        # 2. Create an invoice for this customer
+        session = SessionLocal()
+        inv = Invoice(
+            customer_id=c_id,
+            invoice_date=date(2025, 1, 1),
+            period_label="Jan 2025",
+            amount=100.0,
+            file_path="test_invoice.docx",
+            email_subject="Test Invoice",
+            email_body="Test Body"
+        )
+        session.add(inv)
+        session.commit()
+        inv_id = inv.id
+        session.close()
+
+        # 3. Delete the customer via the route
+        response = self.client.post(f'/customers/{c_id}/delete', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b"New Guy", response.data)
+
+        # 4. Verify customer is gone
+        session = SessionLocal()
+        deleted_customer = session.query(Customer).get(c_id)
+        self.assertIsNone(deleted_customer)
+        
+        # 5. Verify invoice still exists
+        orphaned_invoice = session.query(Invoice).get(inv_id)
+        self.assertIsNotNone(orphaned_invoice)
+        session.close()
+
+        # 6. Verify /invoices route still works (doesn't crash)
+        response = self.client.get('/invoices')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"Deleted Customer", response.data)
+        print("Customer deletion preserved invoices successfully.")
 
 if __name__ == '__main__':
     unittest.main()
