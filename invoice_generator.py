@@ -180,7 +180,7 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
                 if prop.fee_amount:
                     additional_fee_parts.append(f"Property Fee ({prop.address}) = ${prop.fee_amount:,.2f}")
         
-        additional_fee_line = "\n".join(additional_fee_parts)
+        additional_fee_line = "\n\n".join(additional_fee_parts)
         
         replacements = {
             "{{CUSTOMER_NAME}}": customer.name,

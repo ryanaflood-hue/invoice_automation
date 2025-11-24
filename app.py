@@ -11,8 +11,6 @@ app.secret_key = "supersecretkey"
 from invoice_generator import generate_invoice_for_customer, get_invoice_templates, generate_invoice_with_template, generate_invoice_buffer, get_period_label
 
 # Initialize DB (safe to run multiple times)
-init_db()
-
 @app.route("/generate-invoice", methods=["GET", "POST"])
 def generate_invoice():
     session = SessionLocal()
@@ -157,14 +155,13 @@ def list_customers():
 
 @app.route("/customers/new", methods=["GET", "POST"])
 def new_customer():
-    with open("debug.log", "a") as f:
-        f.write("DEBUG: Entered new_customer\n")
-    if request.method == "POST":
-        try:
-            with open("debug.log", "a") as f:
-                f.write("DEBUG: Starting POST new_customer\n")
+    session = SessionLocal()
+    try:
+        if request.method == "POST":
+            # Debug logging
+            sys.stderr.write(f"DEBUG: Form Data Received: {request.form}\n")
+            
             name = request.form["name"]
-            sys.stderr.write(f"DEBUG: Name={name}\n")
             email = request.form["email"]
             property_address = request.form["property_address"]
             property_city = request.form["property_city"]
@@ -175,7 +172,6 @@ def new_customer():
             fee_type = request.form.get("fee_type", "Management Fee")
             next_bill_date_str = request.form["next_bill_date"]
             next_bill_date = date.fromisoformat(next_bill_date_str)
-            sys.stderr.write("DEBUG: Extracted basic fields\n")
 
             # Extract new fee fields
             fee_2_type = request.form.get("fee_2_type")
@@ -189,7 +185,6 @@ def new_customer():
             additional_fee_desc = request.form.get("additional_fee_desc")
             additional_fee_amount_str = request.form.get("additional_fee_amount", "")
             additional_fee_amount = float(additional_fee_amount_str) if additional_fee_amount_str else None
-            sys.stderr.write("DEBUG: Extracted fee fields\n")
 
             new_customer = Customer(
                 name=name,
@@ -209,17 +204,20 @@ def new_customer():
                 additional_fee_desc=additional_fee_desc,
                 additional_fee_amount=additional_fee_amount
             )
-            sys.stderr.write("DEBUG: Created Customer object\n")
             session.add(new_customer)
-            sys.stderr.write("DEBUG: Added to session\n")
             session.commit()
-            sys.stderr.write("DEBUG: Committed\n")
             return redirect(url_for('list_customers'))
-        except Exception as e:
-            sys.stderr.write(f"DEBUG: Exception: {e}\n")
-            import traceback
-            traceback.print_exc()
-            return str(e), 500
+        
+        # GET request
+        fee_types = session.query(FeeType).all()
+        return render_template("new_customer.html", fee_types=fee_types)
+    except Exception as e:
+        sys.stderr.write(f"DEBUG: Exception: {e}\n")
+        import traceback
+        traceback.print_exc()
+        return str(e), 500
+    finally:
+        session.close()
 
     session = SessionLocal()
     try:

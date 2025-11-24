@@ -162,5 +162,27 @@ class TestRoutes(unittest.TestCase):
         self.assertEqual(total_amount, 550.0)
         session.close()
 
+    def test_new_customer_route(self):
+        print("\nTesting New Customer Route...")
+        # Test GET
+        response = self.client.get('/customers/new')
+        self.assertEqual(response.status_code, 200)
+        
+        # Test POST
+        response = self.client.post('/customers/new', data={
+            "name": "New Guy",
+            "email": "new@guy.com",
+            "property_address": "123 New St",
+            "property_city": "New City",
+            "property_state": "WI",
+            "property_zip": "53000",
+            "rate": "100.00",
+            "cadence": "monthly",
+            "fee_type": "Management Fee",
+            "next_bill_date": date.today().isoformat()
+        }, follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b"New Guy", response.data)
+
 if __name__ == '__main__':
     unittest.main()
