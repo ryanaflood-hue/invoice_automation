@@ -487,6 +487,24 @@ def run_migration():
     except Exception as e:
         return f"Migration failed: {e}", 500
 
+@app.route("/invoices/<int:invoice_id>/delete", methods=["POST"])
+def delete_invoice(invoice_id):
+    session = SessionLocal()
+    try:
+        invoice = session.query(Invoice).get(invoice_id)
+        if invoice:
+            session.delete(invoice)
+            session.commit()
+            flash("Invoice deleted successfully.", "success")
+        else:
+            flash("Invoice not found.", "error")
+    except Exception as e:
+        session.rollback()
+        flash(f"Error deleting invoice: {e}", "error")
+    finally:
+        session.close()
+    return redirect(url_for("list_invoices"))
+
 if __name__ == "__main__":
     init_db()
     print(app.url_map)
