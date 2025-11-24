@@ -299,7 +299,7 @@ def generate_invoice_with_template(customer, invoice_date, template_name, **kwar
             customer_id=customer.id,
             invoice_date=invoice_date,
             period_label=period_label,
-            amount=total_amount, # Store TOTAL amount in DB, not just base rate? 
+            amount=customer.rate, # Store BASE amount (rate) so regeneration works correctly
             # WAIT: If we store total_amount here, then future regenerations might double count fees if we add fees to it again?
             # The Invoice model has 'amount'. If we store total here, we should be careful.
             # But the invoice generation logic takes 'amount' as input.
@@ -407,6 +407,12 @@ def generate_invoice_buffer(invoice):
         invoice.period_label, 
         period_dates, 
         invoice.amount, 
-        return_buffer=True
+        return_buffer=True,
+        fee_2_type=invoice.fee_2_type,
+        fee_2_amount=invoice.fee_2_amount,
+        fee_3_type=invoice.fee_3_type,
+        fee_3_amount=invoice.fee_3_amount,
+        additional_fee_desc=invoice.additional_fee_desc,
+        additional_fee_amount=invoice.additional_fee_amount
     )
     return filename, buffer

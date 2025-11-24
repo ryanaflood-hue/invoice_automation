@@ -88,5 +88,79 @@ class TestRoutes(unittest.TestCase):
         session.close()
         self.assertIsNone(deleted_inv)
 
+    def test_invoice_consistency(self):
+        print("\nTesting Invoice Consistency (Email vs PDF)...")
+        # 1. Create customer with defaults
+        session = SessionLocal()
+        c = Customer(
+            name="Consistency Test",
+            email="test@consistency.com",
+            property_address="999 Consistency Ln",
+            rate=500.0,
+            cadence="quarterly",
+            fee_2_type="Late Fee",
+            fee_2_rate=50.0,
+            next_bill_date=date.today()
+        )
+        session.add(c)
+        session.commit()
+        c_id = c.id
+        session.close()
+
+        # 2. Generate Invoice via POST (mimic form submission with empty fields)
+        # Empty fields should trigger fallback to customer defaults
+        response = self.client.post('/generate-invoice', data={
+            "customer_id": c_id,
+            "invoice_date": date.today().isoformat(),
+            "template_name": "base_invoice_template.docx",
+            "fee_2_type": "",
+            "fee_2_amount": "", # Empty string
+            "fee_3_type": "",
+            "fee_3_amount": "",
+            "additional_fee_desc": "",
+            "additional_fee_amount": ""
+        }, follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+
+        # 3. Verify Invoice Record
+        session = SessionLocal()
+        inv = session.query(Invoice).filter_by(customer_id=c_id).first()
+        self.assertIsNotNone(inv)
+        
+        # Check Amount (Should be BASE rate)
+        self.assertEqual(inv.amount, 500.0)
+        
+        # Check Email Body (Should be TOTAL: 500 + 50 = 550)
+        print(f"Email Body: {inv.email_body}")
+        self.assertIn("$550.00", inv.email_body)
+        
+        # 4. Verify Regeneration (PDF logic)
+        from invoice_generator import generate_invoice_buffer
+        filename, buffer = generate_invoice_buffer(inv)
+        
+        # We can't easily parse the DOCX buffer here, but we can check the logic
+        # by calling _generate_invoice_logic directly with the same params
+        from invoice_generator import _generate_invoice_logic, get_period_dates
+        
+        session = SessionLocal()
+        c_refreshed = session.query(Customer).get(c_id)
+        
+        start_date, end_date = get_period_dates(inv.invoice_date, "quarterly")
+        period_dates = f"{start_date.strftime('%m/%d/%Y')} - {end_date.strftime('%m/%d/%Y')}"
+        
+        _, _, total_amount = _generate_invoice_logic(
+            c_refreshed, 
+            inv.invoice_date, 
+            inv.period_label, 
+            period_dates, 
+            inv.amount, 
+            return_buffer=True,
+            fee_2_type=inv.fee_2_type,
+            fee_2_amount=inv.fee_2_amount
+        )
+        
+        self.assertEqual(total_amount, 550.0)
+        session.close()
+
 if __name__ == '__main__':
     unittest.main()

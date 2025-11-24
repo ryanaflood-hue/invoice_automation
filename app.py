@@ -26,22 +26,38 @@ def generate_invoice():
             print(f"DEBUG: Form Data Received: {request.form}")
             
             customer_id = int(request.form["customer_id"])
+            customer = session.query(Customer).get(customer_id)
+            
             invoice_date = date.fromisoformat(request.form["invoice_date"])
             template_name = request.form["template_name"]
             
-            fee_2_type = request.form.get("fee_2_type")
-            fee_2_amount = float(request.form["fee_2_amount"]) if request.form.get("fee_2_amount") else None
+            # Extract fees, falling back to customer defaults if not provided in form
+            fee_2_type = request.form.get("fee_2_type") or customer.fee_2_type
             
-            fee_3_type = request.form.get("fee_3_type")
-            fee_3_amount = float(request.form["fee_3_amount"]) if request.form.get("fee_3_amount") else None
+            fee_2_amount_str = request.form.get("fee_2_amount")
+            if fee_2_amount_str:
+                fee_2_amount = float(fee_2_amount_str)
+            else:
+                fee_2_amount = customer.fee_2_rate
             
-            additional_fee_desc = request.form.get("additional_fee_desc")
-            additional_fee_amount = float(request.form["additional_fee_amount"]) if request.form.get("additional_fee_amount") else None
+            fee_3_type = request.form.get("fee_3_type") or customer.fee_3_type
             
-            print(f"DEBUG: Extracted Fees: Fee2={fee_2_type}/${fee_2_amount}, Fee3={fee_3_type}/${fee_3_amount}")
+            fee_3_amount_str = request.form.get("fee_3_amount")
+            if fee_3_amount_str:
+                fee_3_amount = float(fee_3_amount_str)
+            else:
+                fee_3_amount = customer.fee_3_rate
+            
+            additional_fee_desc = request.form.get("additional_fee_desc") or customer.additional_fee_desc
+            
+            additional_fee_amount_str = request.form.get("additional_fee_amount")
+            if additional_fee_amount_str:
+                additional_fee_amount = float(additional_fee_amount_str)
+            else:
+                additional_fee_amount = customer.additional_fee_amount
+            
+            print(f"DEBUG: Final Fees: Fee2={fee_2_type}/${fee_2_amount}, Fee3={fee_3_type}/${fee_3_amount}")
 
-            customer = session.query(Customer).get(customer_id)
-            
             # Pass extra fees as kwargs
             invoice = generate_invoice_with_template(
                 customer, 
