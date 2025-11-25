@@ -126,13 +126,15 @@ class TestRoutes(unittest.TestCase):
         inv_id = inv.id
         session.close()
 
-        # Toggle to Paid
-        response = self.client.post(f'/invoices/{inv_id}/toggle-status', follow_redirects=True)
+        # Toggle to Paid with specific date
+        today = date.today()
+        response = self.client.post(f'/invoices/{inv_id}/toggle-status', data={'paid_date': today.isoformat()}, follow_redirects=True)
         self.assertEqual(response.status_code, 200)
         
         session = SessionLocal()
         inv = session.query(Invoice).get(inv_id)
         self.assertEqual(inv.status, "Paid")
+        self.assertEqual(inv.paid_date, today)
         session.close()
 
         # Toggle back to Unpaid
@@ -142,6 +144,7 @@ class TestRoutes(unittest.TestCase):
         session = SessionLocal()
         inv = session.query(Invoice).get(inv_id)
         self.assertEqual(inv.status, "Unpaid")
+        self.assertIsNone(inv.paid_date)
         session.close()
 
     def test_invoice_consistency(self):

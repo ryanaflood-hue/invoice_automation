@@ -444,9 +444,10 @@ def run_migration():
                 ("fee_3_type", "VARCHAR"),
                 ("fee_3_amount", "FLOAT"),
                 ("additional_fee_desc", "VARCHAR"),
-                ("additional_fee_desc", "VARCHAR"),
                 ("additional_fee_amount", "FLOAT"),
-                ("status", "VARCHAR")
+                ("additional_fee_amount", "FLOAT"),
+                ("status", "VARCHAR"),
+                ("paid_date", "DATE")
             ]
             
             results = []
@@ -528,6 +529,16 @@ def toggle_invoice_status(invoice_id):
         if invoice:
             new_status = "Paid" if invoice.status != "Paid" else "Unpaid"
             invoice.status = new_status
+            
+            if new_status == "Paid":
+                paid_date_str = request.form.get("paid_date")
+                if paid_date_str:
+                    invoice.paid_date = date.fromisoformat(paid_date_str)
+                else:
+                    invoice.paid_date = date.today()
+            else:
+                invoice.paid_date = None
+                
             session.commit()
             flash(f"Invoice marked as {new_status}.", "success")
         else:

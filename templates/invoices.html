@@ -14,6 +14,7 @@
           <th>Period</th>
           <th>Amount</th>
           <th>Status</th>
+          <th>Paid Date</th>
           <th>File</th>
           <th>Actions</th>
         </tr>
@@ -41,6 +42,13 @@
             {% endif %}
           </td>
           <td>
+            {% if inv.paid_date %}
+            {{ inv.paid_date }}
+            {% else %}
+            -
+            {% endif %}
+          </td>
+          <td>
             <a href="{{ url_for('download_invoice', invoice_id=inv.id) }}" class="badge badge-blue">
               {{ inv.file_path }}
             </a>
@@ -50,12 +58,20 @@
               onclick="openEmailModal('{{ inv.email_subject|replace("'", "\\'") }}', '{{ inv.email_body|replace("'", "\\'")|replace('\n', '\\n') }}')">
               View Email
             </button>
+
+            {% if inv.status == 'Paid' %}
             <form action="{{ url_for('toggle_invoice_status', invoice_id=inv.id) }}" method="post"
               style="display:inline;">
-              <button type="submit" class="btn btn-sm btn-outline-secondary" style="margin-left: 5px;">
-                {% if inv.status == 'Paid' %}Mark Unpaid{% else %}Mark Paid{% endif %}
-              </button>
+              <button type="submit" class="btn btn-sm btn-outline-secondary" style="margin-left: 5px;">Mark
+                Unpaid</button>
             </form>
+            {% else %}
+            <button class="btn btn-sm btn-outline-secondary" style="margin-left: 5px;"
+              onclick="openPaidModal('{{ inv.id }}')">
+              Mark Paid
+            </button>
+            {% endif %}
+
             <form action="{{ url_for('delete_invoice', invoice_id=inv.id) }}" method="post" style="display:inline;"
               onsubmit="return confirm('Are you sure you want to delete this invoice?');">
               <button type="submit" class="btn btn-sm btn-danger" style="margin-left: 5px;">Delete</button>
@@ -91,15 +107,52 @@
   </div>
 </div>
 
+<!-- Paid Date Modal -->
+<div id="paidModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h2>Mark as Paid</h2>
+    </div>
+    <form id="paidForm" method="post">
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Paid Date</label>
+          <input type="date" name="paid_date" id="paidDateInput" required>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn btn-secondary" onclick="closePaidModal()">Cancel</button>
+        <button type="submit" class="btn btn-primary">Confirm</button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <script>
   const modal = document.getElementById('emailModal');
+  const paidModal = document.getElementById('paidModal');
   const subjectInput = document.getElementById('modalSubject');
   const bodyInput = document.getElementById('modalBody');
+  const paidDateInput = document.getElementById('paidDateInput');
+  const paidForm = document.getElementById('paidForm');
 
   function openEmailModal(subject, body) {
     subjectInput.value = subject;
     bodyInput.value = body;
     modal.classList.add('show');
+  }
+
+  function openPaidModal(invoiceId) {
+    // Set form action
+    paidForm.action = "/invoices/" + invoiceId + "/toggle-status";
+    // Set default date to today
+    const today = new Date().toISOString().split('T')[0];
+    paidDateInput.value = today;
+    paidModal.classList.add('show');
+  }
+
+  function closePaidModal() {
+    paidModal.classList.remove('show');
   }
 
   function clearEmailDraft() {
@@ -117,6 +170,9 @@
   window.onclick = function (event) {
     if (event.target == modal) {
       modal.classList.remove('show');
+    }
+    if (event.target == paidModal) {
+      paidModal.classList.remove('show');
     }
   }
 </script>
