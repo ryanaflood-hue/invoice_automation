@@ -106,6 +106,44 @@ class TestRoutes(unittest.TestCase):
         session.close()
         self.assertIsNone(deleted_inv)
 
+    def test_toggle_invoice_status(self):
+        print("\nTesting Toggle Invoice Status...")
+        # Create invoice
+        session = SessionLocal()
+        c = session.query(Customer).first()
+        inv = Invoice(
+            customer_id=c.id,
+            invoice_date=date.today(),
+            period_label="Status Test",
+            amount=100.0,
+            file_path="status.docx",
+            email_subject="Status",
+            email_body="Status",
+            status="Unpaid"
+        )
+        session.add(inv)
+        session.commit()
+        inv_id = inv.id
+        session.close()
+
+        # Toggle to Paid
+        response = self.client.post(f'/invoices/{inv_id}/toggle-status', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        
+        session = SessionLocal()
+        inv = session.query(Invoice).get(inv_id)
+        self.assertEqual(inv.status, "Paid")
+        session.close()
+
+        # Toggle back to Unpaid
+        response = self.client.post(f'/invoices/{inv_id}/toggle-status', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+        
+        session = SessionLocal()
+        inv = session.query(Invoice).get(inv_id)
+        self.assertEqual(inv.status, "Unpaid")
+        session.close()
+
     def test_invoice_consistency(self):
         print("\nTesting Invoice Consistency (Email vs PDF)...")
         # 1. Create customer with defaults

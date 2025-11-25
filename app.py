@@ -430,7 +430,7 @@ def run_migration():
     from sqlalchemy import create_engine, text
     import os
     
-    database_url = os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL") or "sqlite:///invoice_app.db"
+    database_url = os.getenv("POSTGRES_URL") or os.getenv("DATABASE_URL") or "sqlite:///invoice_app_v2.db"
     if database_url.startswith("postgres://"):
         database_url = database_url.replace("postgres://", "postgresql://", 1)
         
@@ -444,7 +444,9 @@ def run_migration():
                 ("fee_3_type", "VARCHAR"),
                 ("fee_3_amount", "FLOAT"),
                 ("additional_fee_desc", "VARCHAR"),
-                ("additional_fee_amount", "FLOAT")
+                ("additional_fee_desc", "VARCHAR"),
+                ("additional_fee_amount", "FLOAT"),
+                ("status", "VARCHAR")
             ]
             
             results = []
@@ -514,6 +516,25 @@ def delete_invoice(invoice_id):
     except Exception as e:
         session.rollback()
         flash(f"Error deleting invoice: {e}", "error")
+    finally:
+        session.close()
+    return redirect(url_for("list_invoices"))
+
+@app.route("/invoices/<int:invoice_id>/toggle-status", methods=["POST"])
+def toggle_invoice_status(invoice_id):
+    session = SessionLocal()
+    try:
+        invoice = session.query(Invoice).get(invoice_id)
+        if invoice:
+            new_status = "Paid" if invoice.status != "Paid" else "Unpaid"
+            invoice.status = new_status
+            session.commit()
+            flash(f"Invoice marked as {new_status}.", "success")
+        else:
+            flash("Invoice not found.", "error")
+    except Exception as e:
+        session.rollback()
+        flash(f"Error updating invoice: {e}", "error")
     finally:
         session.close()
     return redirect(url_for("list_invoices"))

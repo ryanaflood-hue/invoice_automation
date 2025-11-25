@@ -73,6 +73,7 @@ class Invoice(Base):
     fee_3_amount = Column(Float, nullable=True)
     additional_fee_desc = Column(String, nullable=True)
     additional_fee_amount = Column(Float, nullable=True)
+    status = Column(String, default="Unpaid")
 
 class FeeType(Base):
     __tablename__ = "fee_types"
