@@ -112,6 +112,8 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
         doc = Document(TEMPLATE_PATH)
         
         print(f"DEBUG: Generator Logic Called. Kwargs: {kwargs}")
+        if kwargs:
+            print(f"DEBUG: Using kwargs. fee_2_amount={kwargs.get('fee_2_amount')}, additional={kwargs.get('additional_fee_amount')}")
         
         if kwargs:
             # Manual generation: use provided values (even if None)
@@ -178,7 +180,7 @@ def _generate_invoice_logic(customer, invoice_date, period_label, period_dates, 
         if customer.properties:
             for prop in customer.properties:
                 if prop.fee_amount:
-                    additional_fee_parts.append(f"Property Fee ({prop.address}) = ${prop.fee_amount:,.2f}")
+                    additional_fee_parts.append(f"Management Fee ({prop.address}) = ${prop.fee_amount:,.2f}")
         
         additional_fee_line = "\n\n".join(additional_fee_parts)
         
