@@ -367,7 +367,14 @@ def generate_invoice_for_customer(customer, invoice_date):
         amount=amount, # Keep as base amount
         file_path=filename, # Store filename only for cloud compatibility
         email_subject=subject,
-        email_body=body
+        email_body=body,
+        # Save fee details so they persist for regeneration
+        fee_2_type=customer.fee_2_type,
+        fee_2_amount=customer.fee_2_rate,
+        fee_3_type=customer.fee_3_type,
+        fee_3_amount=customer.fee_3_rate,
+        additional_fee_desc=customer.additional_fee_desc,
+        additional_fee_amount=customer.additional_fee_amount
     )
     
     session = SessionLocal()
