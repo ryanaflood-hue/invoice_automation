@@ -54,8 +54,8 @@
             </a>
           </td>
           <td>
-            <button class="btn btn-sm btn-secondary"
-              onclick="openEmailModal('{{ inv.email_subject|replace("'", "\\'") }}', '{{ inv.email_body|replace("'", "\\'")|replace('\n', '\\n') }}')">
+            <button class="btn btn-sm btn-secondary view-email-btn" data-subject="{{ inv.email_subject }}"
+              data-body="{{ inv.email_body }}" onclick="openEmailModal(this)">
               View Email
             </button>
 
@@ -66,8 +66,8 @@
                 Unpaid</button>
             </form>
             {% else %}
-            <button class="btn btn-sm btn-outline-secondary" style="margin-left: 5px;"
-              onclick="openPaidModal('{{ inv.id }}')">
+            <button class="btn btn-sm btn-outline-secondary" style="margin-left: 5px;" data-id="{{ inv.id }}"
+              onclick="openPaidModal(this)">
               Mark Paid
             </button>
             {% endif %}
@@ -136,13 +136,15 @@
   const paidDateInput = document.getElementById('paidDateInput');
   const paidForm = document.getElementById('paidForm');
 
-  function openEmailModal(subject, body) {
-    subjectInput.value = subject;
-    bodyInput.value = body;
+  function openEmailModal(btn) {
+    subjectInput.value = btn.dataset.subject;
+    bodyInput.value = btn.dataset.body;
     modal.classList.add('show');
   }
 
-  function openPaidModal(invoiceId) {
+  function openPaidModal(btn) {
+    const invoiceId = btn.dataset.id;
+    console.log("Opening paid modal for invoice:", invoiceId);
     // Set form action
     paidForm.action = "/invoices/" + invoiceId + "/toggle-status";
     // Set default date to today
