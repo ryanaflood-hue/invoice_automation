@@ -550,8 +550,10 @@ def toggle_invoice_status(invoice_id):
         session.close()
     return redirect(url_for("list_invoices"))
 
+# Initialize database when module is loaded (for gunicorn compatibility)
+init_db()
+
 if __name__ == "__main__":
-    init_db()
     print(app.url_map)
 
     # Only run scheduler if NOT in Vercel (check for VERCEL env var)
